@@ -4,12 +4,17 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class HospitalDetails implements Serializable{
@@ -18,8 +23,25 @@ public class HospitalDetails implements Serializable{
 	private Long id;
 	private String phone;
 	private String address;
-	private Date hospitalDate;
-	private Time hospitalTime;
+
+	
+	  @Column
+	  
+	  @Temporal(TemporalType.DATE)
+	  
+	  @JsonFormat(pattern="MM-dd-yyyy")
+	 
+	private Date date;
+	
+	  @Column
+	  
+	  @Temporal(TemporalType.TIMESTAMP)
+	  
+	  @JsonFormat(pattern="MM-dd-yyyy HH:mm:ss")
+	 
+	private Time time;
+	
+
 	@OneToOne
 	@JoinColumn(name="hospital_id")
 	private Hospital hospital;
@@ -42,17 +64,18 @@ public class HospitalDetails implements Serializable{
 		this.address = address;
 	}
 	
-	public Date getHospitalDate() {
-		return hospitalDate;
+
+	public Date getDate() {
+		return date;
 	}
-	public void setHospitalDate(Date hospitalDate) {
-		this.hospitalDate = hospitalDate;
+	public void setDate(Date date) {
+		this.date = date;
 	}
-	public Time getHospitalTime() {
-		return hospitalTime;
+	public Time getTime() {
+		return time;
 	}
-	public void setHospitalTime(Time hospitalTime) {
-		this.hospitalTime = hospitalTime;
+	public void setTime(Time time) {
+		this.time = time;
 	}
 	public Hospital getHospital() {
 		return hospital;

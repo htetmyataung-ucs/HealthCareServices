@@ -317,38 +317,37 @@ public class HospitalController {
 	
 	
 	//HospitalDoctor
-	@PostMapping(path="/addhospitaldoctor") // Map ONLY POST Requests
-	  public @ResponseBody String addNewHospitalDoctor (@RequestParam Date doctorDate,@RequestParam Boolean status,@RequestParam Doctor doctor) {
-	    // @ResponseBody means the returned String is the response, not a view name
-	    // @RequestParam means it is a parameter from the GET or POST request
-
-	    HospitalDoctor hd= new HospitalDoctor();
-	  hd.setDoctorDate(doctorDate);
-	  //hd.setDoctorTime(doctorTime);
-	  hd.setStatus(status);
-	  hd.setDoctor(doctor);
-	   
-	    hospitaldoctorRepository.save(hd);
-	    return "Saved";
-	  }
-	@GetMapping("/createhospitaldoctor")
-	public String createHospitalDoctor(Model model) {
-		
-		model.addAttribute("hospitaldoctor", new HospitalDoctor());
-		model.addAttribute("doctor", doctorRepository.findAll());
-		return "hospitaldoctor";
-	}
-	@PostMapping("/save_hospitaldoctor")
-	public String saveHospitalDoctor(@ModelAttribute("hospitaldoctor")HospitalDoctor hd,Model model) {
-		
-		hospitaldoctorRepository.save(hd);
-		model.addAttribute("hospitaldoctor",hospitaldoctorRepository.findAll());
-		return "hospitaldoctor_list";
-	}
-	@GetMapping("/hospitaldoctorlist")
-	public @ResponseBody List<HospitalDoctor> getHospitalDoctorList(){
-		return hospitaldoctorRepository.findAll();
-	}
+	/*
+	 * @PostMapping(path="/addhospitaldoctor") // Map ONLY POST Requests
+	 * public @ResponseBody String addNewHospitalDoctor (@RequestParam Date
+	 * date,@RequestParam Time time,@RequestParam Boolean status,@RequestParam
+	 * Doctor doctor) { // @ResponseBody means the returned String is the response,
+	 * not a view name // @RequestParam means it is a parameter from the GET or POST
+	 * request
+	 * 
+	 * HospitalDoctor hd= new HospitalDoctor(); hd.setDate(date); hd.setTime(time);
+	 * hd.setStatus(status); hd.setDoctor(doctor);
+	 * 
+	 * hospitaldoctorRepository.save(hd); return "Saved"; }
+	 * 
+	 * @GetMapping("/createhospitaldoctor") public String createHospitalDoctor(Model
+	 * model) {
+	 * 
+	 * model.addAttribute("hospitaldoctor", new HospitalDoctor());
+	 * model.addAttribute("doctor", doctorRepository.findAll()); return
+	 * "hospitaldoctor"; }
+	 * 
+	 * @PostMapping("/save_hospitaldoctor") public String
+	 * saveHospitalDoctor(@ModelAttribute("hospitaldoctor")HospitalDoctor hd,Model
+	 * model) {
+	 * 
+	 * hospitaldoctorRepository.save(hd);
+	 * model.addAttribute("hospitaldoctor",hospitaldoctorRepository.findAll());
+	 * return "hospitaldoctor_list"; }
+	 * 
+	 * @GetMapping("/hospitaldoctorlist") public @ResponseBody List<HospitalDoctor>
+	 * getHospitalDoctorList(){ return hospitaldoctorRepository.findAll(); }
+	 */
 	
 	
 	
