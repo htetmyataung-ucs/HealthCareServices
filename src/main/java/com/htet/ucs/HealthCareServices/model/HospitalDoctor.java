@@ -22,6 +22,7 @@ public class HospitalDoctor implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
+<<<<<<< HEAD
 	
 	  @Column
 	  
@@ -29,8 +30,14 @@ public class HospitalDoctor implements Serializable{
 	  
 	  @JsonFormat(pattern="MM-dd-yyyy")
 	 
+=======
+	@Column  
+	@Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="MM-dd-yyyy")
+>>>>>>> master
 	private Date date;
 	
+<<<<<<< HEAD
 	  @Column
 	  
 	  @Temporal(TemporalType.TIMESTAMP)
@@ -40,6 +47,8 @@ public class HospitalDoctor implements Serializable{
 	private Time time;
 	
 
+=======
+>>>>>>> master
 	private Boolean status;
 	@ManyToOne
 	@JoinColumn(name = "hospital_id")
@@ -54,10 +63,14 @@ public class HospitalDoctor implements Serializable{
 		this.id = id;
 	}
 	
+<<<<<<< HEAD
 
 	
 
 	public Date getDate() {
+=======
+public Date getDate() {
+>>>>>>> master
 		return date;
 	}
 	public void setDate(Date date) {

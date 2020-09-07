@@ -64,8 +64,12 @@ public class HospitalDetails implements Serializable{
 		this.address = address;
 	}
 	
+<<<<<<< HEAD
 
 	public Date getDate() {
+=======
+public Date getDate() {
+>>>>>>> master
 		return date;
 	}
 	public void setDate(Date date) {
