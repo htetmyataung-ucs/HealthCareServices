@@ -6,6 +6,7 @@ import java.sql.Time;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -317,13 +318,13 @@ public class HospitalController {
 	
 	//HospitalDoctor
 	@PostMapping(path="/addhospitaldoctor") // Map ONLY POST Requests
-	  public @ResponseBody String addNewHospitalDoctor (@RequestParam Date date,@RequestParam Time time,@RequestParam Boolean status,@RequestParam Doctor doctor) {
+	  public @ResponseBody String addNewHospitalDoctor (@RequestParam Date doctorDate,@RequestParam Boolean status,@RequestParam Doctor doctor) {
 	    // @ResponseBody means the returned String is the response, not a view name
 	    // @RequestParam means it is a parameter from the GET or POST request
 
 	    HospitalDoctor hd= new HospitalDoctor();
-	  hd.setDate(date);
-	  hd.setTime(time);
+	  hd.setDoctorDate(doctorDate);
+	  //hd.setDoctorTime(doctorTime);
 	  hd.setStatus(status);
 	  hd.setDoctor(doctor);
 	   

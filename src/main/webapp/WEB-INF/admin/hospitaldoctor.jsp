@@ -27,14 +27,14 @@
      </div>
      
   <div class="form-group">
-     <form:label path="date">Date:</form:label>
-      <form:input type="text" class="form-control" placeholder="Enter Date" path="date"></form:input>
+     <form:label path="doctorDate">Date:</form:label>
+      <form:input class="form-control" placeholder="Enter Date" path="doctorDate" type="Date"></form:input>
     </div>
     
-    <div class="form-group">
-     <form:label path="time">Time:</form:label>
-      <form:input type="text" class="form-control" placeholder="Enter Time" path="time"></form:input>
-    </div>
+   <%--  <div class="form-group">
+     <form:label path="doctorTime">Time:</form:label>
+      <form:input class="form-control" placeholder="Enter Time" path="doctorTime" type="Time"></form:input>
+    </div> --%>
   
     <div class="form-group">
      <form:label path="status">Status:</form:label>

@@ -27,6 +27,7 @@ public class Booking implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="patient_id")
 	private Patient patient;
+
 	
 	@Column  
 	@Temporal(TemporalType.DATE)
@@ -37,6 +38,7 @@ public class Booking implements Serializable{
 	@Temporal(TemporalType.TIMESTAMP)
 	@JsonFormat(pattern="MM-dd-yyyy HH:mm:ss")
 	private Time time;
+
 	public Long getId() {
 		return id;
 	}

@@ -23,6 +23,7 @@ public class HospitalDetails implements Serializable{
 	private Long id;
 	private String phone;
 	private String address;
+
 	
 	@Column  
 	@Temporal(TemporalType.DATE)
@@ -33,6 +34,7 @@ public class HospitalDetails implements Serializable{
 	@JsonFormat(pattern="MM-dd-yyyy HH:mm:ss")
 	private Time time;
 	
+
 	@OneToOne
 	@JoinColumn(name="hospital_id")
 	private Hospital hospital;
@@ -55,8 +57,7 @@ public class HospitalDetails implements Serializable{
 		this.address = address;
 	}
 	
-	
-	public Date getDate() {
+public Date getDate() {
 		return date;
 	}
 	public void setDate(Date date) {

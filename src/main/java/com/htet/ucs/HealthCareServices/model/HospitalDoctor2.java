@@ -1,7 +1,6 @@
 package com.htet.ucs.HealthCareServices.model;
 
 import java.io.Serializable;
-
 import java.sql.Date;
 import java.sql.Time;
 
@@ -17,16 +16,12 @@ import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-
-
-
-
 @Entity
-public class HospitalDoctor implements Serializable{
+public class HospitalDoctor2 implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
+	
 	@Column  
 	@Temporal(TemporalType.DATE)
     @JsonFormat(pattern="MM-dd-yyyy")
@@ -50,7 +45,7 @@ public class HospitalDoctor implements Serializable{
 		this.id = id;
 	}
 	
-public Date getDate() {
+	public Date getDate() {
 		return date;
 	}
 	public void setDate(Date date) {
@@ -62,18 +57,12 @@ public Date getDate() {
 	public void setTime(Time time) {
 		this.time = time;
 	}
-	
 	public Boolean getStatus() {
 		return status;
 	}
 	public void setStatus(Boolean status) {
 		this.status = status;
 	}
-	
-	/*
-	 * public Time getDoctorTime() { return doctorTime; } public void
-	 * setDoctorTime(Time doctorTime) { this.doctorTime = doctorTime; }
-	 */
 	public Hospital getHospital() {
 		return hospital;
 	}
