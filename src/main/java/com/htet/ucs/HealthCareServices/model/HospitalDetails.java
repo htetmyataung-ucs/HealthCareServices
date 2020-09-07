@@ -18,8 +18,8 @@ public class HospitalDetails implements Serializable{
 	private Long id;
 	private String phone;
 	private String address;
-	private Date date;
-	private Time time;
+	private Date hospitalDate;
+	private Time hospitalTime;
 	@OneToOne
 	@JoinColumn(name="hospital_id")
 	private Hospital hospital;
@@ -41,17 +41,18 @@ public class HospitalDetails implements Serializable{
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Date getDate() {
-		return date;
+	
+	public Date getHospitalDate() {
+		return hospitalDate;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setHospitalDate(Date hospitalDate) {
+		this.hospitalDate = hospitalDate;
 	}
-	public Time getTime() {
-		return time;
+	public Time getHospitalTime() {
+		return hospitalTime;
 	}
-	public void setTime(Time time) {
-		this.time = time;
+	public void setHospitalTime(Time hospitalTime) {
+		this.hospitalTime = hospitalTime;
 	}
 	public Hospital getHospital() {
 		return hospital;

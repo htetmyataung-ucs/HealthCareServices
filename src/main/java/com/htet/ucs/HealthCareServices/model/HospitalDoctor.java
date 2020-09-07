@@ -16,8 +16,8 @@ public class HospitalDoctor implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Date date;
-	private Time time;
+	private Date doctorDate;
+	private Time doctorTime;
 	private Boolean status;
 	@ManyToOne
 	@JoinColumn(name = "hospital_id")
@@ -31,17 +31,18 @@ public class HospitalDoctor implements Serializable{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Date getDate() {
-		return date;
+	
+	public Date getDoctorDate() {
+		return doctorDate;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDoctorDate(Date doctorDate) {
+		this.doctorDate = doctorDate;
 	}
-	public Time getTime() {
-		return time;
+	public Time getDoctorTime() {
+		return doctorTime;
 	}
-	public void setTime(Time time) {
-		this.time = time;
+	public void setDoctorTime(Time doctorTime) {
+		this.doctorTime = doctorTime;
 	}
 	public Boolean getStatus() {
 		return status;
