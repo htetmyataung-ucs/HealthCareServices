@@ -67,7 +67,11 @@ public class HospitalDetails implements Serializable{
 
 
 	
+<<<<<<< HEAD
 public Date getDate() {
+=======
+	public Date getDate() {
+>>>>>>> master
 
 		return date;
 	}

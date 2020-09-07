@@ -23,6 +23,7 @@ public class HospitalDoctor implements Serializable{
 	private Long id;
 
 
+<<<<<<< HEAD
 	
 	 
 
@@ -31,6 +32,15 @@ public class HospitalDoctor implements Serializable{
     @JsonFormat(pattern="MM-dd-yyyy")
 
 	private Date date;
+=======
+	  @Column
+	  
+	  @Temporal(TemporalType.DATE)
+	  
+	  @JsonFormat(pattern="MM-dd-yyyy")
+	 
+	  private Date date;
+>>>>>>> master
 	
 
 	  @Column
@@ -39,10 +49,13 @@ public class HospitalDoctor implements Serializable{
 	  
 	  @JsonFormat(pattern="MM-dd-yyyy HH:mm:ss")
 	 
-	private Time time;
+	  private Time time;
 	
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> master
 	private Boolean status;
 	@ManyToOne
 	@JoinColumn(name = "hospital_id")
@@ -57,6 +70,7 @@ public class HospitalDoctor implements Serializable{
 		this.id = id;
 	}
 	
+<<<<<<< HEAD
 
 
 	
@@ -64,12 +78,17 @@ public class HospitalDoctor implements Serializable{
 	
 public Date getDate() {
 
+=======
+
+	
+	public Date getDate() {
+	
+>>>>>>> master
 		return date;
 	}
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
 	
 	
 	public Time getTime() {
