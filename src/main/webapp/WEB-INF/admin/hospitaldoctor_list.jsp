@@ -13,7 +13,7 @@
 		<tr>
 		    <th>Doctor Name</th>
 			<th>Date</th>
-			<th>Time</th>
+			<!-- <th>Time</th> -->
 			<th>Status</th>
 		</tr>
 	</thead>
@@ -21,8 +21,8 @@
 		<c:forEach items="${hospitaldoctor}" var="hd">
 			<tr>
 				<td>${hd.doctor.name }</td>
-				<td>${hd.date }</td>
-				<td>${hd.time }</td>
+				<td>${hd.doctorDate }</td>
+				<%-- <td>${hd.doctorTime }</td> --%>
 				<td>${hd.status }</td>
 			    
 				
