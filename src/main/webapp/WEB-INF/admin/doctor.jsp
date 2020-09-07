@@ -22,7 +22,7 @@
     </div>
     
     <div class="form-group">
-     <form:label path="name">Sama No:</form:label>
+     <form:label path="sama_no">Sama No:</form:label>
       <form:input type="text" class="form-control" placeholder="Enter Sama No" path="sama_no"></form:input>
     </div>
   
