@@ -22,8 +22,8 @@ public class Booking implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="patient_id")
 	private Patient patient;
-	private Date bookingDate;
-	private Time bookingTime;
+	private Date date;
+	private Time time;
 	public Long getId() {
 		return id;
 	}
@@ -42,17 +42,18 @@ public class Booking implements Serializable{
 	public void setPatient(Patient patient) {
 		this.patient = patient;
 	}
-	public Date getBookingDate() {
-		return bookingDate;
+	public Date getDate() {
+		return date;
 	}
-	public void setBookingDate(Date bookingDate) {
-		this.bookingDate = bookingDate;
+	public void setDate(Date date) {
+		this.date = date;
 	}
-	public Time getBookingTime() {
-		return bookingTime;
+	public Time getTime() {
+		return time;
 	}
-	public void setBookingTime(Time bookingTime) {
-		this.bookingTime = bookingTime;
+	public void setTime(Time time) {
+		this.time = time;
 	}
+	
 	
 }
