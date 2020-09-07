@@ -15,7 +15,7 @@
 </head>
 <body>
 <h2>Insert Hospital Detail</h2>
- <form:form action="save_user" method="POST" modelAttribute="hospitaldetail">
+ <form:form action="save_user" method="POST" modelAttribute="user">
  
  <div class="form-group">
      <form:label path="name">Name:</form:label>
@@ -49,7 +49,7 @@
     
     <div class="form-group">
      <form:label path="password">Password:</form:label>
-      <form:input type="text" class="form-control" placeholder="Enter password" path="password" type="password"></form:input>
+      <form:input type="text" class="form-control" placeholder="Enter password" path="password"></form:input>
     </div>
      
     <button type="submit" class="btn btn-primary">Insert</button>

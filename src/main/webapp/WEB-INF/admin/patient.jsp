@@ -13,16 +13,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h2>Insert Hospital Detail</h2>
- <form:form action="save_hospitaldetail" method="POST" modelAttribute="hospitaldetail">
+<h2>Insert Patient</h2>
+ <form:form action="save_user" method="POST" modelAttribute="hospitaldetail">
+ 
  <div class="form-group">
-    <form:label path="hospital">Hospital Name:</form:label>
-     <form:select path="hospital.id" class="form-control">
-        <c:forEach items="${hospital }" var="hospital">
-           <form:option value="${hospital.id }">${hospital.name }</form:option>
-        </c:forEach>
-     </form:select>
-     </div>
+     <form:label path="name">Name:</form:label>
+      <form:input type="text" class="form-control" placeholder="Enter name" path="name"></form:input>
+    </div>
  
   <div class="form-group">
      <form:label path="phone">Phone:</form:label>
@@ -30,19 +27,26 @@
     </div>
     
     <div class="form-group">
-     <form:label path="address">Address:</form:label>
-      <form:input type="text" class="form-control" placeholder="Enter Phone" path="address"></form:input>
+     <form:label path="nrc">NRC:</form:label>
+      <form:input type="text" class="form-control" placeholder="Enter nrc" path="nrc"></form:input>
     </div>
   
     <div class="form-group">
-     <form:label path="time">Time:</form:label>
-      <form:input type="text" class="form-control" placeholder="Enter Time" path="time" type="time"></form:input>
+     <form:label path="age">Age:</form:label>
+      <form:input type="text" class="form-control" placeholder="Enter age" path="age"></form:input>
     </div>
     
     <div class="form-group">
-     <form:label path="date">Date:</form:label>
-      <form:input type="text" class="form-control" placeholder="Enter Date" path="date" type="date"></form:input>
+     <form:label path="address">Address:</form:label>
+      <form:input type="text" class="form-control" placeholder="Enter address" path="address"></form:input>
     </div>
+    
+    <div class="form-group">
+     <form:label path="bloodType">Blood Type:</form:label>
+      <form:input type="text" class="form-control" placeholder="Enter blood type" path="bloodType"></form:input>
+    </div>
+    
+   
      
     <button type="submit" class="btn btn-primary">Insert</button>
   </form:form>
