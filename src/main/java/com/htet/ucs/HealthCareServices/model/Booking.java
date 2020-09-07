@@ -28,12 +28,6 @@ public class Booking implements Serializable{
 	@JoinColumn(name="patient_id")
 	private Patient patient;
 
-<<<<<<< HEAD
-	
-
-	
-=======
->>>>>>> master
 	
 	  @Column
 	  
