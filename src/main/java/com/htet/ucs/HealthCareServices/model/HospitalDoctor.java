@@ -5,12 +5,17 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 
@@ -21,9 +26,16 @@ public class HospitalDoctor implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Date doctorDate;
+
+	@Column  
+	@Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="MM-dd-yyyy")
+	private Date date;
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	@JsonFormat(pattern="MM-dd-yyyy HH:mm:ss")
+	private Time time;
 	
-	//private Time doctorTime;
 	private Boolean status;
 	@ManyToOne
 	@JoinColumn(name = "hospital_id")
@@ -38,11 +50,17 @@ public class HospitalDoctor implements Serializable{
 		this.id = id;
 	}
 	
-	public Date getDoctorDate() {
-		return doctorDate;
+public Date getDate() {
+		return date;
 	}
-	public void setDoctorDate(Date doctorDate) {
-		this.doctorDate = doctorDate;
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public Time getTime() {
+		return time;
+	}
+	public void setTime(Time time) {
+		this.time = time;
 	}
 	
 	public Boolean getStatus() {
