@@ -28,15 +28,28 @@ public class Booking implements Serializable{
 	@JoinColumn(name="patient_id")
 	private Patient patient;
 
+<<<<<<< HEAD
 	
-	@Column  
-	@Temporal(TemporalType.DATE)
-    @JsonFormat(pattern="MM-dd-yyyy")
+
+	
+=======
+>>>>>>> master
+	
+	  @Column
+	  
+	  @Temporal(TemporalType.DATE)
+	  
+	  @JsonFormat(pattern="MM-dd-yyyy")
+	 
 	private Date date;
 	
-	@Column
-	@Temporal(TemporalType.TIMESTAMP)
-	@JsonFormat(pattern="MM-dd-yyyy HH:mm:ss")
+	
+	  @Column
+	  
+	  @Temporal(TemporalType.TIMESTAMP)
+	  
+	  @JsonFormat(pattern="MM-dd-yyyy HH:mm:ss")
+	 
 	private Time time;
 
 	public Long getId() {
@@ -69,6 +82,7 @@ public class Booking implements Serializable{
 	public void setTime(Time time) {
 		this.time = time;
 	}
+	
 	
 	
 }

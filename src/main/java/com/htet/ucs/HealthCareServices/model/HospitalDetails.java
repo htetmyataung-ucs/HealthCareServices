@@ -25,13 +25,20 @@ public class HospitalDetails implements Serializable{
 	private String address;
 
 	
-	@Column  
-	@Temporal(TemporalType.DATE)
-    @JsonFormat(pattern="MM-dd-yyyy")
+	  @Column
+	  
+	  @Temporal(TemporalType.DATE)
+	  
+	  @JsonFormat(pattern="MM-dd-yyyy")
+	 
 	private Date date;
-	@Column
-	@Temporal(TemporalType.TIMESTAMP)
-	@JsonFormat(pattern="MM-dd-yyyy HH:mm:ss")
+	
+	  @Column
+	  
+	  @Temporal(TemporalType.TIMESTAMP)
+	  
+	  @JsonFormat(pattern="MM-dd-yyyy HH:mm:ss")
+	 
 	private Time time;
 	
 
@@ -57,7 +64,12 @@ public class HospitalDetails implements Serializable{
 		this.address = address;
 	}
 	
+<<<<<<< HEAD
+
+	public Date getDate() {
+=======
 public Date getDate() {
+>>>>>>> master
 		return date;
 	}
 	public void setDate(Date date) {
