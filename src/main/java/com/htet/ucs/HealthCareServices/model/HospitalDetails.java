@@ -4,12 +4,17 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class HospitalDetails implements Serializable{
@@ -18,8 +23,16 @@ public class HospitalDetails implements Serializable{
 	private Long id;
 	private String phone;
 	private String address;
+	
+	@Column  
+	@Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="MM-dd-yyyy")
 	private Date date;
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	@JsonFormat(pattern="MM-dd-yyyy HH:mm:ss")
 	private Time time;
+	
 	@OneToOne
 	@JoinColumn(name="hospital_id")
 	private Hospital hospital;
