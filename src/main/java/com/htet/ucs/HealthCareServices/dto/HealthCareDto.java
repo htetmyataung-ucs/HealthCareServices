@@ -1,5 +1,5 @@
-package com.htet.ucs.HealthCareServices.dto;
+/*package com.htet.ucs.HealthCareServices.dto;
 
 public class HealthCareDto {
 
-}
+}*/

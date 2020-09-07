@@ -1,5 +1,5 @@
-package com.htet.ucs.HealthCareServices.dao;
+/*package com.htet.ucs.HealthCareServices.dao;
 
 public class HealthCareDao {
 
-}
+}*/

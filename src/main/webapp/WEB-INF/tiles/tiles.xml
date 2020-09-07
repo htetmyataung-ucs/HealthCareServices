@@ -5,7 +5,7 @@
        
 <tiles-definitions>
 
-    <!-- Templates -->      
+      
     <definition name="layout.basic" template="/WEB-INF/layout/master.jsp">
         <put-attribute name="title" value="Spring Web MVC with Tiles 3" />
         <put-attribute name="header" value="/WEB-INF/layout/header.jsp" />
@@ -14,9 +14,9 @@
         <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
     </definition>
     
-    <!-- Pages -->        
-    <definition name="create_student" extends="layout.basic">
-        <put-attribute name="body" value="" />
+      
+    <definition name="city" extends="layout.basic">
+        <put-attribute name="body" value="/WEB-INF/admin/city.jsp" />
     </definition>
     
 </tiles-definitions>
