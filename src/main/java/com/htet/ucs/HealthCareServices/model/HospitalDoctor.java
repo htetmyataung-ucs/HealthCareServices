@@ -1,61 +1,26 @@
 package com.htet.ucs.HealthCareServices.model;
 
 import java.io.Serializable;
-
 import java.sql.Date;
 import java.sql.Time;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class HospitalDoctor implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private Date startDate;
+	private String startTime;
+	private Date endDate;
+	private String endTime;
 
-
-<<<<<<< HEAD
 	
-	 
-
-	@Column  
-	@Temporal(TemporalType.DATE)
-    @JsonFormat(pattern="MM-dd-yyyy")
-
-	private Date date;
-=======
-	  @Column
-	  
-	  @Temporal(TemporalType.DATE)
-	  
-	  @JsonFormat(pattern="MM-dd-yyyy")
-	 
-	  private Date date;
->>>>>>> master
-	
-
-	  @Column
-	  
-	  @Temporal(TemporalType.TIMESTAMP)
-	  
-	  @JsonFormat(pattern="MM-dd-yyyy HH:mm:ss")
-	 
-	  private Time time;
-	
-<<<<<<< HEAD
-
-
-=======
->>>>>>> master
 	private Boolean status;
 	@ManyToOne
 	@JoinColumn(name = "hospital_id")
@@ -70,32 +35,30 @@ public class HospitalDoctor implements Serializable{
 		this.id = id;
 	}
 	
-<<<<<<< HEAD
-
-
 	
-
-	
-public Date getDate() {
-
-=======
-
-	
-	public Date getDate() {
-	
->>>>>>> master
-		return date;
+	public Date getStartDate() {
+		return startDate;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
-	
-	
-	public Time getTime() {
-		return time;
+	public String getStartTime() {
+		return startTime;
 	}
-	public void setTime(Time time) {
-		this.time = time;
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+	public Date getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+	public String getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
 	}
 	public Boolean getStatus() {
 		return status;
