@@ -48,6 +48,7 @@ public class HospitalController {
 	private SpecialityRepository specialityRepository;
 	@Autowired
 	private HospitalSpecialRepository hospitalspecialRepository;
+
 	@Autowired
 	private DoctorRepository doctorRepository;
 
@@ -79,15 +80,32 @@ public class HospitalController {
 		cityRepository.save(c);
 
 		model.addAttribute("city", cityRepository.findAll());
+		return "redirect:/city_list";
+	}
+
+	@GetMapping(value="/city_list")
+	public String cityList(Model model) {
+		model.addAttribute("city", cityRepository.findAll());
 		return "city_list";
 	}
 
-	@GetMapping("/citylist")
-	public @ResponseBody List<City> getCityList() {
-		return cityRepository.findAll();
-	}
+	/*
+	 * @GetMapping("/city_list") public @ResponseBody List<City> getCityList(){
+	 * return cityRepository.findAll(); }
+	 */
+	@PostMapping(path="/addtownship") // Map ONLY POST Requests
+	  public @ResponseBody String addNewTownship (@RequestParam String name,@RequestParam City city) {
+	    // @ResponseBody means the returned String is the response, not a view name
+	    // @RequestParam means it is a parameter from the GET or POST request
 
-	@GetMapping("/createtownship")
+	    TownShip t = new TownShip();
+	    t.setCity(city);
+	    t.setName(name);
+	    townshipRepository.save(t);
+	    return "Saved";
+	  }
+	@GetMapping("/create_township")
+
 	public String createTownship(Model model) {
 		model.addAttribute("city", cityRepository.findAll());
 		model.addAttribute("township", new TownShip());
@@ -97,28 +115,34 @@ public class HospitalController {
 	@PostMapping("/save_township")
 	public String saveTownship(@ModelAttribute("township") TownShip t, Model model) {
 		townshipRepository.save(t);
-		model.addAttribute("township", townshipRepository.findAll());
+
+		model.addAttribute("township",	townshipRepository.findAll());
+		return "redirect:/township_list";
+	}
+	@GetMapping("/township_list")
+	public String townshipList(Model model) {
+		model.addAttribute("township",	townshipRepository.findAll());
 		return "township_list";
 	}
+	/*
+	 * @GetMapping("/townshiplist") public @ResponseBody List<TownShip>
+	 * getTownshipList(){ return townshipRepository.findAll(); }
+	 */
+	
+	@PostMapping(path="/addhospitaltype") // Map ONLY POST Requests
+	  public @ResponseBody String addNewHospitalType (@RequestParam String name) {
+	    // @ResponseBody means the returned String is the response, not a view name
+	    // @RequestParam means it is a parameter from the GET or POST request
 
-	@GetMapping("/townshiplist")
-	public @ResponseBody List<TownShip> getTownshipList() {
-		return townshipRepository.findAll();
-	}
+	    HospitalType ht = new HospitalType();
+	   
+	    ht.setName(name);
+	    hospitaltypeRepository.save(ht);
+	    return "Saved";
+	  }
+	
+	@GetMapping("/create_hospitaltype")
 
-	@PostMapping(path = "/addhospitaltype") // Map ONLY POST Requests
-	public @ResponseBody String addNewHospitalType(@RequestParam String name) {
-		// @ResponseBody means the returned String is the response, not a view name
-		// @RequestParam means it is a parameter from the GET or POST request
-
-		HospitalType ht = new HospitalType();
-
-		ht.setName(name);
-		hospitaltypeRepository.save(ht);
-		return "Saved";
-	}
-
-	@GetMapping("/createhospitaltype")
 	public String createHospitalType(Model model) {
 
 		model.addAttribute("hospitaltype", new HospitalType());
@@ -129,16 +153,37 @@ public class HospitalController {
 	public String saveHospitaltype(@ModelAttribute("hospitaltype") HospitalType ht, Model model) {
 
 		hospitaltypeRepository.save(ht);
-		model.addAttribute("hospitaltype", hospitaltypeRepository.findAll());
+
+		model.addAttribute("hospitaltype",	hospitaltypeRepository.findAll());
+		return "redirect:/hospitaltype_list";
+	}
+	
+	@GetMapping("/hospitaltype_list")
+	public String hospitaltypeList(Model model) {
+		model.addAttribute("hospitaltype",	hospitaltypeRepository.findAll());
 		return "hospitaltype_list";
 	}
+	/*
+	 * @GetMapping("/hospitaltypelist") public @ResponseBody List<HospitalType>
+	 * getHospitalTypeList(){ return hospitaltypeRepository.findAll(); }
+	 */
+	
+	
+	
+	@PostMapping(path="/addhospitalcategory") // Map ONLY POST Requests
+	  public @ResponseBody String addNewHospitalCategory (@RequestParam String name) {
+	    // @ResponseBody means the returned String is the response, not a view name
+	    // @RequestParam means it is a parameter from the GET or POST request
 
-	@GetMapping("/hospitaltypelist")
-	public @ResponseBody List<HospitalType> getHospitalTypeList() {
-		return hospitaltypeRepository.findAll();
-	}
+	    HospitalCategory hc = new HospitalCategory();
+	   
+	    hc.setName(name);
+	    hospitalcategoryRepository.save(hc);
+	    return "Saved";
+	  }
 
-	@GetMapping("/createhospitalcategory")
+	@GetMapping("/create_hospitalcategory")
+
 	public String createHospitalCategory(Model model) {
 
 		model.addAttribute("hospitalcategory", new HospitalCategory());
@@ -149,16 +194,42 @@ public class HospitalController {
 	public String saveHospitalCategory(@ModelAttribute("hospitalcategory") HospitalCategory hc, Model model) {
 
 		hospitalcategoryRepository.save(hc);
-		model.addAttribute("hospitalcategory", hospitalcategoryRepository.findAll());
+
+		model.addAttribute("hospitalcategory",	hospitalcategoryRepository.findAll());
+		return "redirect:/hospitalcategory_list";
+	}
+	
+	@GetMapping(value="/hospitalcategory_list")
+	public String hospitalcategoryList(Model model) {
+		model.addAttribute("hospitalcategory",	hospitalcategoryRepository.findAll());
 		return "hospitalcategory_list";
 	}
+	/*
+	 * @GetMapping("/hospitalcategorylist") public @ResponseBody
+	 * List<HospitalCategory> getHospitalCategoryList(){ return
+	 * hospitalcategoryRepository.findAll(); }
+	 */
+	
+	
+	
+	@PostMapping(path="/addhospital") // Map ONLY POST Requests
+	  public @ResponseBody String addNewHospital (@RequestParam String name,@RequestParam HospitalCategory hospitalCategory,
+			  @RequestParam HospitalType hospitalType,@RequestParam TownShip townShip) {
+	    // @ResponseBody means the returned String is the response, not a view name
+	    // @RequestParam means it is a parameter from the GET or POST request
 
-	@GetMapping("/hospitalcategorylist")
-	public @ResponseBody List<HospitalCategory> getHospitalCategoryList() {
-		return hospitalcategoryRepository.findAll();
-	}
+	    Hospital hp = new Hospital();
+	   
+	    hp.setName(name);
+	    hp.setHospitalCategory(hospitalCategory);
+	    hp.setHospitalType(hospitalType);
+	    hp.setTownShip(townShip);
+	    hospitalRepository.save(hp);
+	    return "Saved";
+	  }
+	
+	@GetMapping("/create_hospital")
 
-	@GetMapping("/createhospital")
 	public String createHospital(Model model) {
 
 		model.addAttribute("hospital", new Hospital());
@@ -172,14 +243,23 @@ public class HospitalController {
 	public String saveHospital(@ModelAttribute("hospital") Hospital hp, Model model) {
 
 		hospitalRepository.save(hp);
-		model.addAttribute("hospital", hospitalRepository.findAll());
+
+		model.addAttribute("hospital",	hospitalRepository.findAll());
+		return "redirect:/hospital_list";
+	}
+	
+	@GetMapping(value="/hospital_list")
+	public String hospitalList(Model model) {
+		model.addAttribute("hospital",	hospitalRepository.findAll());
 		return "hospital_list";
 	}
-
-	@GetMapping("/hospitallist")
-	public @ResponseBody List<Hospital> getHospitalList() {
-		return hospitalRepository.findAll();
-	}
+	/*
+	 * @GetMapping("/hospitallist") public @ResponseBody List<Hospital>
+	 * getHospitalList(){ return hospitalRepository.findAll(); }
+	 */
+	
+	
+	
 
 	@PostMapping(path = "/addspeciality") // Map ONLY POST Requests
 	public @ResponseBody String addNewSpeciality(@RequestParam String name) {
@@ -193,7 +273,8 @@ public class HospitalController {
 		return "Saved";
 	}
 
-	@GetMapping("/createspeciality")
+	@GetMapping("/create_speciality")
+
 	public String createSpeciality(Model model) {
 
 		model.addAttribute("speciality", new Speciality());
@@ -206,15 +287,35 @@ public class HospitalController {
 
 		specialityRepository.save(s);
 		model.addAttribute("speciality", specialityRepository.findAll());
+		return "redirect:/speciality_list";
+	}
+
+	@GetMapping(value="/speciality_list")
+	public String specialityList(Model model) {
+		model.addAttribute("speciality", specialityRepository.findAll());
 		return "speciality_list";
 	}
+	/*
+	 * @GetMapping("/specialitylist") public @ResponseBody List<Speciality>
+	 * getSpecialityList(){ return specialityRepository.findAll(); }
+	 */
+	
+	
+	@PostMapping(path="/addhospitalspecial") // Map ONLY POST Requests
+	  public @ResponseBody String addNewHospitalSpecial (@RequestParam Boolean status,@RequestParam Speciality speciality,@RequestParam Hospital hospital) {
+	    // @ResponseBody means the returned String is the response, not a view name
+	    // @RequestParam means it is a parameter from the GET or POST request
 
-	@GetMapping("/specialitylist")
-	public @ResponseBody List<Speciality> getSpecialityList() {
-		return specialityRepository.findAll();
-	}
+	    HospitalSpecial hs = new HospitalSpecial();
+	   
+	    hs.setStatus(status);
+	    hospitalspecialRepository.save(hs);
+	    return "Saved";
+	  }
 
-	@GetMapping("/create_hospital_special")
+
+	@GetMapping("/create_hospitalspecial")
+
 	public String createHospitalSpecial(Model model) {
 
 		model.addAttribute("hospitalspecial", new HospitalSpecial());
@@ -228,13 +329,21 @@ public class HospitalController {
 
 		hospitalspecialRepository.save(hs);
 		model.addAttribute("hospitalspecial", hospitalspecialRepository.findAll());
-		return "hospitalspecial_list";
+		return "redirect:/hospitalspecial_list";
 	}
 
-	@GetMapping("/hospitalspecial_list")
-	public @ResponseBody List<HospitalSpecial> getHospitalSpecialList() {
-		return hospitalspecialRepository.findAll();
+	@GetMapping(value="/hospitalspecial_list")
+	public String hospitalspecialList(Model model) {
+		model.addAttribute("hospitalspecial", hospitalspecialRepository.findAll());
+		return "hospitalspecial_list";
 	}
+	/*
+	 * @GetMapping("/hospitalspecial_list") public @ResponseBody
+	 * List<HospitalSpecial> getHospitalSpecialList(){ return
+	 * hospitalspecialRepository.findAll(); }
+	 */
+  
+  
 
 	@GetMapping("/createdoctor")
 	public String createDoctor(Model model) {
@@ -300,4 +409,5 @@ public class HospitalController {
 	public @ResponseBody List<User> getUserList() {
 		return userRepository.findAll();
 	}
+
 }
