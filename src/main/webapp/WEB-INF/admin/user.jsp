@@ -49,7 +49,12 @@
     
     <div class="form-group">
      <form:label path="password">Password:</form:label>
-      <form:input type="text" class="form-control" placeholder="Enter password" path="password"></form:input>
+      <form:input type="password" class="form-control" placeholder="Enter password" path="password"></form:input>
+    </div>
+    
+    <div class="form-group">
+     <form:label path="comfirmpassword">Confirm Password:</form:label>
+      <form:input type="password" class="form-control" placeholder="Enter Confirm password" path="comfirmpassword"></form:input>
     </div>
      
     <button type="submit" class="btn btn-primary">Insert</button>
