@@ -23,11 +23,6 @@ public class Booking implements Serializable{
 	@JoinColumn(name="patient_id")
 	private Patient patient;
 
-	  private Date date;
-
-	 
-	private Time time;
-
 	public Long getId() {
 		return id;
 	}
@@ -52,10 +47,10 @@ public class Booking implements Serializable{
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Time getTime() {
+	public String getTime() {
 		return time;
 	}
-	public void setTime(Time time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 	

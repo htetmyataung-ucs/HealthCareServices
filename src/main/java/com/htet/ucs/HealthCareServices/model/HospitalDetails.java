@@ -26,8 +26,7 @@ public class HospitalDetails implements Serializable{
 
 	
 	private Date date;
-	
-	private Time time;
+
 	
 
 	@OneToOne
@@ -62,10 +61,11 @@ public class HospitalDetails implements Serializable{
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Time getTime() {
+	
+	public String getTime() {
 		return time;
 	}
-	public void setTime(Time time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 	public Hospital getHospital() {

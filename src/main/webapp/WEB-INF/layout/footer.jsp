@@ -1,5 +1,5 @@
 <footer>
-    <div class="footer-wrappr section-bg3" data-background="/resources/static/assets/img/gallery/footer-bg.png">
+    <div class="footer-wrappr section-bg3" data-background="/resources/assets/img/gallery/footer-bg.png">
         <div class="footer-area footer-padding ">
             <div class="container">
                 <div class="row justify-content-between">
@@ -7,7 +7,7 @@
                         <div class="single-footer-caption mb-50">
                             <!-- logo -->
                             <div class="footer-logo mb-25">
-                                <a href="index.html"><img src="/resources/static/assets/img/logo/logo_footer.png" alt="" width="320px" height="180px"></a>
+                                <a href="index.html"><img src="/resources/assets/img/logo/logo_footer.png" alt="" width="320px" height="180px"></a>
                             </div>
                             <d iv class="header-area">
                                 <div class="main-header main-header2">

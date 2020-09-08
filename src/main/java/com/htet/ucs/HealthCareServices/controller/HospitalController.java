@@ -366,6 +366,7 @@ public class HospitalController {
 		return doctorRepository.findAll();
 	}
 
+
 	// HospitalDoctor
 
 	@GetMapping("/createhospitaldoctor")
