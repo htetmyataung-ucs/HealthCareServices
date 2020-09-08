@@ -25,20 +25,8 @@ public class HospitalDetails implements Serializable{
 	private String address;
 
 	
-	  @Column
-	  
-	  @Temporal(TemporalType.DATE)
-	  
-	  @JsonFormat(pattern="MM-dd-yyyy")
-	 
 	private Date date;
 	
-	  @Column
-	  
-	  @Temporal(TemporalType.TIMESTAMP)
-	  
-	  @JsonFormat(pattern="MM-dd-yyyy HH:mm:ss")
-	 
 	private Time time;
 	
 

@@ -12,7 +12,7 @@
 	<thead>
 		<tr>
 		    <th>City Name</th>
-			<th>Region Name</th>
+			<th>Township Name</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -20,7 +20,6 @@
 			<tr>
 				<td>${t.city.name }</td>
 			    <td>${t.name }</td>
-				
 			</tr>
 		</c:forEach>
 	</tbody>
