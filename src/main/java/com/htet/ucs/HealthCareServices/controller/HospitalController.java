@@ -53,7 +53,7 @@ public class HospitalController {
 	    cityRepository.save(c);
 	    return "Saved";
 	  }
-	@GetMapping("/createcity")
+	@GetMapping("/create_city")
 	public String createCity(Model model) {
 		model.addAttribute("city", new City());
 		return "city";
@@ -64,12 +64,18 @@ public class HospitalController {
 		cityRepository.save(c);
 		
 		model.addAttribute("city", cityRepository.findAll());
+		return "redirect:/city_list";
+	}
+	@GetMapping(value="/city_list")
+	public String cityList(Model model) {
+		model.addAttribute("city", cityRepository.findAll());
 		return "city_list";
 	}
-	@GetMapping("/citylist")
-	public @ResponseBody List<City> getCityList(){
-		return cityRepository.findAll();
-	}
+
+	/*
+	 * @GetMapping("/city_list") public @ResponseBody List<City> getCityList(){
+	 * return cityRepository.findAll(); }
+	 */
 	@PostMapping(path="/addtownship") // Map ONLY POST Requests
 	  public @ResponseBody String addNewTownship (@RequestParam String name,@RequestParam City city) {
 	    // @ResponseBody means the returned String is the response, not a view name
@@ -81,7 +87,7 @@ public class HospitalController {
 	    townshipRepository.save(t);
 	    return "Saved";
 	  }
-	@GetMapping("/createtownship")
+	@GetMapping("/create_township")
 	public String createTownship(Model model) {
 		model.addAttribute("city", cityRepository.findAll());
 		model.addAttribute("township", new TownShip());
@@ -92,13 +98,17 @@ public class HospitalController {
 		
 		townshipRepository.save(t);
 		model.addAttribute("township",	townshipRepository.findAll());
+		return "redirect:/township_list";
+	}
+	@GetMapping("/township_list")
+	public String townshipList(Model model) {
+		model.addAttribute("township",	townshipRepository.findAll());
 		return "township_list";
 	}
-	@GetMapping("/townshiplist")
-	public @ResponseBody List<TownShip> getTownshipList(){
-		return townshipRepository.findAll();
-	}
-	
+	/*
+	 * @GetMapping("/townshiplist") public @ResponseBody List<TownShip>
+	 * getTownshipList(){ return townshipRepository.findAll(); }
+	 */
 	
 	@PostMapping(path="/addhospitaltype") // Map ONLY POST Requests
 	  public @ResponseBody String addNewHospitalType (@RequestParam String name) {
@@ -111,7 +121,7 @@ public class HospitalController {
 	    hospitaltypeRepository.save(ht);
 	    return "Saved";
 	  }
-	@GetMapping("/createhospitaltype")
+	@GetMapping("/create_hospitaltype")
 	public String createHospitalType(Model model) {
 		
 		model.addAttribute("hospitaltype", new HospitalType());
@@ -122,12 +132,18 @@ public class HospitalController {
 		
 		hospitaltypeRepository.save(ht);
 		model.addAttribute("hospitaltype",	hospitaltypeRepository.findAll());
+		return "redirect:/hospitaltype_list";
+	}
+	
+	@GetMapping("/hospitaltype_list")
+	public String hospitaltypeList(Model model) {
+		model.addAttribute("hospitaltype",	hospitaltypeRepository.findAll());
 		return "hospitaltype_list";
 	}
-	@GetMapping("/hospitaltypelist")
-	public @ResponseBody List<HospitalType> getHospitalTypeList(){
-		return hospitaltypeRepository.findAll();
-	}
+	/*
+	 * @GetMapping("/hospitaltypelist") public @ResponseBody List<HospitalType>
+	 * getHospitalTypeList(){ return hospitaltypeRepository.findAll(); }
+	 */
 	
 	
 	
@@ -142,7 +158,7 @@ public class HospitalController {
 	    hospitalcategoryRepository.save(hc);
 	    return "Saved";
 	  }
-	@GetMapping("/createhospitalcategory")
+	@GetMapping("/create_hospitalcategory")
 	public String createHospitalCategory(Model model) {
 		
 		model.addAttribute("hospitalcategory", new HospitalCategory());
@@ -153,12 +169,19 @@ public class HospitalController {
 		
 		hospitalcategoryRepository.save(hc);
 		model.addAttribute("hospitalcategory",	hospitalcategoryRepository.findAll());
+		return "redirect:/hospitalcategory_list";
+	}
+	
+	@GetMapping(value="/hospitalcategory_list")
+	public String hospitalcategoryList(Model model) {
+		model.addAttribute("hospitalcategory",	hospitalcategoryRepository.findAll());
 		return "hospitalcategory_list";
 	}
-	@GetMapping("/hospitalcategorylist")
-	public @ResponseBody List<HospitalCategory> getHospitalCategoryList(){
-		return hospitalcategoryRepository.findAll();
-	}
+	/*
+	 * @GetMapping("/hospitalcategorylist") public @ResponseBody
+	 * List<HospitalCategory> getHospitalCategoryList(){ return
+	 * hospitalcategoryRepository.findAll(); }
+	 */
 	
 	
 	
@@ -177,7 +200,7 @@ public class HospitalController {
 	    hospitalRepository.save(hp);
 	    return "Saved";
 	  }
-	@GetMapping("/createhospital")
+	@GetMapping("/create_hospital")
 	public String createHospital(Model model) {
 		
 		model.addAttribute("hospital", new Hospital());
@@ -191,12 +214,18 @@ public class HospitalController {
 		
 		hospitalRepository.save(hp);
 		model.addAttribute("hospital",	hospitalRepository.findAll());
+		return "redirect:/hospital_list";
+	}
+	
+	@GetMapping(value="/hospital_list")
+	public String hospitalList(Model model) {
+		model.addAttribute("hospital",	hospitalRepository.findAll());
 		return "hospital_list";
 	}
-	@GetMapping("/hospitallist")
-	public @ResponseBody List<Hospital> getHospitalList(){
-		return hospitalRepository.findAll();
-	}
+	/*
+	 * @GetMapping("/hospitallist") public @ResponseBody List<Hospital>
+	 * getHospitalList(){ return hospitalRepository.findAll(); }
+	 */
 	
 	
 	
@@ -211,7 +240,7 @@ public class HospitalController {
 	    specialityRepository.save(s);
 	    return "Saved";
 	  }
-	@GetMapping("/createspeciality")
+	@GetMapping("/create_speciality")
 	public String createSpeciality(Model model) {
 		
 		model.addAttribute("speciality", new Speciality());
@@ -223,13 +252,17 @@ public class HospitalController {
 		
 		specialityRepository.save(s);
 		model.addAttribute("speciality", specialityRepository.findAll());
+		return "redirect:/speciality_list";
+	}
+	@GetMapping(value="/speciality_list")
+	public String specialityList(Model model) {
+		model.addAttribute("speciality", specialityRepository.findAll());
 		return "speciality_list";
 	}
-	@GetMapping("/specialitylist")
-	public @ResponseBody List<Speciality> getSpecialityList(){
-		return specialityRepository.findAll();
-	}
-	
+	/*
+	 * @GetMapping("/specialitylist") public @ResponseBody List<Speciality>
+	 * getSpecialityList(){ return specialityRepository.findAll(); }
+	 */
 	
 	
 	@PostMapping(path="/addhospitalspecial") // Map ONLY POST Requests
@@ -243,8 +276,7 @@ public class HospitalController {
 	    hospitalspecialRepository.save(hs);
 	    return "Saved";
 	  }
-	@GetMapping("/"
-			+ "")
+	@GetMapping("/create_hospitalspecial")
 	public String createHospitalSpecial(Model model) {
 	
 		model.addAttribute("hospitalspecial", new HospitalSpecial());
@@ -257,10 +289,16 @@ public class HospitalController {
 		
 		hospitalspecialRepository.save(hs);
 		model.addAttribute("hospitalspecial", hospitalspecialRepository.findAll());
+		return "redirect:/hospitalspecial_list";
+	}
+	@GetMapping(value="/hospitalspecial_list")
+	public String hospitalspecialList(Model model) {
+		model.addAttribute("hospitalspecial", hospitalspecialRepository.findAll());
 		return "hospitalspecial_list";
 	}
-	@GetMapping("/hospitalspecial_list")
-	public @ResponseBody List<HospitalSpecial> getHospitalSpecialList(){
-		return hospitalspecialRepository.findAll();
-	}
+	/*
+	 * @GetMapping("/hospitalspecial_list") public @ResponseBody
+	 * List<HospitalSpecial> getHospitalSpecialList(){ return
+	 * hospitalspecialRepository.findAll(); }
+	 */
 }
