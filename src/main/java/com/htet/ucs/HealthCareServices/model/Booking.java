@@ -16,6 +16,8 @@ public class Booking implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private Date date;
+	private String time;
 	@ManyToOne
 	@JoinColumn(name="hospital_id")
 	private Hospital hospital;

@@ -25,8 +25,10 @@ public class HospitalDetails implements Serializable{
 	private String address;
 
 	
-	private Date date;
-
+	private Date startDate;
+	private String startTime;
+	private Date endDate;
+	private String endTime;
 	
 
 	@OneToOne
@@ -51,22 +53,29 @@ public class HospitalDetails implements Serializable{
 		this.address = address;
 	}
 	
-
-
-	
-	public Date getDate() {
-
-		return date;
+	public Date getStartDate() {
+		return startDate;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
-	
-	public String getTime() {
-		return time;
+	public String getStartTime() {
+		return startTime;
 	}
-	public void setTime(String time) {
-		this.time = time;
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+	public Date getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+	public String getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
 	}
 	public Hospital getHospital() {
 		return hospital;
