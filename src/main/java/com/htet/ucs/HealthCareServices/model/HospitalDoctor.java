@@ -10,14 +10,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
 @Entity
 public class HospitalDoctor implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Date date;
-	private Time time;
+	  private Date date;
+	
+	  private Time time;
+	
 	private Boolean status;
 	@ManyToOne
 	@JoinColumn(name = "hospital_id")
@@ -31,12 +32,18 @@ public class HospitalDoctor implements Serializable{
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+
+	
 	public Date getDate() {
+	
 		return date;
 	}
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	
+	
 	public Time getTime() {
 		return time;
 	}
@@ -49,6 +56,11 @@ public class HospitalDoctor implements Serializable{
 	public void setStatus(Boolean status) {
 		this.status = status;
 	}
+	
+	/*
+	 * public Time getDoctorTime() { return doctorTime; } public void
+	 * setDoctorTime(Time doctorTime) { this.doctorTime = doctorTime; }
+	 */
 	public Hospital getHospital() {
 		return hospital;
 	}

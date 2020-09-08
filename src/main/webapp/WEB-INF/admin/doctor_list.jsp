@@ -11,15 +11,19 @@
 <table>
 	<thead>
 		<tr>
-		    <th>City Name</th>
-			<th>Township Name</th>
+		    <th>Doctor Name</th>
+			<th>Sama No</th>
+			<th>Speciality Name</th>
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach items="${township}" var="t">
+		<c:forEach items="${doctor}" var="d">
 			<tr>
-				<td>${t.city.name }</td>
-			    <td>${t.name }</td>
+				<td>${d.name }</td>
+				<td>${d.sama_no }</td>
+				<td>${d.speciality.name }</td>
+			    
+				
 			</tr>
 		</c:forEach>
 	</tbody>
