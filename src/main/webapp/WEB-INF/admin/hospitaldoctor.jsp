@@ -18,6 +18,15 @@
   <form:form action="save_hospitaldoctor" method="POST" modelAttribute="hospitaldoctor">
   
   <div class="form-group">
+    <form:label path="hospital">Hospital Name:</form:label>
+     <form:select path="hospital.id" class="form-control">
+        <c:forEach items="${hospital }" var="h">
+           <form:option value="${h.id }">${h.name }</form:option>
+        </c:forEach>
+     </form:select>
+     </div>
+  
+  <div class="form-group">
     <form:label path="doctor">Doctor Name:</form:label>
      <form:select path="doctor.id" class="form-control">
         <c:forEach items="${doctor }" var="doctor">
