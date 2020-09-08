@@ -17,7 +17,7 @@
 		    <th>Age</th>
 		    <th>Address</th>
 		    <th>Blood Type</th>
-			
+			<th>Password</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -27,9 +27,10 @@
 			    <td>${u.name }</td>
 			    <td>${u.phone }</td>
 			    <td>${u.nrc }</td>
-			    <td>${u.address }</td>
 			    <td>${u.age }</td>
+			    <td>${u.address }</td>
 			    <td>${u.bloodType }</td>
+			    <td>${u.password }
 				
 			</tr>
 		</c:forEach>

@@ -10,69 +10,65 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-public class HospitalDetails implements Serializable{
+public class HospitalDoctor2 implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String phone;
-	private String address;
-
 	
 	private Date date;
-
 	
-
-	@OneToOne
-	@JoinColumn(name="hospital_id")
+	private Time time;
+	
+	private Boolean status;
+	@ManyToOne
+	@JoinColumn(name = "hospital_id")
 	private Hospital hospital;
+	@ManyToOne
+	@JoinColumn(name = "doctor_id")
+	private Doctor doctor;
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	
-
-
 	
 	public Date getDate() {
-
 		return date;
 	}
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
-	public String getTime() {
+	public Time getTime() {
 		return time;
 	}
-	public void setTime(String time) {
+	public void setTime(Time time) {
 		this.time = time;
+	}
+	public Boolean getStatus() {
+		return status;
+	}
+	public void setStatus(Boolean status) {
+		this.status = status;
 	}
 	public Hospital getHospital() {
 		return hospital;
 	}
 	public void setHospital(Hospital hospital) {
 		this.hospital = hospital;
+	}
+	public Doctor getDoctor() {
+		return doctor;
+	}
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
 	}
 	
 }
