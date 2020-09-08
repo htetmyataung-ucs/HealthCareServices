@@ -22,14 +22,10 @@ public class HospitalDoctor implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column  
-	@Temporal(TemporalType.DATE)
-    @JsonFormat(pattern="MM-dd-yyyy")
+	
 	private Date date;
-	@Column
-	@Temporal(TemporalType.TIMESTAMP)
-	@JsonFormat(pattern="MM-dd-yyyy HH:mm:ss")
-	private Time time;
+	
+	private String time;
 	
 	private Boolean status;
 	@ManyToOne
@@ -51,10 +47,11 @@ public class HospitalDoctor implements Serializable{
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Time getTime() {
+	
+	public String getTime() {
 		return time;
 	}
-	public void setTime(Time time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 	public Boolean getStatus() {

@@ -317,7 +317,7 @@ public class HospitalController {
 	
 	//HospitalDoctor
 	@PostMapping(path="/addhospitaldoctor") // Map ONLY POST Requests
-	  public @ResponseBody String addNewHospitalDoctor (@RequestParam Date date,@RequestParam Time time,@RequestParam Boolean status,@RequestParam Doctor doctor) {
+	  public @ResponseBody String addNewHospitalDoctor (@RequestParam Date date,@RequestParam String time,@RequestParam Boolean status,@RequestParam Doctor doctor) {
 	    // @ResponseBody means the returned String is the response, not a view name
 	    // @RequestParam means it is a parameter from the GET or POST request
 
