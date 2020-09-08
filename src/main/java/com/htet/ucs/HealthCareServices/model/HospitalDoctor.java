@@ -15,8 +15,10 @@ public class HospitalDoctor implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	  private Date date;
-	private String time;
+	private Date startDate;
+	private String startTime;
+	private Date endDate;
+	private String endTime;
 
 	
 	private Boolean status;
@@ -33,21 +35,30 @@ public class HospitalDoctor implements Serializable{
 		this.id = id;
 	}
 	
-
 	
-	public Date getDate() {
-	
-		return date;
+	public Date getStartDate() {
+		return startDate;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
-	
-   public String getTime() {
-		return time;
+	public String getStartTime() {
+		return startTime;
 	}
-	public void setTime(String time) {
-		this.time = time;
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+	public Date getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+	public String getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
 	}
 	public Boolean getStatus() {
 		return status;
