@@ -16,7 +16,7 @@ public class HospitalDoctor implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	  private Date date;
-	
+	private String time;
 
 	
 	private Boolean status;
@@ -43,7 +43,7 @@ public class HospitalDoctor implements Serializable{
 		this.date = date;
 	}
 	
-public String getTime() {
+   public String getTime() {
 		return time;
 	}
 	public void setTime(String time) {
