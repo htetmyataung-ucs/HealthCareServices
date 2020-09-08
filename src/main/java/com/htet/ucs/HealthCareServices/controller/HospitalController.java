@@ -68,7 +68,7 @@ public class HospitalController {
 		return "Saved";
 	}
 
-	@GetMapping("/createcity")
+	@GetMapping("/create_city")
 	public String createCity(Model model) {
 		model.addAttribute("city", new City());
 		return "city";
