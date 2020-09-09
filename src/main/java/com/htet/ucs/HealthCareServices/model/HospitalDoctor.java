@@ -10,14 +10,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
 @Entity
 public class HospitalDoctor implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Date date;
-	private Time time;
+	private Date startDate;
+	private String startTime;
+	private Date endDate;
+	private String endTime;
+
+	
 	private Boolean status;
 	@ManyToOne
 	@JoinColumn(name = "hospital_id")
@@ -31,17 +34,31 @@ public class HospitalDoctor implements Serializable{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Date getDate() {
-		return date;
+	
+	
+	public Date getStartDate() {
+		return startDate;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
-	public Time getTime() {
-		return time;
+	public String getStartTime() {
+		return startTime;
 	}
-	public void setTime(Time time) {
-		this.time = time;
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+	public Date getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+	public String getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
 	}
 	public Boolean getStatus() {
 		return status;
@@ -49,6 +66,11 @@ public class HospitalDoctor implements Serializable{
 	public void setStatus(Boolean status) {
 		this.status = status;
 	}
+	
+	/*
+	 * public Time getDoctorTime() { return doctorTime; } public void
+	 * setDoctorTime(Time doctorTime) { this.doctorTime = doctorTime; }
+	 */
 	public Hospital getHospital() {
 		return hospital;
 	}

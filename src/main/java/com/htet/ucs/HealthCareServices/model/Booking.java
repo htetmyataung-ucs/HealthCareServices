@@ -16,14 +16,15 @@ public class Booking implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private Date date;
+	private String time;
 	@ManyToOne
 	@JoinColumn(name="hospital_id")
 	private Hospital hospital;
 	@ManyToOne
 	@JoinColumn(name="patient_id")
 	private Patient patient;
-	private Date date;
-	private Time time;
+
 	public Long getId() {
 		return id;
 	}
@@ -48,11 +49,13 @@ public class Booking implements Serializable{
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Time getTime() {
+	public String getTime() {
 		return time;
 	}
-	public void setTime(Time time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
+	
+	
 	
 }
