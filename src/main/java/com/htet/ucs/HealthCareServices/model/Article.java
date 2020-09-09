@@ -1,4 +1,4 @@
-package com.htet.ucs.HealthCareServices.articlemodel;
+package com.htet.ucs.HealthCareServices.model;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import com.htet.ucs.HealthCareServices.dto.ArticleDetailDTO;
+
 
 @Entity
 public class Article implements Serializable{
@@ -19,6 +21,8 @@ public class Article implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
+	
+
 	public String getName() {
 		return name;
 	}
@@ -43,31 +47,15 @@ public class Article implements Serializable{
 	public Article() {
 		super();
 	}
-	
-	@OneToMany(mappedBy = "article")
-	private Set<Disease> diseaseList;
-	public Set<Disease> getDiseaseList() {
-		return diseaseList;
+	@OneToMany(mappedBy="article")
+	private Set<ArticleDetail> articledetailList;
+
+
+	public Set<ArticleDetail> getArticledetailList() {
+		return articledetailList;
 	}
-	public void setDiseaseList(Set<Disease> diseaseList) {
-		this.diseaseList = diseaseList;
-	}
-	
-	@OneToMany(mappedBy = "article")
-	private Set<FirstAid> firstAidList;
-	public Set<FirstAid> getFirstAidList() {
-		return firstAidList;
-	}
-	public void setFirstAidList(Set<FirstAid> firstAidList) {
-		this.firstAidList = firstAidList;
+	public void setArticledetailList(Set<ArticleDetail> articledetailList) {
+		this.articledetailList = articledetailList;
 	}
 	
-	@OneToMany(mappedBy = "article")
-	private Set<Knowledge> knowledgeList;
-	public Set<Knowledge> getKnowledgeList() {
-		return knowledgeList;
-	}
-	public void setKnowledgeList(Set<Knowledge> knowledgeList) {
-		this.knowledgeList = knowledgeList;
-	}
 }
