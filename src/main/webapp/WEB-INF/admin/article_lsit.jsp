@@ -9,9 +9,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form:form action="save_article" method="POST" modelAttribute="article">
-	Enter Name:<form:input path="name"/>
-	<input type="submit" value="Submit">
-</form:form>
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<c:forEach items="${articles}" var="art">
+			<tr>
+				<td>${art.name }</td>
+			</tr>
+		</c:forEach>
+	</tbody>
+</table>
 </body>
 </html>
