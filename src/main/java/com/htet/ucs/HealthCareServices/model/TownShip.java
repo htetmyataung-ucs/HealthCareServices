@@ -46,5 +46,13 @@ public class TownShip implements Serializable{
 	public void setHospital(List<Hospital> hospital) {
 		this.hospital = hospital;
 	}
-	
+	@OneToMany(mappedBy = "townShip")
+	private List<MedicalShop> medicalShop;
+	public List<MedicalShop> getMedicalShop() {
+		return medicalShop;
+	}
+	public void setMedicalShop(List<MedicalShop> medicalShop) {
+		this.medicalShop = medicalShop;
+	}
+		
 }

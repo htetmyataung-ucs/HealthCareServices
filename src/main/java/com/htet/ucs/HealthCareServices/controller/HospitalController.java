@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.htet.ucs.HealthCareServices.dto.MedicalShopDTO;
 import com.htet.ucs.HealthCareServices.model.City;
 import com.htet.ucs.HealthCareServices.model.Doctor;
 import com.htet.ucs.HealthCareServices.model.Hospital;
@@ -17,6 +19,7 @@ import com.htet.ucs.HealthCareServices.model.HospitalCategory;
 import com.htet.ucs.HealthCareServices.model.HospitalDoctor;
 import com.htet.ucs.HealthCareServices.model.HospitalSpecial;
 import com.htet.ucs.HealthCareServices.model.HospitalType;
+import com.htet.ucs.HealthCareServices.model.MedicalShop;
 import com.htet.ucs.HealthCareServices.model.Speciality;
 import com.htet.ucs.HealthCareServices.model.TownShip;
 import com.htet.ucs.HealthCareServices.model.User;
@@ -27,9 +30,11 @@ import com.htet.ucs.HealthCareServices.repository.HospitalDoctorReposity;
 import com.htet.ucs.HealthCareServices.repository.HospitalRepository;
 import com.htet.ucs.HealthCareServices.repository.HospitalSpecialRepository;
 import com.htet.ucs.HealthCareServices.repository.HospitalTypeRepository;
+import com.htet.ucs.HealthCareServices.repository.MedicalShopRepository;
 import com.htet.ucs.HealthCareServices.repository.SpecialityRepository;
 import com.htet.ucs.HealthCareServices.repository.TownshipRepository;
 import com.htet.ucs.HealthCareServices.repository.UserRepository;
+import com.htet.ucs.HealthCareServices.services.MedicalShopInterface;
 
 @Controller
 public class HospitalController {
@@ -56,6 +61,8 @@ public class HospitalController {
 	private HospitalDoctorReposity hospitaldoctorRepository;
 	@Autowired
 	private UserRepository userRepository;
+	@Autowired
+	private MedicalShopInterface medicalShopInterface;
 
 	@PostMapping(path = "/add") // Map ONLY POST Requests
 	public @ResponseBody String addNewCity(@RequestParam String name) {
@@ -410,5 +417,24 @@ public class HospitalController {
 	public @ResponseBody List<User> getUserList() {
 		return userRepository.findAll();
 	}
+	
+	@GetMapping("/medicalshop")
+	public String createMedicalShop(Model model) {
+		model.addAttribute("medicalShop", new MedicalShopDTO());
+		model.addAttribute("township", townshipRepository.findAll());
+		return "medicalShop";
+	}
+	@PostMapping("/medicalshop")
+	public String saveMedicalShop(@ModelAttribute("medicalShop")MedicalShopDTO medicalShop, Model model) {
+		medicalShopInterface.saveMedicalShop(medicalShop);
+		return "redirect:/medicalshop_list";
+	}
+	@GetMapping("/medicalshop_list")
+	public String index(Model model) {
+		model.addAttribute("medicalShopList", medicalShopInterface.getMedicalShopList());
+		return "medicalShop_list";  
+	}
+	
+} 
 
 
