@@ -15,7 +15,7 @@
 </head>
 <body>
 <h2>Insert Speciality</h2>
-  <form:form action="save_speciality" method="POST" modelAttribute="speciality">
+  <form:form action="create_speciality" method="POST" modelAttribute="speciality">
     <div class="form-group">
       <form:label path="name">Speciality Name:</form:label>
       <form:input type="text" class="form-control" placeholder="Enter Speciality Name" path="name"></form:input>

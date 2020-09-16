@@ -16,7 +16,7 @@
 </head>
 <body>
   <h2>Insert City</h2>
-  <form:form action="save_city" method="POST" modelAttribute="city">
+  <form:form action="create_city" method="POST" modelAttribute="city">
     <div class="form-group">
       <form:label path="name">City Name:</form:label>
       <form:input type="text" class="form-control" placeholder="Enter City Name" path="name"></form:input>

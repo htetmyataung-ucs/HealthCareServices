@@ -15,7 +15,7 @@
 </head>
 <body>
 <h2>Insert Doctor</h2>
-  <form:form action="save_doctor" method="POST" modelAttribute="doctor">
+  <form:form action="create_doctor" method="POST" modelAttribute="doctor">
   <div class="form-group">
      <form:label path="name">Doctor Name:</form:label>
       <form:input type="text" class="form-control" placeholder="Enter doctor name" path="name"></form:input>

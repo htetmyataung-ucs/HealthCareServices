@@ -15,7 +15,7 @@
 </head>
 <body>
 <h2>Insert Hospital Doctor</h2>
-  <form:form action="save_hospitaldoctor" method="POST" modelAttribute="hospitaldoctor">
+  <form:form action="create_hospitalDuoctor" method="POST" modelAttribute="hospitaldoctor">
   
   <div class="form-group">
     <form:label path="hospital">Hospital Name:</form:label>

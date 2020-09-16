@@ -15,6 +15,7 @@
 			<th>Name</th>
 			<th>Gender</th>
 			<th>Description</th>
+			<th>Article Type</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -23,6 +24,7 @@
 				<td>${ads.name }</td>
 				<td>${ads.gender }</td>
 				<td>${ads.description }</td>
+				<td>${ads.article.name }</td>
 			</tr>
 		</c:forEach>
 	</tbody>

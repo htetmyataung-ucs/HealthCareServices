@@ -1,15 +1,15 @@
 package com.htet.ucs.HealthCareServices.services;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.htet.ucs.HealthCareServices.dto.HospitalCategoryDTO;
 import com.htet.ucs.HealthCareServices.model.HospitalCategory;
 import com.htet.ucs.HealthCareServices.repository.HospitalCategoryRepository;
-
+@Service
 public class HospitalCategoryService implements HospitalCategoryInterface{
 
 	@Autowired

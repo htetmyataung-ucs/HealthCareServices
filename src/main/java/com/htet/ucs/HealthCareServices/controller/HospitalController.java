@@ -1,183 +1,81 @@
 package com.htet.ucs.HealthCareServices.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.htet.ucs.HealthCareServices.dto.MedicalShopDTO;
-import com.htet.ucs.HealthCareServices.model.City;
-import com.htet.ucs.HealthCareServices.model.Doctor;
-import com.htet.ucs.HealthCareServices.model.Hospital;
-import com.htet.ucs.HealthCareServices.model.HospitalCategory;
-import com.htet.ucs.HealthCareServices.model.HospitalDoctor;
-import com.htet.ucs.HealthCareServices.model.HospitalSpecial;
-import com.htet.ucs.HealthCareServices.model.HospitalType;
-import com.htet.ucs.HealthCareServices.model.MedicalShop;
-import com.htet.ucs.HealthCareServices.model.Speciality;
-import com.htet.ucs.HealthCareServices.model.TownShip;
-import com.htet.ucs.HealthCareServices.model.User;
-import com.htet.ucs.HealthCareServices.repository.CityRepository;
-import com.htet.ucs.HealthCareServices.repository.DoctorRepository;
-import com.htet.ucs.HealthCareServices.repository.HospitalCategoryRepository;
-import com.htet.ucs.HealthCareServices.repository.HospitalDoctorReposity;
-import com.htet.ucs.HealthCareServices.repository.HospitalRepository;
-import com.htet.ucs.HealthCareServices.repository.HospitalSpecialRepository;
-import com.htet.ucs.HealthCareServices.repository.HospitalTypeRepository;
-import com.htet.ucs.HealthCareServices.repository.MedicalShopRepository;
-import com.htet.ucs.HealthCareServices.repository.SpecialityRepository;
-import com.htet.ucs.HealthCareServices.repository.TownshipRepository;
-import com.htet.ucs.HealthCareServices.repository.UserRepository;
-import com.htet.ucs.HealthCareServices.services.MedicalShopInterface;
+import com.htet.ucs.HealthCareServices.dto.HospitalCategoryDTO;
+import com.htet.ucs.HealthCareServices.dto.HospitalDTO;
+import com.htet.ucs.HealthCareServices.dto.HospitalDetailDTO;
+import com.htet.ucs.HealthCareServices.dto.HospitalSpecialDTO;
+import com.htet.ucs.HealthCareServices.dto.HospitalTypeDTO;
+import com.htet.ucs.HealthCareServices.dto.ReviewDTO;
+import com.htet.ucs.HealthCareServices.services.HospitalCategoryInterface;
+import com.htet.ucs.HealthCareServices.services.HospitalDetailInterface;
+import com.htet.ucs.HealthCareServices.services.HospitalInterface;
+import com.htet.ucs.HealthCareServices.services.HospitalSpecialInterface;
+import com.htet.ucs.HealthCareServices.services.HospitalTypeInterface;
+import com.htet.ucs.HealthCareServices.services.ReviewInterface;
+import com.htet.ucs.HealthCareServices.services.SpecialityInterface;
+import com.htet.ucs.HealthCareServices.services.TownshipInterface;
 
 @Controller
 public class HospitalController {
-	@Autowired
-	private CityRepository cityRepository;
-	@Autowired
-	private TownshipRepository townshipRepository;
-	@Autowired
-	private HospitalTypeRepository hospitaltypeRepository;
-	@Autowired
-	private HospitalCategoryRepository hospitalcategoryRepository;
-	@Autowired
-	private HospitalRepository hospitalRepository;
-
-	@Autowired
-	private SpecialityRepository specialityRepository;
-	@Autowired
-	private HospitalSpecialRepository hospitalspecialRepository;
-
-	@Autowired
-	private DoctorRepository doctorRepository;
-
-	@Autowired
-	private HospitalDoctorReposity hospitaldoctorRepository;
-	@Autowired
-	private UserRepository userRepository;
-	@Autowired
-	private MedicalShopInterface medicalShopInterface;
-
-	@PostMapping(path = "/add") // Map ONLY POST Requests
-	public @ResponseBody String addNewCity(@RequestParam String name) {
-		// @ResponseBody means the returned String is the response, not a view name
-		// @RequestParam means it is a parameter from the GET or POST request
-
-		City c = new City();
-		c.setName(name);
-		cityRepository.save(c);
-		return "Saved";
-	}
-
-	@GetMapping("/create_city")
-	public String createCity(Model model) {
-		model.addAttribute("city", new City());
-		return "city";
-	}
-
-	@PostMapping("/save_city")
-	public String saveCity(@ModelAttribute("city") City c, Model model) {
-
-		cityRepository.save(c);
-
-		model.addAttribute("city", cityRepository.findAll());
-		return "redirect:/city_list";
-	}
-
-	@GetMapping(value="/city_list")
-	public String cityList(Model model) {
-		model.addAttribute("city", cityRepository.findAll());
-		return "city_list";
-	}
-
-	/*
-	 * @GetMapping("/city_list") public @ResponseBody List<City> getCityList(){
-	 * return cityRepository.findAll(); }
-	 */
-	@PostMapping(path="/addtownship") // Map ONLY POST Requests
-	  public @ResponseBody String addNewTownship (@RequestParam String name,@RequestParam City city) {
-	    // @ResponseBody means the returned String is the response, not a view name
-	    // @RequestParam means it is a parameter from the GET or POST request
-
-	    TownShip t = new TownShip();
-	    t.setCity(city);
-	    t.setName(name);
-	    townshipRepository.save(t);
-	    return "Saved";
-	  }
-	@GetMapping("/create_township")
-
-	public String createTownship(Model model) {
-		model.addAttribute("city", cityRepository.findAll());
-		model.addAttribute("township", new TownShip());
-		return "township";
-	}
-
-	@PostMapping("/save_township")
-	public String saveTownship(@ModelAttribute("township") TownShip t, Model model) {
-		townshipRepository.save(t);
-
-		model.addAttribute("township",	townshipRepository.findAll());
-		return "redirect:/township_list";
-	}
-	@GetMapping("/township_list")
-	public String townshipList(Model model) {
-		model.addAttribute("township",	townshipRepository.findAll());
-		return "township_list";
-	}
-	/*
-	 * @GetMapping("/townshiplist") public @ResponseBody List<TownShip>
-	 * getTownshipList(){ return townshipRepository.findAll(); }
-	 */
 	
-	@PostMapping(path="/addhospitaltype") // Map ONLY POST Requests
+	@Autowired
+	private TownshipInterface townShipInterface;
+	@Autowired
+	private HospitalTypeInterface hospitalTypeInterface;
+	@Autowired
+	private HospitalCategoryInterface hospitalCategoryInterface;
+	@Autowired
+	private HospitalInterface hospitalInterface;
+	@Autowired
+	private SpecialityInterface specialityInterface;
+	@Autowired
+	private HospitalSpecialInterface hospitalSpecialInterface;
+	@Autowired
+	private ReviewInterface reviewInterface;
+	@Autowired
+	private HospitalDetailInterface hospitalDetailInterface;
+	//****************HOSPITAL TYPE*****************
+	
+	/*@PostMapping(path="/addhospitaltype") // Map ONLY POST Requests
 	  public @ResponseBody String addNewHospitalType (@RequestParam String name) {
 	    // @ResponseBody means the returned String is the response, not a view name
 	    // @RequestParam means it is a parameter from the GET or POST request
 
-	    HospitalType ht = new HospitalType();
+	    HospitalTypeDTO ht = new HospitalTypeDTO();
 	   
 	    ht.setName(name);
-	    hospitaltypeRepository.save(ht);
+	    hospitalTypeInterface.saveHospitalType(ht);
 	    return "Saved";
-	  }
+	  }*/
 	
 	@GetMapping("/create_hospitaltype")
-
 	public String createHospitalType(Model model) {
-
-		model.addAttribute("hospitaltype", new HospitalType());
+		model.addAttribute("hospitaltype", new HospitalTypeDTO());
 		return "hospitaltype";
 	}
 
-	@PostMapping("/save_hospitaltype")
-	public String saveHospitaltype(@ModelAttribute("hospitaltype") HospitalType ht, Model model) {
-
-		hospitaltypeRepository.save(ht);
-
-		model.addAttribute("hospitaltype",	hospitaltypeRepository.findAll());
-		return "redirect:/hospitaltype_list";
+	@PostMapping("/create_hospitaltype")
+	public String saveHospitaltype(@ModelAttribute("hospitaltype") HospitalTypeDTO ht, Model model) {
+		hospitalTypeInterface.saveHospitalType(ht);
+		return "redirect:/hospitalTypeList";
 	}
 	
-	@GetMapping("/hospitaltype_list")
+	@GetMapping("/hospitalTypeList")
 	public String hospitaltypeList(Model model) {
-		model.addAttribute("hospitaltype",	hospitaltypeRepository.findAll());
+		model.addAttribute("hospitaltype",	hospitalTypeInterface.getAllHospitalTypeList());
 		return "hospitaltype_list";
 	}
-	/*
-	 * @GetMapping("/hospitaltypelist") public @ResponseBody List<HospitalType>
-	 * getHospitalTypeList(){ return hospitaltypeRepository.findAll(); }
-	 */
 	
 	
+	//**************HOSPITAL CATEGORY*****************
 	
-	@PostMapping(path="/addhospitalcategory") // Map ONLY POST Requests
+	/*@PostMapping(path="/addhospitalcategory") // Map ONLY POST Requests
 	  public @ResponseBody String addNewHospitalCategory (@RequestParam String name) {
 	    // @ResponseBody means the returned String is the response, not a view name
 	    // @RequestParam means it is a parameter from the GET or POST request
@@ -187,254 +85,126 @@ public class HospitalController {
 	    hc.setName(name);
 	    hospitalcategoryRepository.save(hc);
 	    return "Saved";
-	  }
+	  }*/
 
 	@GetMapping("/create_hospitalcategory")
-
 	public String createHospitalCategory(Model model) {
-
-		model.addAttribute("hospitalcategory", new HospitalCategory());
+		model.addAttribute("hospitalcategory", new HospitalCategoryDTO());
 		return "hospitalcategory";
 	}
-
-	@PostMapping("/save_hospitalcategory")
-	public String saveHospitalCategory(@ModelAttribute("hospitalcategory") HospitalCategory hc, Model model) {
-
-		hospitalcategoryRepository.save(hc);
-
-		model.addAttribute("hospitalcategory",	hospitalcategoryRepository.findAll());
+	@PostMapping("/create_hospitalcategory")
+	public String saveHospitalCategory(@ModelAttribute("hospitalcategory") HospitalCategoryDTO hc, Model model) {
+		hospitalCategoryInterface.saveHospitalCategory(hc);
 		return "redirect:/hospitalcategory_list";
-	}
-	
+	}	
 	@GetMapping(value="/hospitalcategory_list")
 	public String hospitalcategoryList(Model model) {
-		model.addAttribute("hospitalcategory",	hospitalcategoryRepository.findAll());
+		model.addAttribute("hospitalcategory",	hospitalCategoryInterface.getAllHospitalCategoryList());
 		return "hospitalcategory_list";
 	}
-	/*
-	 * @GetMapping("/hospitalcategorylist") public @ResponseBody
-	 * List<HospitalCategory> getHospitalCategoryList(){ return
-	 * hospitalcategoryRepository.findAll(); }
-	 */
 	
+	//*************HOSPITAL*************
 	
-	
-	@PostMapping(path="/addhospital") // Map ONLY POST Requests
+	/*@PostMapping(path="/addhospital") // Map ONLY POST Requests
 	  public @ResponseBody String addNewHospital (@RequestParam String name,@RequestParam HospitalCategory hospitalCategory,
 			  @RequestParam HospitalType hospitalType,@RequestParam TownShip townShip) {
 	    // @ResponseBody means the returned String is the response, not a view name
 	    // @RequestParam means it is a parameter from the GET or POST request
 
 	    Hospital hp = new Hospital();
-	   
 	    hp.setName(name);
 	    hp.setHospitalCategory(hospitalCategory);
 	    hp.setHospitalType(hospitalType);
 	    hp.setTownShip(townShip);
 	    hospitalRepository.save(hp);
 	    return "Saved";
-	  }
-	
+	  }	*/
 	@GetMapping("/create_hospital")
-
 	public String createHospital(Model model) {
-
-		model.addAttribute("hospital", new Hospital());
-		model.addAttribute("hospitalCategory", hospitalcategoryRepository.findAll());
-		model.addAttribute("hospitalType", hospitaltypeRepository.findAll());
-		model.addAttribute("townShip", townshipRepository.findAll());
+		model.addAttribute("hospital", new HospitalDTO());
+		model.addAttribute("hospitalCategory", hospitalCategoryInterface.getAllHospitalCategoryList());
+		model.addAttribute("hospitalType", hospitalTypeInterface.getAllHospitalTypeList());
+		model.addAttribute("townShip", townShipInterface.getAllTownshipList());
 		return "hospital";
 	}
-
-	@PostMapping("/save_hospital")
-	public String saveHospital(@ModelAttribute("hospital") Hospital hp, Model model) {
-
-		hospitalRepository.save(hp);
-
-		model.addAttribute("hospital",	hospitalRepository.findAll());
+	@PostMapping("/create_hospital")
+	public String saveHospital(@ModelAttribute("hospital") HospitalDTO hospital, Model model) {
+		hospitalInterface.saveHospital(hospital);
 		return "redirect:/hospital_list";
 	}
-	
 	@GetMapping(value="/hospital_list")
 	public String hospitalList(Model model) {
-		model.addAttribute("hospital",	hospitalRepository.findAll());
+		model.addAttribute("hospital",	hospitalInterface.getAllHospitalList());
 		return "hospital_list";
 	}
-	/*
-	 * @GetMapping("/hospitallist") public @ResponseBody List<Hospital>
-	 * getHospitalList(){ return hospitalRepository.findAll(); }
-	 */
 	
+	//************HOSPITAL SPECIALITY************
 	
-	
-
-	@PostMapping(path = "/addspeciality") // Map ONLY POST Requests
-	public @ResponseBody String addNewSpeciality(@RequestParam String name) {
-		// @ResponseBody means the returned String is the response, not a view name
-		// @RequestParam means it is a parameter from the GET or POST request
-
-		Speciality s = new Speciality();
-
-		s.setName(name);
-		specialityRepository.save(s);
-		return "Saved";
-	}
-
-	@GetMapping("/create_speciality")
-
-	public String createSpeciality(Model model) {
-
-		model.addAttribute("speciality", new Speciality());
-
-		return "speciality";
-	}
-
-	@PostMapping("/save_speciality")
-	public String saveSpeciality(@ModelAttribute("speciality") Speciality s, Model model) {
-
-		specialityRepository.save(s);
-		model.addAttribute("speciality", specialityRepository.findAll());
-		return "redirect:/speciality_list";
-	}
-
-	@GetMapping(value="/speciality_list")
-	public String specialityList(Model model) {
-		model.addAttribute("speciality", specialityRepository.findAll());
-		return "speciality_list";
-	}
-	/*
-	 * @GetMapping("/specialitylist") public @ResponseBody List<Speciality>
-	 * getSpecialityList(){ return specialityRepository.findAll(); }
-	 */
-	
-	
-	@PostMapping(path="/addhospitalspecial") // Map ONLY POST Requests
+	/*@PostMapping(path="/addhospitalspecial") // Map ONLY POST Requests
 	  public @ResponseBody String addNewHospitalSpecial (@RequestParam Boolean status,@RequestParam Speciality speciality,@RequestParam Hospital hospital) {
 	    // @ResponseBody means the returned String is the response, not a view name
 	    // @RequestParam means it is a parameter from the GET or POST request
-
-	    HospitalSpecial hs = new HospitalSpecial();
-	   
+	    HospitalSpecial hs = new HospitalSpecial();	   
 	    hs.setStatus(status);
 	    hospitalspecialRepository.save(hs);
 	    return "Saved";
-	  }
-
-
+	  }*/
+	
 	@GetMapping("/create_hospitalspecial")
-
 	public String createHospitalSpecial(Model model) {
-
-		model.addAttribute("hospitalspecial", new HospitalSpecial());
-		model.addAttribute("speciality", specialityRepository.findAll());
-		model.addAttribute("hospital", hospitalRepository.findAll());
-		return "hospital_special";
+		model.addAttribute("hospitalspecial", new HospitalSpecialDTO());
+		model.addAttribute("speciality", specialityInterface.getAllSpecialityList());
+		model.addAttribute("hospital", hospitalInterface.getAllHospitalList());
+		return "hospitalspecial";
 	}
-
-	@PostMapping("/save_hospitalspecial")
-	public String saveHospitalSpecial(@ModelAttribute("hospitalspecial") HospitalSpecial hs, Model model) {
-
-		hospitalspecialRepository.save(hs);
-		model.addAttribute("hospitalspecial", hospitalspecialRepository.findAll());
+	@PostMapping("/create_hospitalspecial")
+	public String saveHospitalSpecial(@ModelAttribute("hospitalspecial") HospitalSpecialDTO hospitalSpecial, Model model) {
+		hospitalSpecialInterface.saveHospitalSpecial(hospitalSpecial);
 		return "redirect:/hospitalspecial_list";
 	}
-
 	@GetMapping(value="/hospitalspecial_list")
 	public String hospitalspecialList(Model model) {
-		model.addAttribute("hospitalspecial", hospitalspecialRepository.findAll());
+		model.addAttribute("hospitalspecial", hospitalSpecialInterface.getAllHospitalSpecialList());
 		return "hospitalspecial_list";
 	}
-	/*
-	 * @GetMapping("/hospitalspecial_list") public @ResponseBody
-	 * List<HospitalSpecial> getHospitalSpecialList(){ return
-	 * hospitalspecialRepository.findAll(); }
-	 */
-  
-  
-
-	@GetMapping("/createdoctor")
-	public String createDoctor(Model model) {
-
-		model.addAttribute("doctor", new Doctor());
-		model.addAttribute("speciality", specialityRepository.findAll());
-		return "doctor";
+	
+	//**********REVIEW**********
+	
+	@GetMapping("/create_review")
+	public String createReview(Model model) {
+		model.addAttribute("review", new ReviewDTO());
+		return "review";
 	}
-
-	@PostMapping("/save_doctor")
-	public String saveDoctor(@ModelAttribute("doctor") Doctor d, Model model) {
-
-		doctorRepository.save(d);
-		model.addAttribute("doctor", doctorRepository.findAll());
-		return "doctor_list";
+	@PostMapping("/create_review")
+	public String saveReview(@ModelAttribute("review") ReviewDTO review, Model model) {
+		reviewInterface.saveReview(review);
+		return "redirect:/review_list";
 	}
-
-	@GetMapping("/doctorlist")
-	public @ResponseBody List<Doctor> getDoctorList() {
-		return doctorRepository.findAll();
-	}
-
-
-	// HospitalDoctor
-
-	@GetMapping("/createhospitaldoctor")
-	public String createHospitalDoctor(Model model) {
-		model.addAttribute("hospital", hospitalRepository.findAll());
-		model.addAttribute("hospitaldoctor", new HospitalDoctor());
-		model.addAttribute("doctor", doctorRepository.findAll());
-		return "hospitaldoctor";
-	}
-
-	@PostMapping("/save_hospitaldoctor")
-	public String saveHospitalDoctor(@ModelAttribute("hospitaldoctor") HospitalDoctor hd, Model model) {
-
-		hospitaldoctorRepository.save(hd);
-		model.addAttribute("hospitaldoctor", hospitaldoctorRepository.findAll());
-		return "hospitaldoctor_list";
-	}
-
-	@GetMapping("/hospitaldoctorlist")
-	public @ResponseBody List<HospitalDoctor> getHospitalDoctorList() {
-		return hospitaldoctorRepository.findAll();
-	}
-
-	@GetMapping("/createuser")
-	public String createUser(Model model) {
-
-		model.addAttribute("user", new User());
-
-		return "user";
-	}
-
-	@PostMapping("/save_user")
-	public String saveUser(@ModelAttribute("user") User user, Model model) {
-
-		userRepository.save(user);
-		model.addAttribute("user", userRepository.findAll());
-		return "user_list";
-	}
-
-	@GetMapping("/userlist")
-	public @ResponseBody List<User> getUserList() {
-		return userRepository.findAll();
+	@GetMapping(value="/review_list")
+	public String reviewList(Model model) {
+		model.addAttribute("reviewList", reviewInterface.getAllReviewList());
+		return "review_list";
 	}
 	
-	@GetMapping("/medicalshop")
-	public String createMedicalShop(Model model) {
-		model.addAttribute("medicalShop", new MedicalShopDTO());
-		model.addAttribute("township", townshipRepository.findAll());
-		return "medicalShop";
-	}
-	@PostMapping("/medicalshop")
-	public String saveMedicalShop(@ModelAttribute("medicalShop")MedicalShopDTO medicalShop, Model model) {
-		medicalShopInterface.saveMedicalShop(medicalShop);
-		return "redirect:/medicalshop_list";
-	}
-	@GetMapping("/medicalshop_list")
-	public String index(Model model) {
-		model.addAttribute("medicalShopList", medicalShopInterface.getMedicalShopList());
-		return "medicalShop_list";  
-	}
 	
+	//*************HOSPITAL DETAIL***************
+	
+	@GetMapping("/create_hospitalDetail")
+	public String createHospitalDetail(Model model) {
+		model.addAttribute("hospitalDetail", new HospitalDetailDTO());
+		return "review";
+	}
+	@PostMapping("/create_hospitalDetail")
+	public String saveHospitalDetail(@ModelAttribute("hospitalDetail") HospitalDetailDTO hdDTO, Model model) {
+		hospitalDetailInterface.saveHospitalDetail(hdDTO);
+		return "redirect:/hospitalDetailList";
+	}
+	@GetMapping(value="/hospitalDetailList")
+	public String HospitalDetailList(Model model) {
+		model.addAttribute("hospitalDetailList", hospitalDetailInterface.getAllHospitalDetailList());
+		return "hospitaldetail_list";
+	}
+		
 } 
 
 

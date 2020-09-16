@@ -6,6 +6,10 @@ import java.util.List;
 import com.htet.ucs.HealthCareServices.model.TownShip;
 
 public class CityDTO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String name;
 	private List<TownShip> township;

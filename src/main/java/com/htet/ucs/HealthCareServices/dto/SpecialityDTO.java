@@ -8,7 +8,11 @@ import com.htet.ucs.HealthCareServices.model.HospitalSpecial;
 
 public class SpecialityDTO implements Serializable{
 
-	   private Long id;
+	   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Long id;
 	   private String name;
 	   private List<HospitalSpecial> hospitalSpecial;
 	   private List<Doctor> doctor;

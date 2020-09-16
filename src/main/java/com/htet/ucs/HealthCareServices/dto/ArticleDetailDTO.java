@@ -2,6 +2,8 @@ package com.htet.ucs.HealthCareServices.dto;
 
 import java.io.Serializable;
 
+import com.htet.ucs.HealthCareServices.model.Article;
+
 public class ArticleDetailDTO implements Serializable {
 
 	/**
@@ -41,18 +43,28 @@ public class ArticleDetailDTO implements Serializable {
 		this.description = description;
 	}
 
-	public Long getArticle_id() {
-		return article_id;
-	}
 
-	public void setArticle_id(Long article_id) {
-		this.article_id = article_id;
-	}
 
 	private String name;
 	private String gender;
 	
 	private String description;
+	private Long articleId;
+	private String articleName;
+	public String getArticleName() {
+		return articleName;
+	}
+
+	public void setArticleName(String articleName) {
+		this.articleName = articleName;
+	}
+
+	public Long getArticleId() {
+		return articleId;
+	}
+
+	public void setArticleId(Long articleId) {
+		this.articleId = articleId;
+	}
 	
-	private Long article_id;
 }

@@ -15,7 +15,7 @@
 </head>
 <body>
 <h2>Insert Township</h2>
-  <form:form action="save_township" method="POST" modelAttribute="township">
+  <form:form action="create_township" method="POST" modelAttribute="township">
     <div class="form-group">
     <form:label path="name">Choose City Name:</form:label>
      <form:select path="city.id" class="form-control">

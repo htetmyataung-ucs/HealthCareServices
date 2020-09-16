@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h2>Hospital Doctor List</h2>
 <table>
 	<thead>
 		<tr>

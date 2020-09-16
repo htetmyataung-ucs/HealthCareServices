@@ -12,13 +12,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form:form action="save_article_detail" method="POST" modelAttribute="article_detail">
+<form:form action="create_article_detail" method="POST" modelAttribute="article_detail">
 	Choose Article:
-	<select>
+	<form:select path="articleId">
 		<c:forEach items="${articles}" var="art">
 			<option value="${art.id }">${art.name }</option>
 		</c:forEach>
-	</select><br><br>
+	</form:select><br><br>
 	Enter Name<form:input path="name"/><br>
 	<%-- Choose Gender<form:radiobutton path="gender" value="Male" label="Male"/><form:radiobutton path="gender" value="Female" label="Female"/><br> --%>
 	Choose Gender:

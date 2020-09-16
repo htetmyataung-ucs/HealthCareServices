@@ -15,7 +15,7 @@
 </head>
 <body>
 <h2>Insert Hospital Type</h2>
-  <form:form action="save_hospitaltype" method="POST" modelAttribute="hospitaltype">
+  <form:form action="create_hospitaltype" method="POST" modelAttribute="hospitaltype">
    <div class="form-group">
    <form:label path="name">Choose Hospital Type:</form:label>
      <form:select path="name" class="form-control">

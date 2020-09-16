@@ -4,11 +4,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.htet.ucs.HealthCareServices.dto.HospitalDTO;
 import com.htet.ucs.HealthCareServices.model.Hospital;
 import com.htet.ucs.HealthCareServices.repository.HospitalRepository;
-
+@Service
 public class HospitalService implements HospitalInterface{
 
 	@Autowired
@@ -24,7 +25,7 @@ public class HospitalService implements HospitalInterface{
 		// TODO Auto-generated method stub
 		List<Hospital> hList = hospitalRepository.findAll();
 		List<HospitalDTO> dtoList = hList.stream().map(h->convertHospitalDTO(h)).collect(Collectors.toList());
-		return null;
+		return dtoList;
 	}
 	
 	Hospital convertHospital(HospitalDTO dto) {
