@@ -11,6 +11,10 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class MedicalShop implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

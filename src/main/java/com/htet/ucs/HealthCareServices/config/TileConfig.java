@@ -22,6 +22,8 @@ import
   resolver = new TilesViewResolver(); resolver.setViewClass(TilesView.class);
   return resolver; 
   } 
+  
+  
   @Bean
  	public WebMvcConfigurer addResourceHandlers() {
  		return new WebMvcConfigurer() {

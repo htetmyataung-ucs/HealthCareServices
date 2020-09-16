@@ -21,7 +21,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach items="${user}" var="u">
+		<c:forEach items="${userList}" var="u">
 			<tr>
 				
 			    <td>${u.name }</td>
@@ -30,7 +30,7 @@
 			    <td>${u.age }</td>
 			    <td>${u.address }</td>
 			    <td>${u.bloodType }</td>
-			    <td>${u.password }
+			    <td>${u.password }</td>
 				
 			</tr>
 		</c:forEach>

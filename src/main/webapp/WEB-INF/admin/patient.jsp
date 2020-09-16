@@ -14,7 +14,7 @@
 </head>
 <body>
 <h2>Insert Patient</h2>
- <form:form action="save_user" method="POST" modelAttribute="hospitaldetail">
+ <form:form action="create_patient" method="POST" modelAttribute="patient">
  
  <div class="form-group">
      <form:label path="name">Name:</form:label>
@@ -46,8 +46,6 @@
       <form:input type="text" class="form-control" placeholder="Enter blood type" path="bloodType"></form:input>
     </div>
     
-   
-     
     <button type="submit" class="btn btn-primary">Insert</button>
   </form:form>
 </body>

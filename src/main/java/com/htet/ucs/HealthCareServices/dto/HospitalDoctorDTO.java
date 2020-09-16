@@ -1,58 +1,30 @@
-package com.htet.ucs.HealthCareServices.model;
+package com.htet.ucs.HealthCareServices.dto;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.sql.Time;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import com.htet.ucs.HealthCareServices.model.Doctor;
+import com.htet.ucs.HealthCareServices.model.Hospital;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-@Entity
-public class HospitalDetails implements Serializable{
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+public class HospitalDoctorDTO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
-	private String phone;
-	private String address;
-
-	
 	private Date startDate;
 	private String startTime;
 	private Date endDate;
 	private String endTime;
-	
-
-	@OneToOne
-	@JoinColumn(name="hospital_id")
+	private Boolean status;
 	private Hospital hospital;
+	private Doctor doctor;
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	
 	public Date getStartDate() {
 		return startDate;
 	}
@@ -77,11 +49,23 @@ public class HospitalDetails implements Serializable{
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
+	public Boolean getStatus() {
+		return status;
+	}
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
 	public Hospital getHospital() {
 		return hospital;
 	}
 	public void setHospital(Hospital hospital) {
 		this.hospital = hospital;
+	}
+	public Doctor getDoctor() {
+		return doctor;
+	}
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
 	}
 	
 }

@@ -15,7 +15,7 @@
 </head>
 <body>
 <h2>Insert Booking</h2>
- <form:form action="save_booking" method="POST" modelAttribute="booking">
+ <form:form action="create_booking" method="POST" modelAttribute="booking">
  <div class="form-group">
     <form:label path="patient">Patient Name:</form:label>
      <form:select path="patient.id" class="form-control">

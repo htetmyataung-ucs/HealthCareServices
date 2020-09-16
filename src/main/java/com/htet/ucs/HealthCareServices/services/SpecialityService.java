@@ -4,11 +4,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.htet.ucs.HealthCareServices.dto.SpecialityDTO;
 import com.htet.ucs.HealthCareServices.model.Speciality;
 import com.htet.ucs.HealthCareServices.repository.SpecialityRepository;
-
+@Service
 public class SpecialityService implements SpecialityInterface{
 
 	@Autowired

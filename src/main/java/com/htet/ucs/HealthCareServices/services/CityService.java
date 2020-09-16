@@ -17,7 +17,7 @@ public class CityService implements CityInterface{
 	@Override
 	public void saveCity(CityDTO cityDTO) {
 		// TODO Auto-generated method stub
-		cityRepository.save(converCity(cityDTO));
+		cityRepository.save(convertCity(cityDTO));
 	}
 
 	@Override
@@ -28,7 +28,7 @@ public class CityService implements CityInterface{
 		return dtoList;
 	}
 	
-	City converCity(CityDTO dto) {
+	City convertCity(CityDTO dto) {
 		City c = new City();
 		c.setName(dto.getName());
 		c.setTownship(dto.getTownship());
@@ -41,5 +41,7 @@ public class CityService implements CityInterface{
 		cdto.setTownship(dto.getTownship());
 		return cdto;
 	}
+
+	
 
 }

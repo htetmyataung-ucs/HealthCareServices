@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form:form action="save_article" method="POST" modelAttribute="article">
+<form:form action="create_article" method="POST" modelAttribute="article">
 	Enter Name:<form:input path="name"/>
 	<input type="submit" value="Submit">
 </form:form>

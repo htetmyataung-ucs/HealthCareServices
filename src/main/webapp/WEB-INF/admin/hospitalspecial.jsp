@@ -15,7 +15,7 @@
 </head>
 <body>
 <h2>Insert Hospital_Special</h2>
-  <form:form action="save_hospitalspecial" method="POST" modelAttribute="hospitalspecial">
+  <form:form action="create_hospitalspecial" method="POST" modelAttribute="hospitalspecial">
     <div class="form-group">
     <form:label path="speciality">Choose Speciality:</form:label>
      <form:select path="speciality.id" class="form-control">

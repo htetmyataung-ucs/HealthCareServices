@@ -1,13 +1,11 @@
 package com.htet.ucs.HealthCareServices.services;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.htet.ucs.HealthCareServices.dto.CityDTO;
 import com.htet.ucs.HealthCareServices.dto.TownshipDTO;
 import com.htet.ucs.HealthCareServices.model.TownShip;
 import com.htet.ucs.HealthCareServices.repository.TownshipRepository;
@@ -26,7 +24,7 @@ public class TownshipService implements TownshipInterface{
 		// TODO Auto-generated method stub
 		List<TownShip> tList = townshipRepository.findAll();
 		List<TownshipDTO> dtoList=tList.stream().map(t->convertTownshipDTO(t)).collect(Collectors.toList());		
-		return null;
+		return dtoList;
 	}
 	
 	TownShip convertTownship(TownshipDTO dto) {
