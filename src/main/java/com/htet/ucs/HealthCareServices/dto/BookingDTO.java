@@ -14,8 +14,15 @@ public class BookingDTO implements Serializable{
 	private Long id;
 	private Date date;
 	private String time;
+	
 	private Hospital hospital;
+	private Long hospitalId;
+	private String hospitalName;
+	
 	private Patient patient;
+	private Long patientId;
+	private String patientName;
+	
 	public Long getId() {
 		return id;
 	}
@@ -46,5 +53,30 @@ public class BookingDTO implements Serializable{
 	public void setPatient(Patient patient) {
 		this.patient = patient;
 	}
+	public Long getHospitalId() {
+		return hospitalId;
+	}
+	public void setHospitalId(Long hospitalId) {
+		this.hospitalId = hospitalId;
+	}
+	public String getHospitalName() {
+		return hospitalName;
+	}
+	public void setHospitalName(String hospitalName) {
+		this.hospitalName = hospitalName;
+	}
+	public Long getPatientId() {
+		return patientId;
+	}
+	public void setPatientId(Long patientId) {
+		this.patientId = patientId;
+	}
+	public String getPatientName() {
+		return patientName;
+	}
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
+	}
+	
 	
 }

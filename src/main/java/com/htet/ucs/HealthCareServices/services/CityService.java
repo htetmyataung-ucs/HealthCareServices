@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.htet.ucs.HealthCareServices.dto.CityDTO;
-import com.htet.ucs.HealthCareServices.model.City;
 import com.htet.ucs.HealthCareServices.repository.CityRepository;
+import com.htet.ucs.HealthCareServices.service.mapper.CityConverter;
 @Service
 public class CityService implements CityInterface{
 	@Autowired
@@ -17,31 +17,13 @@ public class CityService implements CityInterface{
 	@Override
 	public void saveCity(CityDTO cityDTO) {
 		// TODO Auto-generated method stub
-		cityRepository.save(convertCity(cityDTO));
+		cityRepository.save(CityConverter.convertToEntity(cityDTO));
 	}
 
 	@Override
 	public List<CityDTO> getAllCityList() {
 		// TODO Auto-generated method stub
-		List<City> city = cityRepository.findAll();
-		List<CityDTO> dtoList=city.stream().map(c->convertCityDTO(c)).collect(Collectors.toList());		
-		return dtoList;
+		return cityRepository.findAll().stream().map(CityConverter::convertToDTO).collect(Collectors.toList());
 	}
-	
-	City convertCity(CityDTO dto) {
-		City c = new City();
-		c.setName(dto.getName());
-		c.setTownship(dto.getTownship());
-		return c;
-	}
-	
-	CityDTO convertCityDTO(City dto) {
-		CityDTO cdto=new CityDTO();
-		cdto.setName(dto.getName());
-		cdto.setTownship(dto.getTownship());
-		return cdto;
-	}
-
-	
 
 }

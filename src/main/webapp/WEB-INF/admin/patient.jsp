@@ -15,13 +15,13 @@
 <body>
 <h2>Insert Patient</h2>
  <form:form action="create_patient" method="POST" modelAttribute="patient">
- 
+ <div class="container">
  <div class="form-group">
      <form:label path="name">Name:</form:label>
       <form:input type="text" class="form-control" placeholder="Enter name" path="name"></form:input>
     </div>
  
-  <div class="form-group">
+  <div class="form-group"> 
      <form:label path="phone">Phone:</form:label>
       <form:input type="text" class="form-control" placeholder="Enter phone" path="phone"></form:input>
     </div>
@@ -47,6 +47,7 @@
     </div>
     
     <button type="submit" class="btn btn-primary">Insert</button>
+    </div>
   </form:form>
 </body>
 </html>

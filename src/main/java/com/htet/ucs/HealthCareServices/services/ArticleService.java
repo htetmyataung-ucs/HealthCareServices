@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.htet.ucs.HealthCareServices.dto.ArticleDTO;
-import com.htet.ucs.HealthCareServices.model.Article;
 import com.htet.ucs.HealthCareServices.repository.ArticleRepository;
+import com.htet.ucs.HealthCareServices.service.mapper.ArticleConverter;
 
 @Service
 public class ArticleService implements ArticleInterface{
@@ -18,27 +18,13 @@ public class ArticleService implements ArticleInterface{
 	@Override
 	public void saveArtical(ArticleDTO articleDTO) {
 		// TODO Auto-generated method stub
-		articleRepository.save(convertArticle(articleDTO));
+		articleRepository.save(ArticleConverter.convertToEntity(articleDTO));
 	}
 
 	@Override
 	public List<ArticleDTO> getAllArticleList() {
 		// TODO Auto-generated method stub
-		List<Article> a = articleRepository.findAll();
-		List<ArticleDTO> aDTO = a.stream().map(s->convertArticleDTO(s)).collect(Collectors.toList());
-		return aDTO;
-	}
-	Article convertArticle(ArticleDTO articleDTO) {
-		Article a = new Article();
-		a.setName(articleDTO.getName());
-		a.setArticledetailList(articleDTO.getArticledetailList());
-		return a;
-	}
-	ArticleDTO convertArticleDTO(Article articleDTO) {
-		ArticleDTO a = new ArticleDTO();
-		a.setName(articleDTO.getName());
-		a.setArticledetailList(articleDTO.getArticledetailList());
-		return a;
+		return articleRepository.findAll().stream().map(ArticleConverter::convertToDTO).collect(Collectors.toList());
 	}
 	
 }

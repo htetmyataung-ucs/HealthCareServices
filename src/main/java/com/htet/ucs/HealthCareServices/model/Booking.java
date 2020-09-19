@@ -22,10 +22,10 @@ public class Booking implements Serializable{
 	private String time;
 	@ManyToOne
 	@JoinColumn(name="hospital_id")
-	private Hospital hospital;
+	private Hospital hospital = new Hospital();
 	@ManyToOne
 	@JoinColumn(name="patient_id")
-	private Patient patient;
+	private Patient patient = new Patient();
 
 	public Long getId() {
 		return id;
@@ -57,7 +57,9 @@ public class Booking implements Serializable{
 	public void setTime(String time) {
 		this.time = time;
 	}
-	
-	
+	public Booking() {
+		super();
+	}
+		
 	
 }

@@ -28,7 +28,7 @@ public class Patient implements Serializable{
 	private String bloodType;
 	@ManyToOne
 	@JoinColumn(name="user_id")
-	private User user;
+	private User user = new User();
 	public Long getId() {
 		return id;
 	}
@@ -84,6 +84,9 @@ public class Patient implements Serializable{
 	}
 	public void setBooking(List<Booking> booking) {
 		this.booking = booking;
+	}
+	public Patient() {
+		super();
 	}
 	
 	

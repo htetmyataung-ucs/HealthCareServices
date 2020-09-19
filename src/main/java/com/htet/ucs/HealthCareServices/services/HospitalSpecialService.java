@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.htet.ucs.HealthCareServices.dto.HospitalSpecialDTO;
-import com.htet.ucs.HealthCareServices.model.HospitalSpecial;
 import com.htet.ucs.HealthCareServices.repository.HospitalSpecialRepository;
+import com.htet.ucs.HealthCareServices.service.mapper.HospitalSpecialityConverter;
 @Service
 public class HospitalSpecialService implements HospitalSpecialInterface{
 
@@ -17,31 +17,12 @@ public class HospitalSpecialService implements HospitalSpecialInterface{
 	@Override
 	public void saveHospitalSpecial(HospitalSpecialDTO dto) {
 		// TODO Auto-generated method stub
-		hospitalspecialRepository.save(convertHospitalSpecial(dto));
+		hospitalspecialRepository.save(HospitalSpecialityConverter.convertToEntity(dto));
 	}
 
 	@Override
 	public List<HospitalSpecialDTO> getAllHospitalSpecialList() {
 		// TODO Auto-generated method stub
-		List<HospitalSpecial> hsList=hospitalspecialRepository.findAll();
-		List<HospitalSpecialDTO> dtoList=hsList.stream().map(hs->convertHospitalSpecialDTO(hs)).collect(Collectors.toList());
-		return dtoList;
+		return hospitalspecialRepository.findAll().stream().map(HospitalSpecialityConverter::convertToDTO).collect(Collectors.toList());
 	}
-	
-	HospitalSpecial convertHospitalSpecial(HospitalSpecialDTO dto) {
-		HospitalSpecial hs=new HospitalSpecial();
-		hs.setHospital(dto.getHospital());
-		hs.setSpeciality(dto.getSpeciality());
-		hs.setStatus(dto.isStatus());
-		return hs;
-	}
-	
-	HospitalSpecialDTO convertHospitalSpecialDTO(HospitalSpecial hs) {
-		HospitalSpecialDTO hsdto=new HospitalSpecialDTO();
-		hsdto.setHospital(hs.getHospital());
-		hsdto.setSpeciality(hs.getSpeciality());
-		hsdto.setStatus(hs.isStatus());
-		return hsdto;
-	}
-
 }

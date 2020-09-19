@@ -21,6 +21,7 @@
         <lombok.version>1.18.2</lombok.version>
 	</properties>
 
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -44,7 +45,6 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.20</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -73,6 +73,8 @@
 			<scope>provided</scope>
 		</dependency>
 	
+	<!-- Tiles dependency -->
+	
 		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-jsp -->
 <dependency>
     <groupId>org.apache.tiles</groupId>
@@ -97,7 +99,7 @@
     <artifactId>tiles-el</artifactId>
     <version>3.0.8</version>
 </dependency>
-<dependency>
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
@@ -106,6 +108,11 @@
 			<artifactId>tomcat-embed-jasper</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+            <groupId>org.springframework.restdocs</groupId>
+            <artifactId>spring-restdocs-mockmvc</artifactId>
+            <scope>test</scope>
+        </dependency>
 	</dependencies>
 
 	<build>

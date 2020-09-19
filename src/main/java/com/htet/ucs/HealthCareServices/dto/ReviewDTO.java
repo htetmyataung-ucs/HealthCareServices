@@ -13,6 +13,8 @@ public class ReviewDTO implements Serializable{
 	private String description;
 	private String rating;
 	private Hospital hospital;
+	private String hospitalName;
+	private Long hospitalId;
 	public Long getId() {
 		return id;
 	}
@@ -37,5 +39,18 @@ public class ReviewDTO implements Serializable{
 	public void setHospital(Hospital hospital) {
 		this.hospital = hospital;
 	}
+	public String getHospitalName() {
+		return hospitalName;
+	}
+	public void setHospitalName(String hospitalName) {
+		this.hospitalName = hospitalName;
+	}
+	public Long getHospitalId() {
+		return hospitalId;
+	}
+	public void setHospitalId(Long hospitalId) {
+		this.hospitalId = hospitalId;
+	}
+	
 	
 }

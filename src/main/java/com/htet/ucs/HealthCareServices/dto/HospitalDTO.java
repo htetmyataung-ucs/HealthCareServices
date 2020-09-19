@@ -19,9 +19,19 @@ public class HospitalDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String name;
+	
 	private HospitalCategory hospitalCategory;
+	private Long hospitalCategoryId;
+	private String hospitalCategoryName;
+	
 	private HospitalType hospitalType;
+	private Long hospitalTypeId;
+	private String hospitalTypeName;
+	
 	private TownShip townShip;
+	private Long townShipId;
+	private String townShipName;
+	
 	private List<Booking> booking;
 	private List<Reviews> reviews;
 	private List<HospitalSpecial> hospitalSpeciality;
@@ -79,6 +89,42 @@ public class HospitalDTO implements Serializable{
 	}
 	public void setHospitalDoctor(List<HospitalDoctor> hospitalDoctor) {
 		this.hospitalDoctor = hospitalDoctor;
+	}
+	public Long getHospitalCategoryId() {
+		return hospitalCategoryId;
+	}
+	public void setHospitalCategoryId(Long hospitalCategoryId) {
+		this.hospitalCategoryId = hospitalCategoryId;
+	}
+	public String getHospitalCategoryName() {
+		return hospitalCategoryName;
+	}
+	public void setHospitalCategoryName(String hospitalCategoryName) {
+		this.hospitalCategoryName = hospitalCategoryName;
+	}
+	public Long getHospitalTypeId() {
+		return hospitalTypeId;
+	}
+	public void setHospitalTypeId(Long hospitalTypeId) {
+		this.hospitalTypeId = hospitalTypeId;
+	}
+	public String getHospitalTypeName() {
+		return hospitalTypeName;
+	}
+	public void setHospitalTypeName(String hospitalTypeName) {
+		this.hospitalTypeName = hospitalTypeName;
+	}
+	public Long getTownShipId() {
+		return townShipId;
+	}
+	public void setTownShipId(Long townShipId) {
+		this.townShipId = townShipId;
+	}
+	public String getTownShipName() {
+		return townShipName;
+	}
+	public void setTownShipName(String townShipName) {
+		this.townShipName = townShipName;
 	}
 	
 	

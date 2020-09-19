@@ -39,6 +39,9 @@ public class City implements Serializable{
 	public void setTownship(List<TownShip> township) {
 		this.township = township;
 	}
+	public City() {
+		
+	}
 	
 	
 }

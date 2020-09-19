@@ -25,7 +25,7 @@ public class HospitalDetail implements Serializable{
 
 	@OneToOne
 	@JoinColumn(name="hospital_id")
-	private Hospital hospital;
+	private Hospital hospital = new Hospital();
 	public Long getId() {
 		return id;
 	}
@@ -62,6 +62,9 @@ public class HospitalDetail implements Serializable{
 	}
 	public void setHospital(Hospital hospital) {
 		this.hospital = hospital;
+	}
+	public HospitalDetail() {
+		super();
 	}
 	
 }

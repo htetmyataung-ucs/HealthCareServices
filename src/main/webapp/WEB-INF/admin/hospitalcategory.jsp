@@ -15,7 +15,7 @@
 </head>
 <body>
 <h2>Insert Hospital Category</h2>
-  <form:form action="create_hospitalcategory" method="post" modelAttribute="hospitalcategory">
+  <form:form action="create_hospitalCategory" method="post" modelAttribute="hospitalcategory">
     <div class="form-group">
       <form:label path="name">Hospital Category Name:</form:label>
       <form:input type="text" class="form-control" placeholder="Enter Hospital Category name" path="name"></form:input>

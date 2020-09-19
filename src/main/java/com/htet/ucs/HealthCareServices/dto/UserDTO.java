@@ -15,7 +15,7 @@ public class UserDTO implements Serializable{
 	private String phone;
 	private String nrc;
 	private Integer age;
-	private String Address;
+	private String address;
 	private String bloodType;
 	private String password;
 	private List<Patient> patient;
@@ -49,11 +49,12 @@ public class UserDTO implements Serializable{
 	public void setAge(Integer age) {
 		this.age = age;
 	}
+	
 	public String getAddress() {
-		return Address;
+		return address;
 	}
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 	}
 	public String getBloodType() {
 		return bloodType;

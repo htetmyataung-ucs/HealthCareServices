@@ -16,7 +16,7 @@
 <body>
 <h2>Insert Hospital Detail</h2>
  <form:form action="create_user" method="POST" modelAttribute="user">
- 
+ <div class="container">
  <div class="form-group">
      <form:label path="name">Name:</form:label>
       <form:input type="text" class="form-control" placeholder="Enter name" path="name"></form:input>
@@ -52,12 +52,8 @@
       <form:input type="password" class="form-control" placeholder="Enter password" path="password"></form:input>
     </div>
     
-    <div class="form-group">
-     <form:label path="comfirmpassword">Confirm Password:</form:label>
-      <form:input type="password" class="form-control" placeholder="Enter Confirm password" path="comfirmpassword"></form:input>
-    </div>
-     
     <button type="submit" class="btn btn-primary">Insert</button>
+    </div>
   </form:form>
 </body>
 </html>

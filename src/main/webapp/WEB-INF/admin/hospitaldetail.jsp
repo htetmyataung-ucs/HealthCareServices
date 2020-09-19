@@ -14,13 +14,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h2>Insert Hospital Detail</h2>
- <form:form action="save_hospitaldetail" method="POST" modelAttribute="hospitaldetail">
+
+ <form:form action="create_hospitalDetail" method="POST" modelAttribute="hospitaldetail">
+ <div class="container">
+ <h2>Insert Hospital Detail</h2>
  <div class="form-group">
-    <form:label path="hospital">Hospital Name:</form:label>
-     <form:select path="hospital.id" class="form-control">
-        <c:forEach items="${hospital }" var="hospital">
-           <form:option value="${hospital.id }">${hospital.name }</form:option>
+    <form:label path="hospitalId">Hospital Name:</form:label>
+     <form:select path="hospitalId" class="form-control">
+        <c:forEach items="${hospitalList}" var="h">
+           <form:option value="${h.id }">${h.name }</form:option>
         </c:forEach>
      </form:select>
      </div>
@@ -37,15 +39,17 @@
   
     <div class="form-group">
      <form:label path="time">Time:</form:label>
-      <form:input type="text" class="form-control" placeholder="Enter Time" path="time" type="time"></form:input>
+      <form:input type="text" class="form-control" placeholder="Enter Time" path="time" ></form:input>
     </div>
     
     <div class="form-group">
      <form:label path="date">Date:</form:label>
-      <form:input type="text" class="form-control" placeholder="Enter Date" path="date" type="date"></form:input>
+      <form:input type="text" class="form-control" placeholder="Enter Date" path="date"></form:input>
     </div>
      
     <button type="submit" class="btn btn-primary">Insert</button>
+    </div>
   </form:form>
+  
 </body>
 </html>

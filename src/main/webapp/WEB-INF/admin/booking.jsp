@@ -16,19 +16,20 @@
 <body>
 <h2>Insert Booking</h2>
  <form:form action="create_booking" method="POST" modelAttribute="booking">
+ <div class="container">
  <div class="form-group">
-    <form:label path="patient">Patient Name:</form:label>
-     <form:select path="patient.id" class="form-control">
-        <c:forEach items="${patient }" var="patient">
+    <form:label path="patientId">Patient Name:</form:label>
+     <form:select path="patientId" class="form-control">
+        <c:forEach items="${patientList}" var="patient">
            <form:option value="${patient.id }">${patient.name }</form:option>
         </c:forEach>
      </form:select>
      </div>
      
    <div class="form-group">
-    <form:label path="hospital">Hospital Name:</form:label>
-     <form:select path="hospital.id" class="form-control">
-        <c:forEach items="${hospital }" var="hospital">
+    <form:label path="hospitalId">Hospital Name:</form:label>
+     <form:select path="hospitalId" class="form-control">
+        <c:forEach items="${hospitalList}" var="hospital">
            <form:option value="${hospital.id }">${hospital.name }</form:option>
         </c:forEach>
      </form:select>
@@ -37,7 +38,7 @@
  
   <div class="form-group">
      <form:label path="date">Date:</form:label>
-      <form:input type="text" class="form-control" placeholder="Enter date" path="date" type="date"></form:input>
+      <form:input class="form-control" placeholder="Enter date" path="date" type="date"></form:input>
     </div>
     
     <div class="form-group">
@@ -45,9 +46,8 @@
       <form:input type="text" class="form-control" placeholder="Enter time" path="time"></form:input>
     </div>
   
-   
-     
     <button type="submit" class="btn btn-primary">Insert</button>
+    </div>
   </form:form>
 </body>
 </html>

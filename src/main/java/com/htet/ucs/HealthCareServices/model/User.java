@@ -22,7 +22,7 @@ public class User implements Serializable{
 	private String phone;
 	private String nrc;
 	private Integer age;
-	private String Address;
+	private String address;
 	private String bloodType;
 	private String password;
 	public Long getId() {
@@ -55,11 +55,12 @@ public class User implements Serializable{
 	public void setAge(Integer age) {
 		this.age = age;
 	}
+	
 	public String getAddress() {
-		return Address;
+		return address;
 	}
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 	}
 	public String getBloodType() {
 		return bloodType;
@@ -80,6 +81,9 @@ public class User implements Serializable{
 	}
 	public void setPatient(List<Patient> patient) {
 		this.patient = patient;
+	}
+	public User() {
+		super();
 	}
 	
 	

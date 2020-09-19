@@ -31,7 +31,7 @@ public class TownShipController {
 	  */
 	@GetMapping("/create_township")
 	public String createTownship(Model model) {
-		model.addAttribute("city", cityInterface.getAllCityList());
+		model.addAttribute("cityList", cityInterface.getAllCityList());
 		model.addAttribute("township", new TownshipDTO());
 		return "township";
 	}
@@ -39,9 +39,9 @@ public class TownShipController {
 	@PostMapping("/create_township")
 	public String saveTownship(@ModelAttribute("township") TownshipDTO t, Model model) {
 		townshipInterface.saveTownship(t);
-		return "redirect:/township_list";
+		return "redirect:/townshipList";
 	}
-	@GetMapping("/township_list")
+	@GetMapping("/townshipList")
 	public String townshipList(Model model) {
 		model.addAttribute("township",	townshipInterface.getAllTownshipList());
 		return "township_list";

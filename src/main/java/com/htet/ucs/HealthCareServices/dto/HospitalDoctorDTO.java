@@ -19,6 +19,10 @@ public class HospitalDoctorDTO implements Serializable{
 	private Boolean status;
 	private Hospital hospital;
 	private Doctor doctor;
+	private Long doctorId;
+	private String doctorName;
+	private Long hospitalId;
+	private String hospitalName;
 	public Long getId() {
 		return id;
 	}
@@ -67,5 +71,30 @@ public class HospitalDoctorDTO implements Serializable{
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
 	}
+	public Long getDoctorId() {
+		return doctorId;
+	}
+	public void setDoctorId(Long doctorId) {
+		this.doctorId = doctorId;
+	}
+	public String getDoctorName() {
+		return doctorName;
+	}
+	public void setDoctorName(String doctorName) {
+		this.doctorName = doctorName;
+	}
+	public Long getHospitalId() {
+		return hospitalId;
+	}
+	public void setHospitalId(Long hospitalId) {
+		this.hospitalId = hospitalId;
+	}
+	public String getHospitalName() {
+		return hospitalName;
+	}
+	public void setHospitalName(String hospitalName) {
+		this.hospitalName = hospitalName;
+	}
+	
 	
 }

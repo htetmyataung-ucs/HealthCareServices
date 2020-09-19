@@ -5,11 +5,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Hospital List</title>
+<%@ include file="/WEB-INF/common/bootstrap.jsp" %>
 </head>
 <body>
-<table>
-	<thead>
+<div class="container">
+<h2>Hospital List</h2>
+<table class="table table-hover">
+	<thead class="thead-dark">
 		<tr>
 		    <th>Hospital Name</th>
 			<th>Hospital Category Name</th>
@@ -21,12 +24,13 @@
 		<c:forEach items="${hospital}" var="h">
 			<tr>
 				<td>${h.name }</td>
-				<td>${h.hospitalCategory.name }</td>
-			    <td>${h.hospitalType.name }</td>
-				<td>${h.townShip.name }</td>
+				<td>${h.hospitalCategoryName }</td>
+			    <td>${h.hospitalTypeName }</td>
+				<td>${h.townShipName }</td>
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
+</div>
 </body>
 </html>

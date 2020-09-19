@@ -39,5 +39,8 @@ public class HospitalCategory implements Serializable{
 	public void setHospital(List<Hospital> hospital) {
 		this.hospital = hospital;
 	}
+	public HospitalCategory() {
+		super();
+	}
 	
 }

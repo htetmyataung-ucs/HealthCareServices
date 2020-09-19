@@ -30,7 +30,7 @@ public class ArticleDetail implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name="article_id")
-	private Article article;
+	private Article article = new Article();
 
 	public ArticleDetail(String name, String gender, String description, Article article) {
 		super();

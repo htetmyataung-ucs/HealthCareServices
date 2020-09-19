@@ -35,7 +35,7 @@ public class TownShip implements Serializable{
 	}
 	@ManyToOne
 	@JoinColumn(name="city_id")
-	private City city;
+	private City city = new City();
 	public City getCity() {
 		return city;
 	}
@@ -58,5 +58,8 @@ public class TownShip implements Serializable{
 	public void setMedicalShop(List<MedicalShop> medicalShop) {
 		this.medicalShop = medicalShop;
 	}
+	public TownShip() {
 		
+	}
+	
 }

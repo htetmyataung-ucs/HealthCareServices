@@ -25,17 +25,17 @@ public class Hospital implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name="hospitalCategory_id")
-	private HospitalCategory hospitalCategory;
+	private HospitalCategory hospitalCategory = new HospitalCategory();
 	
 	
 	@ManyToOne
 	@JoinColumn(name="hospitalType_id")
-	private HospitalType hospitalType;
+	private HospitalType hospitalType = new HospitalType();
 	
 	
 	@ManyToOne
 	@JoinColumn(name="townShip_id")
-	private TownShip townShip;
+	private TownShip townShip = new TownShip();
 	
 	
 	public Long getId() {
@@ -111,6 +111,9 @@ public class Hospital implements Serializable{
 	}
 	public void setHospitalDoctor(List<HospitalDoctor> hospitalDoctor) {
 		this.hospitalDoctor = hospitalDoctor;
+	}
+	public Hospital() {
+		super();
 	}	
 	
 	

@@ -6,11 +6,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Article Detail List</title>
+<%@ include file="/WEB-INF/common/bootstrap.jsp" %>
 </head>
 <body>
-<table border="1">
-	<thead>
+<div class="container">
+<h2>ArticleDetail List</h2>
+<table class="table table-hover">
+	<thead class="thead-dark">
 		<tr>
 			<th>Name</th>
 			<th>Gender</th>
@@ -24,10 +27,11 @@
 				<td>${ads.name }</td>
 				<td>${ads.gender }</td>
 				<td>${ads.description }</td>
-				<td>${ads.article.name }</td>
+				<td>${ads.articleName}</td>
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
+</div>
 </body>
 </html>

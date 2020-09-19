@@ -6,21 +6,17 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ <%@ include file="/WEB-INF/common/bootstrap.jsp"%>
 </head>
 <body>
-<h2>Insert Hospital Doctor</h2>
-  <form:form action="create_hospitalDuoctor" method="POST" modelAttribute="hospitaldoctor">
-  
+
+  <form:form action="create_hospitalDoctor" method="POST" modelAttribute="hospitaldoctor">
+  <div class="container">
+  <h2>Insert Hospital Doctor</h2>
   <div class="form-group">
     <form:label path="hospital">Hospital Name:</form:label>
-     <form:select path="hospital.id" class="form-control">
-        <c:forEach items="${hospital }" var="h">
+     <form:select path="hospitalId" class="form-control">
+        <c:forEach items="${hospitalList}" var="h">
            <form:option value="${h.id }">${h.name }</form:option>
         </c:forEach>
      </form:select>
@@ -28,29 +24,40 @@
   
   <div class="form-group">
     <form:label path="doctor">Doctor Name:</form:label>
-     <form:select path="doctor.id" class="form-control">
-        <c:forEach items="${doctor }" var="doctor">
+     <form:select path="doctorId" class="form-control">
+        <c:forEach items="${doctorList}" var="doctor">
            <form:option value="${doctor.id }">${doctor.name }</form:option>
         </c:forEach>
      </form:select>
      </div>
      
   <div class="form-group">
-     <form:label path="date">Date:</form:label>
-      <form:input class="form-control" placeholder="Enter Date" path="date" type="Date"></form:input>
+     <form:label path="startDate">StartDate:</form:label>
+      <form:input class="form-control" placeholder="Enter startDate" path="startDate" type="Date"></form:input>
+    </div>
+    <div class="form-group">
+     <form:label path="endDate">EndDate:</form:label>
+      <form:input class="form-control" placeholder="Enter endDate" path="endDate" type="Date"></form:input>
     </div>
     
+    
     <div class="form-group">
-     <form:label path="time">Time:</form:label>
-      <form:input class="form-control" placeholder="Enter Time" path="time" type="Time"></form:input>
+     <form:label path="startTime">StartTime:</form:label>
+      <form:input class="form-control" placeholder="Enter startTime" path="startTime" type="text"></form:input>
     </div>
-  
+  	<div class="form-group">
+     <form:label path="endTime">EndTime:</form:label>
+      <form:input class="form-control" placeholder="Enter endTime" path="endTime" type="text"></form:input>
+    </div>
+    
+    
     <div class="form-group">
      <form:label path="status">Status:</form:label>
       <form:input type="text" class="form-control" placeholder="Enter Status" path="status"></form:input>
     </div>
      
     <button type="submit" class="btn btn-primary">Insert</button>
+    </div>
   </form:form>
 </body>
 </html>
