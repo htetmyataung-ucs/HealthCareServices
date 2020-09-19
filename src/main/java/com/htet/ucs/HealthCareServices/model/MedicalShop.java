@@ -54,6 +54,9 @@ public class MedicalShop implements Serializable{
 	public void setTownShip(TownShip townShip) {
 		this.townShip = townShip;
 	}
+	public MedicalShop() {
+		super();
+	}
 	
 	
 }

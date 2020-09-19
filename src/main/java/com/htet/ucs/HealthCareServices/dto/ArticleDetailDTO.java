@@ -47,7 +47,7 @@ public class ArticleDetailDTO implements Serializable {
 
 	private String name;
 	private String gender;
-	
+	private Article article;
 	private String description;
 	private Long articleId;
 	private String articleName;
@@ -65,6 +65,14 @@ public class ArticleDetailDTO implements Serializable {
 
 	public void setArticleId(Long articleId) {
 		this.articleId = articleId;
+	}
+
+	public Article getArticle() {
+		return article;
+	}
+
+	public void setArticle(Article article) {
+		this.article = article;
 	}
 	
 }

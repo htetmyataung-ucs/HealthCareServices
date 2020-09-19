@@ -5,31 +5,38 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>HospitalDoctor List</title>
+<%@ include file="/WEB-INF/common/bootstrap.jsp" %>
 </head>
 <body>
+<div class="container">
 <h2>Hospital Doctor List</h2>
-<table>
-	<thead>
+<table class="table table-hover">
+	<thead class="thead-dark">
 		<tr>
+			<th>Hospital Name</th>
 		    <th>Doctor Name</th>
-			<th>Date</th>
-			<th>Time</th>
+			<th>StartDate</th>
+			<th>EndDate</th>
+			<th>StartTime</th>
+			<th>EndTime</th>
 			<th>Status</th>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach items="${hospitaldoctor}" var="hd">
 			<tr>
-				<td>${hd.doctor.name }</td>
-				<td>${hd.date }</td>
-				<td>${hd.time }</td>
-				<td>${hd.status }</td>
-			    
-				
+				<td>${hd.hospitalName}</td>
+				<td>${hd.doctorName}</td>
+				<td>${hd.startDate }</td>
+				<td>${hd.endDate}</td>
+				<td>${hd.startTime}</td>
+				<td>${hd.endTime}</td>
+				<td>${hd.status }</td>  			
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
+</div>
 </body>
 </html>

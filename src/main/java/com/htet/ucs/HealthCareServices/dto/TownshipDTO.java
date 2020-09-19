@@ -1,10 +1,7 @@
 package com.htet.ucs.HealthCareServices.dto;
 
 import java.io.Serializable;
-import java.util.List;
-
 import com.htet.ucs.HealthCareServices.model.City;
-import com.htet.ucs.HealthCareServices.model.Hospital;
 
 public class TownshipDTO implements Serializable{
 
@@ -15,7 +12,7 @@ public class TownshipDTO implements Serializable{
 	private Long id;
 	private String name;
 	private City city;
-	private List<Hospital> hospital;
+	
 	public Long getId() {
 		return id;
 	}
@@ -34,11 +31,21 @@ public class TownshipDTO implements Serializable{
 	public void setCity(City city) {
 		this.city = city;
 	}
-	public List<Hospital> getHospital() {
-		return hospital;
+	private String cityName;
+
+	public String getCityName() {
+		return cityName;
 	}
-	public void setHospital(List<Hospital> hospital) {
-		this.hospital = hospital;
+	public void setCityName(String cityName) {
+		this.cityName = cityName;
+	}
+	private Long city_id;
+
+	public Long getCity_id() {
+		return city_id;
+	}
+	public void setCity_id(Long city_id) {
+		this.city_id = city_id;
 	}
 	
 	

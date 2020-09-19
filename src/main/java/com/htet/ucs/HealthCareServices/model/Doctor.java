@@ -58,5 +58,9 @@ public class Doctor implements Serializable {
 	public void setHospitalDoctor(List<HospitalDoctor> hospitalDoctor) {
 		this.hospitalDoctor = hospitalDoctor;
 	}
+	public Doctor() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 }

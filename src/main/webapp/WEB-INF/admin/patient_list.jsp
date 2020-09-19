@@ -5,12 +5,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Patient List</title>
+<%@ include file="/WEB-INF/common/bootstrap.jsp" %>
 </head>
 <body>
+<div class="container">
 <h2>Patient List</h2>
-<table>
-	<thead>
+<table class="table table-hover">
+	<thead class="thead-dark">
 		<tr>
 		    <th>Patient Name</th>
 		    <th>Phone No:</th>
@@ -33,5 +35,6 @@
 		</c:forEach>
 	</tbody>
 </table>
+</div>
 </body>
 </html>

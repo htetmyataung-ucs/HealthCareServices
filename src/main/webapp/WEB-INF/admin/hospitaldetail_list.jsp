@@ -6,11 +6,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<%@ include file="/WEB-INF/common/bootstrap.jsp" %>
 </head>
 <body>
+<div class="container">
 <h2>Hospital Detail List</h2>
-<table>
-	<thead>
+<table class="table table-hover">
+	<thead class="thead-dark">
 		<tr>
 		    <th>Hospital Name</th>
 			<th>Open Date</th>
@@ -22,7 +24,7 @@
 	<tbody>
 		<c:forEach items="${hospitalDetailList}" var="hd">
 			<tr>
-				<td>${hd.doctor.name }</td>
+				<td>${hd.hospitalName }</td>
 				<td>${hd.date }</td>
 				<td>${hd.time }</td>
 				<td>${hd.phone }</td>
@@ -31,5 +33,6 @@
 		</c:forEach>
 	</tbody>
 </table>
+</div>
 </body>
 </html>

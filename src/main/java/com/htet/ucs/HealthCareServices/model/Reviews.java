@@ -22,7 +22,7 @@ public class Reviews implements Serializable{
 	private String rating;
 	@ManyToOne
 	@JoinColumn(name="hospital_id")
-	private Hospital hospital;
+	private Hospital hospital = new Hospital();
 	public Long getId() {
 		return id;
 	}
@@ -47,5 +47,8 @@ public class Reviews implements Serializable{
 	public void setHospital(Hospital hospital) {
 		this.hospital = hospital;
 	}
-
+	public Reviews() {
+		super();
+	}
+	
 }

@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.htet.ucs.HealthCareServices.dto.TownshipDTO;
-import com.htet.ucs.HealthCareServices.model.TownShip;
 import com.htet.ucs.HealthCareServices.repository.TownshipRepository;
+import com.htet.ucs.HealthCareServices.service.mapper.TownShipConverter;
 @Service
 public class TownshipService implements TownshipInterface{
     @Autowired
@@ -16,31 +16,13 @@ public class TownshipService implements TownshipInterface{
 	@Override
 	public void saveTownship(TownshipDTO townshipDTO) {
 		// TODO Auto-generated method stub
-		townshipRepository.save(convertTownship(townshipDTO));
+		townshipRepository.save(TownShipConverter.convertToEntity(townshipDTO));
 	}
 
 	@Override
 	public List<TownshipDTO> getAllTownshipList() {
 		// TODO Auto-generated method stub
-		List<TownShip> tList = townshipRepository.findAll();
-		List<TownshipDTO> dtoList=tList.stream().map(t->convertTownshipDTO(t)).collect(Collectors.toList());		
-		return dtoList;
-	}
-	
-	TownShip convertTownship(TownshipDTO dto) {
-		TownShip t = new TownShip();
-		t.setName(dto.getName());
-		t.setCity(dto.getCity());
-		t.setHospital(dto.getHospital());
-		return t;
-	}
-	
-	TownshipDTO convertTownshipDTO(TownShip t) {
-		TownshipDTO towndto=new TownshipDTO();
-		towndto.setName(t.getName());
-		towndto.setCity(t.getCity());
-		towndto.setHospital(t.getHospital());
-		return towndto;
+		return townshipRepository.findAll().stream().map(TownShipConverter::convertToDTO).collect(Collectors.toList());
 	}
 
 }

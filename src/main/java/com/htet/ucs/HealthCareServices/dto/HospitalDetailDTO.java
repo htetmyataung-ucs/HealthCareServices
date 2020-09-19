@@ -2,8 +2,6 @@ package com.htet.ucs.HealthCareServices.dto;
 
 import java.io.Serializable;
 
-import com.htet.ucs.HealthCareServices.model.Hospital;
-
 public class HospitalDetailDTO implements Serializable{
 	/**
 	 * 
@@ -15,7 +13,9 @@ public class HospitalDetailDTO implements Serializable{
 	
 	private String date;
 	private String time;
-	private Hospital hospital;
+	
+	private Long hospitalId;
+	private String hospitalName;
 	public Long getId() {
 		return id;
 	}
@@ -46,11 +46,17 @@ public class HospitalDetailDTO implements Serializable{
 	public void setTime(String time) {
 		this.time = time;
 	}
-	public Hospital getHospital() {
-		return hospital;
+	public Long getHospitalId() {
+		return hospitalId;
 	}
-	public void setHospital(Hospital hospital) {
-		this.hospital = hospital;
+	public void setHospitalId(Long hospitalId) {
+		this.hospitalId = hospitalId;
 	}
-	
+	public String getHospitalName() {
+		return hospitalName;
+	}
+	public void setHospitalName(String hospitalName) {
+		this.hospitalName = hospitalName;
+	}
+		
 }

@@ -15,15 +15,17 @@
 </head>
 <body>
 <h2>Insert Hospital Type</h2>
-  <form:form action="create_hospitaltype" method="POST" modelAttribute="hospitaltype">
+  <form:form action="create_hospitalType" method="POST" modelAttribute="hospitaltype">
+   <div class="container">
    <div class="form-group">
    <form:label path="name">Choose Hospital Type:</form:label>
      <form:select path="name" class="form-control">
-           <form:option value="private">private</form:option>
-           <form:option value="public">public</form:option>
+           <form:option value="private">PRIVATE</form:option>
+           <form:option value="public">PUBLIC</form:option>
      </form:select>
      </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
   </form:form>
 
 </body>

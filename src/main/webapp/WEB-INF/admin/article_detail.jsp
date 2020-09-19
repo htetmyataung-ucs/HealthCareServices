@@ -15,10 +15,10 @@
 <form:form action="create_article_detail" method="POST" modelAttribute="article_detail">
 	Choose Article:
 	<form:select path="articleId">
-		<c:forEach items="${articles}" var="art">
+		<c:forEach items="${articleList}" var="art">
 			<option value="${art.id }">${art.name }</option>
 		</c:forEach>
-	</form:select><br><br>
+	</form:select><br>
 	Enter Name<form:input path="name"/><br>
 	<%-- Choose Gender<form:radiobutton path="gender" value="Male" label="Male"/><form:radiobutton path="gender" value="Female" label="Female"/><br> --%>
 	Choose Gender:
@@ -40,7 +40,7 @@
     });
   </script>
   <br>
-	<input type="submit" value="Submit">
+	<input type="submit" value="Submit"/>  
 </form:form>
 
 </body>

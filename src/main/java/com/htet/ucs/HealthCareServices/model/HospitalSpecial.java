@@ -20,10 +20,10 @@ public class HospitalSpecial implements Serializable{
 	private Long id;
 	@ManyToOne 
 	@JoinColumn(name="hospital_id")
-	private Hospital hospital;
+	private Hospital hospital = new Hospital();
 	@ManyToOne
 	@JoinColumn(name="speciality_id")
-	private Speciality speciality;
+	private Speciality speciality = new Speciality();
 	private boolean status;
 	public Long getId() {
 		return id;
@@ -48,6 +48,9 @@ public class HospitalSpecial implements Serializable{
 	}
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+	public HospitalSpecial() {
+		super();
 	}
 	
 

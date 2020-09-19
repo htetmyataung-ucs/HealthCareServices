@@ -47,6 +47,9 @@ public List<Doctor> getDoctor() {
 public void setDoctor(List<Doctor> doctor) {
 	this.doctor = doctor;
 }
+public Speciality() {
+	super();
+}
 
    
 }

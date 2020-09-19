@@ -18,8 +18,8 @@
   <form:form action="create_township" method="POST" modelAttribute="township">
     <div class="form-group">
     <form:label path="name">Choose City Name:</form:label>
-     <form:select path="city.id" class="form-control">
-        <c:forEach items="${city }" var="city">
+     <form:select path="city_id" class="form-control">
+        <c:forEach items="${cityList }" var="city">
            <form:option value="${city.id }">${city.name }</form:option>
         </c:forEach>
      </form:select>

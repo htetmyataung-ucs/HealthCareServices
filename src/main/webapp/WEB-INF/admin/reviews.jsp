@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<meta charset="utf-8">
+	<meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -18,8 +18,8 @@
  <form:form action="save_reviews" method="POST" modelAttribute="reviews">
  <div class="form-group">
     <form:label path="hospital">Hospital Name:</form:label>
-     <form:select path="hospital.id" class="form-control">
-        <c:forEach items="${hospital }" var="hospital">
+     <form:select path="hospitalId" class="form-control">
+        <c:forEach items="${hospitalList}" var="hospital">
            <form:option value="${hospital.id }">${hospital.name }</form:option>
         </c:forEach>
      </form:select>

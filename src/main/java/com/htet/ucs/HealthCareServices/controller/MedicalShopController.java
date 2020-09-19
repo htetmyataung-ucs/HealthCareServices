@@ -17,6 +17,7 @@ public class MedicalShopController {
 	private MedicalShopInterface medicalShopInterface;
 	@Autowired
 	private TownshipInterface townshipInterface;
+	
 	@GetMapping("/medicalshop")
 	public String createMedicalShop(Model model) {
 		model.addAttribute("medicalShop", new MedicalShopDTO());
