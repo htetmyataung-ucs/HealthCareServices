@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.htet.ucs.HealthCareServices.dto.ReviewDTO;
-import com.htet.ucs.HealthCareServices.model.Reviews;
 import com.htet.ucs.HealthCareServices.repository.ReviewRepository;
+import com.htet.ucs.HealthCareServices.service.mapper.ReviewConverter;
 
 @Service
 public class ReviewService implements ReviewInterface{
@@ -17,28 +17,13 @@ public class ReviewService implements ReviewInterface{
 	@Override
 	public void saveReview(ReviewDTO reviewDTO) {
 		// TODO Auto-generated method stub
-		reviewRepository.save(convertReview(reviewDTO));
+		reviewRepository.save(ReviewConverter.convertToEntity(reviewDTO));
 	}
 
 	@Override
 	public List<ReviewDTO> getAllReviewList() {
 		// TODO Auto-generated method stub
-		List<Reviews> review = reviewRepository.findAll();
-		List<ReviewDTO> reviewDTO = review.stream().map(r->convertReviewDTO(r)).collect(Collectors.toList());
-		return reviewDTO;
+		return reviewRepository.findAll().stream().map(ReviewConverter::convertToDTO).collect(Collectors.toList());
 	}
-	Reviews convertReview(ReviewDTO reviewDTO) {
-		Reviews review = new Reviews();
-		review.setDescription(reviewDTO.getDescription());
-		review.setRating(reviewDTO.getRating());
-		review.setHospital(reviewDTO.getHospital());
-		return review;
-	}
-	ReviewDTO convertReviewDTO(Reviews reviewDTO) {
-		ReviewDTO review = new ReviewDTO();
-		review.setDescription(reviewDTO.getDescription());
-		review.setRating(reviewDTO.getRating());
-		review.setHospital(reviewDTO.getHospital());
-		return review;
-	}
+	
 }

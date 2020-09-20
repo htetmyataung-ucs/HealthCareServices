@@ -25,17 +25,17 @@ public class ReviewController {
 	public String createReview(Model model) {
 		model.addAttribute("hospitalList", hospitalInterface.getAllHospitalList());
 		model.addAttribute("review", new ReviewDTO());
-		return "review";
+		return "reviews";
 	}
 	@PostMapping("/create_review")
 	public String saveReview(@ModelAttribute("review") ReviewDTO review, Model model) {
 		reviewInterface.saveReview(review);
-		return "redirect:/review_list";
+		return "redirect:/reviews_list";
 	}
-	@GetMapping(value="/review_list")
+	@GetMapping(value="/reviews_list")
 	public String reviewList(Model model) {
 		model.addAttribute("reviewList", reviewInterface.getAllReviewList());
-		return "review_list";
+		return "reviews_list";
 	}
 	
 }

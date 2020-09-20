@@ -5,17 +5,6 @@ import com.htet.ucs.HealthCareServices.model.Article;
 
 public class ArticleConverter {
 
-	public static Article fromDTO(ArticleDTO dto) {
-		Article art=new Article();
-		art.setName(dto.getName());
-		art.setArticledetailList(dto.getArticledetailList());
-		return art;
-	}
-	public static Article fromId(Long id) {
-		Article art=new Article();
-		art.setId(id);
-		return art;
-	}
 	
 	//************Main*************
 	public static Article convertToEntity(ArticleDTO articleDTO) {
@@ -30,6 +19,5 @@ public class ArticleConverter {
 		aDTO.setName(article.getName());
 		aDTO.setArticledetailList(article.getArticledetailList());
 		return aDTO;
-		
 	}
 }

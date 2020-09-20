@@ -6,48 +6,67 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-	<meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/aq1wjkj3shean6kbqss5vduliotvnzh76uujc19hjkkoasc2/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<%@ include file="/WEB-INF/common/bootstrap.jsp"%>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="resources/assets/css/rating.css" rel="stylesheet">
 </head>
 <body>
+
+ <form:form action="create_review" method="POST" modelAttribute="review">
+ 
+<div class="container">
 <h2>Insert Reviews</h2>
- <form:form action="save_reviews" method="POST" modelAttribute="reviews">
  <div class="form-group">
-    <form:label path="hospital">Hospital Name:</form:label>
+    <form:label path="hospitalId"><h6>HospitalName:</h6></form:label>
      <form:select path="hospitalId" class="form-control">
-        <c:forEach items="${hospitalList}" var="hospital">
-           <form:option value="${hospital.id }">${hospital.name }</form:option>
+        <c:forEach items="${hospitalList}" var="h">
+           <form:option value="${h.id }">${h.name }</form:option>
         </c:forEach>
      </form:select>
      </div>
- 
-  <div class="form-group">
-     <form:label path="description">Description:</form:label>
-      <form:input type="text" class="form-control" placeholder="Enter Description" path="description"></form:input>
-    </div>
-    
-    <div class="form-group">
-    <div class="stars">
-  <form action="rating" class="form-control">
-    <input class="star star-5" id="star-5" type="radio" name="star"/>
-    <label class="star star-5" for="star-5"></label>
-    <input class="star star-4" id="star-4" type="radio" name="star"/>
-    <label class="star star-4" for="star-4"></label>
-    <input class="star star-3" id="star-3" type="radio" name="star"/>
-    <label class="star star-3" for="star-3"></label>
-    <input class="star star-2" id="star-2" type="radio" name="star"/>
-    <label class="star star-2" for="star-2"></label>
-    <input class="star star-1" id="star-1" type="radio" name="star"/>
-    <label class="star star-1" for="star-1"></label>
-  </form>
-</div>
-</div>
      
+ 	<!--  Description -->
+  <div class="form-group">
+     <form:label path="description"><h6>Description:</h6></form:label>
+     <textarea name="description" placeholder="Enter description" style="width:500px">	</textarea>
+  </div>
+       
+    <!--  Rating -->
+    <div class="form-group">   
+    <form:label path="rating"><h6>Rating:</h6></form:label>
+    <div class="main">
+	<div id="rating-form">
+<span class="rating-star">
+<input type="radio" name="rating" value="5"><span class="star"></span>
+ 
+    <input type="radio" name="rating" value="4"><span class="star"></span>
+ 
+    <input type="radio" name="rating" value="3"><span class="star"></span>
+ 
+    <input type="radio" name="rating" value="2"><span class="star"></span>
+ 
+    <input type="radio" name="rating" value="1"><span class="star"></span>
+</span>
+	</div>
+    </div>		
+	</div>
+	
+	
     <button type="submit" class="btn btn-primary">Insert</button>
+    </div>
   </form:form>
+  <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name'
+    });
+  </script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
+	<script src="resources/assets/js/rating.js" type="text/javascript"></script>
 </body>
 </html>

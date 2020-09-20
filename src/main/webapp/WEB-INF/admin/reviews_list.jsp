@@ -22,9 +22,9 @@
 	<tbody>
 		<c:forEach items="${reviewList}" var="r">
 			<tr>
-				<td>${s.hospitalName}</td>
-				<td>${s.description }</td>
-				<td>${s.rating }</td>
+				<td>${r.hospitalName}</td>
+				<td>${r.description }</td>
+				<td>${r.rating }</td>
 			</tr>
 		</c:forEach>
 	</tbody>
