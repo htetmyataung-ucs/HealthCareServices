@@ -7,9 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.htet.ucs.HealthCareServices.dto.ArticleDetailDTO;
-import com.htet.ucs.HealthCareServices.model.ArticleDetail;
 import com.htet.ucs.HealthCareServices.repository.ArticleDetailRepository;
-import com.htet.ucs.HealthCareServices.service.mapper.ArticleConverter;
+import com.htet.ucs.HealthCareServices.service.mapper.ArticleDetailConverter;
 
 @Service
 public class ArticleDetailService implements ArticleDetailInterface{
@@ -19,32 +18,13 @@ public class ArticleDetailService implements ArticleDetailInterface{
 	@Override
 	public void saveArticlDetail(ArticleDetailDTO articleDTO) {
 		// TODO Auto-generated method stub
-		articleDetailRepository.save(convertArticleDetail(articleDTO));
+		articleDetailRepository.save(ArticleDetailConverter.convertToEntity(articleDTO));
 	}
 
 	@Override
 	public List<ArticleDetailDTO> getAllArticleDetailList() {
 		// TODO Auto-generated method stub
-		List<ArticleDetail> ad = articleDetailRepository.findAll();
-		List<ArticleDetailDTO> adDTO = ad.stream().map(a->convertArticleDetailDTO(a)).collect(Collectors.toList());
-		return adDTO;
-	}
-
-	ArticleDetail convertArticleDetail(ArticleDetailDTO adDTO) {
-		ArticleDetail ad = new ArticleDetail();
-		ad.setName(adDTO.getName());
-		ad.setDescription(adDTO.getDescription());
-		ad.setGender(adDTO.getGender());
-		ad.setArticle(ArticleConverter.fromId(adDTO.getArticleId()));
-		return ad;
-	}
-	ArticleDetailDTO convertArticleDetailDTO(ArticleDetail adDTO) {
-		ArticleDetailDTO ad = new ArticleDetailDTO();
-		ad.setName(adDTO.getName());
-		ad.setDescription(adDTO.getDescription());
-		ad.setGender(adDTO.getGender());
-		ad.setArticleName(adDTO.getArticle().getName());
-		return ad;
+		return articleDetailRepository.findAll().stream().map(ArticleDetailConverter::convertToDTO).collect(Collectors.toList());
 	}
 
 }

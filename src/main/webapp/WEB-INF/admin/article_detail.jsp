@@ -24,7 +24,7 @@
 	Choose Gender:
 	<input type="radio" name="gender" value="Male">Male
 	<input type="radio" name="gender" value="Female">Female
-	<input type="radio" name="gender" value="All">All
+	<input type="radio" name="gender" value="All" checked>All
 	<br>
 	Description<br>
 	<textarea name="description" placeholder="Enter description" style="width:500px">	</textarea>
