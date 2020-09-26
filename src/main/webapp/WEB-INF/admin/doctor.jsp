@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <form:form action="create_doctor" method="POST" modelAttribute="doctor">
+  <form:form action="create_doctor" method="POST" modelAttribute="doctor" enctype="multipart/form-data">
  	<div class="container">
  	<h2>Insert Doctor</h2>
   <div class="form-group">
@@ -32,6 +32,11 @@
      </form:select>
      </div>
      
+      <div class="form-group">
+     <form:label path="file">Photo:</form:label>
+      <form:input type="file" path="file" class="form-control" placeholder="Choose photo." ></form:input>
+    </div>
+    
     <button type="submit" class="btn btn-primary">Insert</button>
     </div>
   </form:form>

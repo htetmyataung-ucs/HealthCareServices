@@ -18,5 +18,11 @@
     <definition name="city" extends="layout.basic">
         <put-attribute name="body" value="/WEB-INF/admin/city.jsp" />
     </definition>
+    <definition name="index" extends="layout.basic">
+    	<put-attribute name="body" value="/WEB-INF/admin/index.jsp"/>
+    </definition>
+    <definition name="hospital" extends="layout.basic">
+    	<put-attribute name="body" value="/WEB-INF/admin/hospital.jsp"/>
+    </definition>
     
 </tiles-definitions>

@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import com.htet.ucs.HealthCareServices.dto.HospitalDetailDTO;
 import com.htet.ucs.HealthCareServices.services.HospitalDetailInterface;
 import com.htet.ucs.HealthCareServices.services.HospitalInterface;
@@ -26,7 +25,7 @@ public class HospitalDetailController {
 		model.addAttribute("hospitaldetail", new HospitalDetailDTO());
 		return "hospitaldetail";
 	}
-	@PostMapping("/create_hospitalDetail")
+	@PostMapping("/hospitalDetail")
 	public String saveHospitalDetail(@ModelAttribute("hospitaldetail") HospitalDetailDTO hdDTO, Model model) {
 		hospitalDetailInterface.saveHospitalDetail(hdDTO);
 		return "redirect:/hospitaldetail_list";

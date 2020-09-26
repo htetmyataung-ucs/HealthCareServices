@@ -49,6 +49,7 @@ public class ArticleDetailDTO implements Serializable {
 	private String gender;
 	private Article article;
 	private String description;
+	
 	private Long articleId;
 	private String articleName;
 	public String getArticleName() {

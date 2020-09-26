@@ -19,6 +19,7 @@ public class DoctorConverter {
 		doctorDTO.setSama_no(doctor.getSama_no());
 		doctorDTO.setSpeciality(doctor.getSpeciality());
 		doctorDTO.setHospitalDoctor(doctor.getHospitalDoctor());
+		doctorDTO.setPhotoPath(doctor.getPhotoPath());
 		return doctorDTO;
 	}
 }

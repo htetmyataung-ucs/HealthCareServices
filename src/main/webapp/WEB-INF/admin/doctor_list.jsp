@@ -17,6 +17,7 @@
 		    <th>Doctor Name</th>
 			<th>Sama No</th>
 			<th>Speciality Name</th>
+			<th>Photo</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -25,8 +26,7 @@
 				<td>${d.name }</td>
 				<td>${d.sama_no }</td>
 				<td>${d.speciality.name }</td>
-			    
-				
+			   <td><img src="/images/${d.photoPath}" width="80" height="80" style="border:1px solid red;" /></td>	
 			</tr>
 		</c:forEach>
 	</tbody>

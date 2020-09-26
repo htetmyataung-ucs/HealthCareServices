@@ -19,6 +19,9 @@
 			<th>Open Time</th>
 			<th>Phone</th>
 			<th>Address</th>
+			<th>Latitude</th>
+			<th>Longitude</th>
+			<th>Photo</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -29,6 +32,9 @@
 				<td>${hd.time }</td>
 				<td>${hd.phone }</td>
 			    <td>${hd.address }</td>
+			    <td>${hd.latitude }</td>
+			    <td>${hd.longitude }</td>
+			    <td><img src="/images/${hd.photoPath}" width="80" height="80" style="border:1px solid red;" /></td>
 		   </tr>
 		</c:forEach>
 	</tbody>
