@@ -23,6 +23,7 @@ public class Doctor implements Serializable {
 	private Long id;
 	private String name;
 	private String sama_no;
+	private String photoPath;
 	@ManyToOne
 	@JoinColumn(name="speciality_id")
 	private Speciality speciality;
@@ -44,6 +45,12 @@ public class Doctor implements Serializable {
 	public void setSama_no(String sama_no) {
 		this.sama_no = sama_no;
 	}
+	public String getPhotoPath() {
+		return photoPath;
+	}
+	public void setPhotoPath(String photoPath) {
+		this.photoPath = photoPath;
+	}
 	public Speciality getSpeciality() {
 		return speciality;
 	}
@@ -62,5 +69,6 @@ public class Doctor implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	
 }

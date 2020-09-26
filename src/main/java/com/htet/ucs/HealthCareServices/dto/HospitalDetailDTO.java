@@ -2,6 +2,8 @@ package com.htet.ucs.HealthCareServices.dto;
 
 import java.io.Serializable;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class HospitalDetailDTO implements Serializable{
 	/**
 	 * 
@@ -13,6 +15,12 @@ public class HospitalDetailDTO implements Serializable{
 	
 	private String date;
 	private String time;
+	
+	private String photoPath;
+	private MultipartFile file;
+	
+	private String latitude;
+	private String longitude;
 	
 	private Long hospitalId;
 	private String hospitalName;
@@ -58,5 +66,30 @@ public class HospitalDetailDTO implements Serializable{
 	public void setHospitalName(String hospitalName) {
 		this.hospitalName = hospitalName;
 	}
-		
+	
+	public String getPhotoPath() {
+		return photoPath;
+	}
+	public void setPhotoPath(String photoPath) {
+		this.photoPath = photoPath;
+	}
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	public String getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+	public String getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+	
 }

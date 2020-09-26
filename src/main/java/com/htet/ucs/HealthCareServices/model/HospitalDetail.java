@@ -1,6 +1,8 @@
 package com.htet.ucs.HealthCareServices.model;
 
 import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,6 +24,13 @@ public class HospitalDetail implements Serializable{
 	
 	private String date;
 	private String time;
+	
+	private String photoPath;
+	
+	@Column(columnDefinition = "TEXT")
+	private String latitude;
+	@Column(columnDefinition = "TEXT")
+	private String longitude;
 
 	@OneToOne
 	@JoinColumn(name="hospital_id")
@@ -32,7 +41,7 @@ public class HospitalDetail implements Serializable{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getPhone() {
+	public String getPhone() {	
 		return phone;
 	}
 	public void setPhone(String phone) {
@@ -62,6 +71,27 @@ public class HospitalDetail implements Serializable{
 	}
 	public void setHospital(Hospital hospital) {
 		this.hospital = hospital;
+	}
+  
+	
+	public String getPhotoPath() {
+		return photoPath;
+	}
+	public void setPhotoPath(String photoPath) {
+		this.photoPath = photoPath;
+	}
+	
+	public String getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+	public String getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
 	}
 	public HospitalDetail() {
 		super();

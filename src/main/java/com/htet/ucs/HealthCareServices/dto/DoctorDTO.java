@@ -3,6 +3,8 @@ package com.htet.ucs.HealthCareServices.dto;
 import java.io.Serializable;
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.htet.ucs.HealthCareServices.model.HospitalDoctor;
 import com.htet.ucs.HealthCareServices.model.Speciality;
 
@@ -14,6 +16,8 @@ public class DoctorDTO implements Serializable{
 	private Long id;
 	private String name;
 	private String sama_no;
+	private String photoPath;
+	private MultipartFile file;
 	private Speciality speciality;
 	private List<HospitalDoctor> hospitalDoctor;
 	public Long getId() {
@@ -33,6 +37,18 @@ public class DoctorDTO implements Serializable{
 	}
 	public void setSama_no(String sama_no) {
 		this.sama_no = sama_no;
+	}
+	public String getPhotoPath() {
+		return photoPath;
+	}
+	public void setPhotoPath(String photoPath) {
+		this.photoPath = photoPath;
+	}
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 	public Speciality getSpeciality() {
 		return speciality;
