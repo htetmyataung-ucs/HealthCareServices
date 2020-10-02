@@ -18,7 +18,7 @@
                                     <nav> 
                                         <ul id="navigation">
                                             <li><a href="/" style="text-decoration: none;">Home</a></li>
-                                            <li><a href="create_city " style="text-decoration: none;">Hospitals</a></li>
+                                            <li><a href="create_city" style="text-decoration: none;">Hospitals</a></li>
                                             <li><a>Articles</a>
                                                 <ul class="submenu">
                                                     <li><a href="blog.html" style="text-decoration: none;">FirsyAid</a></li>
@@ -27,7 +27,7 @@
                                                 </ul>
                                             </li>
                                             <li><a href="services.html" style="text-decoration: none;">News</a></li>
-                                            <li><a href="contact.html" style="text-decoration: none;">Shop</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/searchShop" style="text-decoration: none;">Shop</a></li>
                                             <li><a href="contact.html" style="text-decoration: none;">Contact</a></li>
                                         </ul>
                                     </nav>

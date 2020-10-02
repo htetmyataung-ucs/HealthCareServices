@@ -25,5 +25,18 @@ public class HospitalTypeService implements HospitalTypeInterface{
 		// TODO Auto-generated method stub
 		return hospitaltypeRepository.findAll().stream().map(HospitalTypeConverter::convertToDTO).collect(Collectors.toList());
 	}
+
+	@Override
+	public HospitalTypeDTO findById(Long id) {
+		// TODO Auto-generated method stub
+		HospitalTypeDTO dto = HospitalTypeConverter.convertToDTO(hospitaltypeRepository.findById(id).get());
+		return dto;
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		hospitaltypeRepository.deleteById(id);
+	}
 	
 }

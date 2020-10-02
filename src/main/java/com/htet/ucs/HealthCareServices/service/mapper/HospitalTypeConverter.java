@@ -6,6 +6,9 @@ import com.htet.ucs.HealthCareServices.model.HospitalType;
 public class HospitalTypeConverter {
 	public static HospitalType convertToEntity(HospitalTypeDTO dto) {
 		HospitalType ht = new HospitalType();
+		if(dto.getId()!=null) {
+			ht.setId(dto.getId());
+		}
 		ht.setName(dto.getName());
 		return ht;
 	}

@@ -44,6 +44,9 @@ public class HospitalDetailService implements HospitalDetailInterface{
 			}catch(Exception e) {
 				System.out.println(e);
 			}
+			if(hospitalDetailDTO.getId()!=null) {
+				hd.setId(hospitalDetailDTO.getId());
+			}
 			hd.setPhone(hospitalDetailDTO.getPhone());
 			hd.setAddress(hospitalDetailDTO.getAddress());
 			hd.setDate(hospitalDetailDTO.getDate());
@@ -64,5 +67,24 @@ public class HospitalDetailService implements HospitalDetailInterface{
 	public List<HospitalDetailDTO> getAllHospitalDetailList() {
 		// TODO Auto-generated method stub
 		return hospitalDetailRepository.findAll().stream().map(HospitalDetailConverter::convertToDTO).collect(Collectors.toList());
+	}
+
+
+
+
+	@Override
+	public HospitalDetailDTO findById(Long id) {
+		// TODO Auto-generated method stub
+		HospitalDetailDTO dto = HospitalDetailConverter.convertToDTO(hospitalDetailRepository.findById(id).get());
+		return dto;
+	}
+
+
+
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		hospitalDetailRepository.deleteById(id);
 	}
 }

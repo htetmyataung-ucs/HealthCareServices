@@ -25,4 +25,17 @@ public class HospitalCategoryService implements HospitalCategoryInterface{
 		// TODO Auto-generated method stub
 		return hospitalcategoryRepository.findAll().stream().map(HospitalCategoryConverter::convertToDTO).collect(Collectors.toList());
 	}
+
+	@Override
+	public HospitalCategoryDTO findById(Long id) {
+		// TODO Auto-generated method stub
+		HospitalCategoryDTO dto = HospitalCategoryConverter.convertToDTO(hospitalcategoryRepository.findById(id).get());
+		return dto;
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		hospitalcategoryRepository.deleteById(id);
+	}
 }

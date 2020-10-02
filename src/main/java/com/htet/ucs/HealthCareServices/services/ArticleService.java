@@ -26,5 +26,18 @@ public class ArticleService implements ArticleInterface{
 		// TODO Auto-generated method stub
 		return articleRepository.findAll().stream().map(ArticleConverter::convertToDTO).collect(Collectors.toList());
 	}
+
+	@Override
+	public ArticleDTO findById(Long id) {
+		// TODO Auto-generated method stub
+		ArticleDTO dto = ArticleConverter.convertToDTO(articleRepository.findById(id).get());
+		return dto;
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		articleRepository.deleteById(id);
+	}
 	
 }

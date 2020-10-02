@@ -22,4 +22,23 @@ public class MedicalShopService implements MedicalShopInterface{
 		return medicalShopRepository.findAll().stream().map(MedicalShopConverter::convertToDTO).collect(Collectors.toList());
 	}
 
+	@Override
+	public List<MedicalShopDTO> getShopListByTownship(Long id) {
+		// TODO Auto-generated method stub
+		return medicalShopRepository.findMedicalShopByTownship(id).stream().map(MedicalShopConverter::convertToDTO).collect(Collectors.toList());
+	}
+
+	@Override
+	public MedicalShopDTO findById(Long id) {
+		// TODO Auto-generated method stub
+		MedicalShopDTO dto = MedicalShopConverter.convertToDTO(medicalShopRepository.findById(id).get());
+		return dto;
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		medicalShopRepository.deleteById(id);	
+	}
+
 }

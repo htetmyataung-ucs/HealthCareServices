@@ -7,6 +7,9 @@ public class SpecialityConverter {
 	
 	public static Speciality convertToEntity(SpecialityDTO dto) {
 		Speciality s = new Speciality();
+		if(dto.getId()!=null) {
+			s.setId(dto.getId());
+		}
 		s.setName(dto.getName());
 		s.setHospitalSpecial(dto.getHospitalSpecial());
 		s.setDoctor(dto.getDoctor());

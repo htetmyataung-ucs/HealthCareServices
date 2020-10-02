@@ -25,4 +25,23 @@ public class TownshipService implements TownshipInterface{
 		return townshipRepository.findAll().stream().map(TownShipConverter::convertToDTO).collect(Collectors.toList());
 	}
 
+	@Override
+	public List<TownshipDTO> getTownshipListByCity(Long id) {
+		// TODO Auto-gener ated method stub
+		return townshipRepository.findTownShipByCity(id).stream().map(TownShipConverter::convertToDTO).collect(Collectors.toList());
+	}
+
+	@Override
+	public TownshipDTO findById(Long id) {
+		// TODO Auto-generated method stub
+		TownshipDTO dto = TownShipConverter.convertToDTO(townshipRepository.findById(id).get());
+		return dto;
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		townshipRepository.deleteById(id);
+	}
+
 }

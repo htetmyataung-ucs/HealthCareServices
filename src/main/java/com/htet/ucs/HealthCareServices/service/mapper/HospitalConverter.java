@@ -7,8 +7,10 @@ public class HospitalConverter {
 
 	public static Hospital convertToEntity(HospitalDTO dto) {
 		Hospital h = new Hospital();
-		h.setName(dto.getName());
-		
+		if(dto.getId()!=null) {
+			h.setId(dto.getId());
+		}
+		h.setName(dto.getName());	
 		h.getHospitalCategory().setId(dto.getHospitalCategoryId());
 		h.getHospitalType().setId(dto.getHospitalTypeId());
 		h.getTownShip().setId(dto.getTownShipId());

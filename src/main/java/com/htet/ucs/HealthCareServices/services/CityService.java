@@ -26,4 +26,17 @@ public class CityService implements CityInterface{
 		return cityRepository.findAll().stream().map(CityConverter::convertToDTO).collect(Collectors.toList());
 	}
 
+	@Override
+	public CityDTO findById(Long id) {
+		// TODO Auto-generated method stub
+		CityDTO dto = CityConverter.convertToDTO(cityRepository.findById(id).get());
+		return dto;
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		cityRepository.deleteById(id);
+	}
+
 }

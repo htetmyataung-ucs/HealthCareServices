@@ -24,5 +24,18 @@ public class SpecialityService implements SpecialityInterface{
 	public List<SpecialityDTO> getAllSpecialityList() {
 		return specialitRepository.findAll().stream().map(SpecialityConverter::convertToDTO).collect(Collectors.toList());
 	}
+
+	@Override
+	public SpecialityDTO findById(Long id) {
+		// TODO Auto-generated method stub
+		SpecialityDTO dto = SpecialityConverter.convertToDTO(specialitRepository.findById(id).get());
+		return dto;
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		specialitRepository.deleteById(id);
+	}
 	
 }

@@ -26,7 +26,7 @@ public class Doctor implements Serializable {
 	private String photoPath;
 	@ManyToOne
 	@JoinColumn(name="speciality_id")
-	private Speciality speciality;
+	private Speciality speciality = new Speciality();
 	public Long getId() {
 		return id;
 	}
