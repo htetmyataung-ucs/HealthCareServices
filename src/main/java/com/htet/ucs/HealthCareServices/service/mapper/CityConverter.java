@@ -7,6 +7,9 @@ public class CityConverter {
 
 	public static City convertToEntity(CityDTO dto) {
 		City c = new City();
+		if(dto.getId()!=null) {
+			c.setId(dto.getId());
+		}
 		c.setName(dto.getName());
 		c.setTownship(dto.getTownship());
 		return c;

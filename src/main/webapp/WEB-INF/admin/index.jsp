@@ -191,8 +191,10 @@
     </div>
 </section>
 <!--? Testimonial Area End -->
+
+
 <!--? video_start -->
-<div class="container">
+<!--<div class="container">
     <div class="video-area section-bg2 d-flex align-items-center"  data-background="resources/assets/img/gallery/video-bg.png">
         <div class="video-wrap position-relative">
             <div class="video-icon" >
@@ -200,8 +202,10 @@
             </div>
         </div>
     </div>
-</div>
-<!-- video_end -->      
+</div>-->
+<!-- video_end -->   
+
+
 <!--? Blog Area Start -->
 <section class="home-blog-area section-padding30">
     <div class="container">
@@ -210,7 +214,7 @@
             <div class="col-lg-7 col-md-9 col-sm-10">
                 <div class="section-tittle text-center mb-100">
                     <h2>Latest Blog</h2>
-                </div>
+                 </div>
             </div>
         </div>
         <div class="row">

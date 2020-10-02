@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.htet.ucs.HealthCareServices.dto.HospitalDTO;
 import com.htet.ucs.HealthCareServices.services.HospitalCategoryInterface;
@@ -40,26 +41,51 @@ public class HospitalController {
 	    hospitalRepository.save(hp);
 	    return "Saved";
 	  }	*/
-	@GetMapping("/create_hospital")
+	@GetMapping("admin/create_hospital")
 	public String createHospital(Model model) {
 		model.addAttribute("hospital", new HospitalDTO());
-		model.addAttribute("hospitalCategory", hospitalCategoryInterface.getAllHospitalCategoryList());
-		model.addAttribute("hospitalType", hospitalTypeInterface.getAllHospitalTypeList());
-		model.addAttribute("townShip", townShipInterface.getAllTownshipList());
-		return "hospital";
+		model.addAttribute("hospitalCategoryList", hospitalCategoryInterface.getAllHospitalCategoryList());
+		model.addAttribute("hospitalTypeList", hospitalTypeInterface.getAllHospitalTypeList());
+		model.addAttribute("townShipList", townShipInterface.getAllTownshipList());
+		return "adminHospital";
 	}
-	@PostMapping("/create_hospital")
+	@PostMapping("admin/create_hospital")
 	public String saveHospital(@ModelAttribute("hospital") HospitalDTO hospital, Model model) {
 		hospitalInterface.saveHospital(hospital);
-		return "redirect:/hospital_list";
+		return "redirect:/admin/hospital_list";
 	}
-	@GetMapping(value="/hospital_list")
+	@GetMapping(value="admin/hospital_list")
 	public String hospitalList(Model model) {
-		model.addAttribute("hospital",	hospitalInterface.getAllHospitalList());
-		return "hospital_list";
+		model.addAttribute("hospitalList",	hospitalInterface.getAllHospitalList());
+		return "adminHospitalList";
 	}
 	
-
+	
+	//FOR EDIT AND DELETE CITY
+	
+			@GetMapping("admin/edit_hospital/{id}")
+			public String edit(@PathVariable Long id,Model model) {
+				if(id==null) {
+					
+				}
+				HospitalDTO dto=hospitalInterface.findById(id);
+				model.addAttribute("hospital", dto);
+				model.addAttribute("hospitalCategoryList", hospitalCategoryInterface.getAllHospitalCategoryList());
+				model.addAttribute("hospitalTypeList", hospitalTypeInterface.getAllHospitalTypeList());
+				model.addAttribute("townShipList", townShipInterface.getAllTownshipList());
+				return "adminHospitalEdit";
+			}
+			@PostMapping("admin/edit_hospital")
+			public String editHospital(@ModelAttribute(value="hospital") HospitalDTO dto,Model model) {
+				hospitalInterface.saveHospital(dto);
+				return "redirect:/admin/hospital_list";
+			}
+			@GetMapping("admin/delete_hospital/{id}")
+			public String delete(@PathVariable Long id) {
+				hospitalInterface.delete(id);
+				return "redirect:/admin/hospital_list";
+			}
+			
 } 
 
 

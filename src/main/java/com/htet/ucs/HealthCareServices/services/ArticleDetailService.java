@@ -27,4 +27,17 @@ public class ArticleDetailService implements ArticleDetailInterface{
 		return articleDetailRepository.findAll().stream().map(ArticleDetailConverter::convertToDTO).collect(Collectors.toList());
 	}
 
+	@Override
+	public ArticleDetailDTO findById(Long id) {
+		// TODO Auto-generated method stub
+		ArticleDetailDTO dto = ArticleDetailConverter.convertToDTO(articleDetailRepository.findById(id).get());
+		return dto;
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		articleDetailRepository.deleteById(id);
+	}
+
 }

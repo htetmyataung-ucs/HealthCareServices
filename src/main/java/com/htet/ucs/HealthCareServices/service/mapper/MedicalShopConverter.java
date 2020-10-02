@@ -6,10 +6,13 @@ import com.htet.ucs.HealthCareServices.model.MedicalShop;
 public class MedicalShopConverter {
 	public static MedicalShop convertToEntity(MedicalShopDTO shopDTO) {
 		MedicalShop medicalShop=new MedicalShop();
+		if(shopDTO.getId()!=null) {
+			medicalShop.setId(shopDTO.getId());
+		}
 		medicalShop.setName(shopDTO.getName());
 		medicalShop.setPhone(shopDTO.getPhone());
 		medicalShop.setAddress(shopDTO.getAddress());
-		medicalShop.setTownShip(shopDTO.getTownShip());
+		medicalShop.getTownShip().setId(shopDTO.getTownshipId());
 		return medicalShop;
 	}
 	public static MedicalShopDTO convertToDTO(MedicalShop medicalShop) {
@@ -18,7 +21,8 @@ public class MedicalShopConverter {
 		shopDTO.setName(medicalShop.getName());
 		shopDTO.setPhone(medicalShop.getPhone());
 		shopDTO.setAddress(medicalShop.getAddress());
-		shopDTO.setTownShip(medicalShop.getTownShip());
+		shopDTO.setTownshipId(medicalShop.getTownShip().getId());
+		shopDTO.setTownshipName(medicalShop.getTownShip().getName());
 		return shopDTO;
 	}
 

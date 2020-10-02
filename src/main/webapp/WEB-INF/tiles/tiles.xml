@@ -5,7 +5,9 @@
        
 <tiles-definitions>
 
-      
+      <!-- FOR USER VIEW -->
+      <!-- FOR USER VIEW -->
+      <!-- FOR USER VIEW -->
     <definition name="layout.basic" template="/WEB-INF/layout/master.jsp">
         <put-attribute name="title" value="Spring Web MVC with Tiles 3" />
         <put-attribute name="header" value="/WEB-INF/layout/header.jsp" />
@@ -13,16 +15,190 @@
         <put-attribute name="body" value="" />
         <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
     </definition>
-    
       
-    <definition name="city" extends="layout.basic">
+    <!-- <definition name="city" extends="layout.basic">
         <put-attribute name="body" value="/WEB-INF/admin/city.jsp" />
-    </definition>
+    </definition> -->
     <definition name="index" extends="layout.basic">
     	<put-attribute name="body" value="/WEB-INF/admin/index.jsp"/>
     </definition>
     <definition name="hospital" extends="layout.basic">
     	<put-attribute name="body" value="/WEB-INF/admin/hospital.jsp"/>
     </definition>
+    
+    <!-- FOR SHOP -->
+    <definition name="searchShop" extends="layout.basic">
+    	<put-attribute name="body" value="/WEB-INF/userView/medicalshop/shop.jsp"/>
+    </definition>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- FOR ADMIN VIEW -->
+    <!-- FOR ADMIN VIEW -->
+    <!-- FOR ADMIN VIEW -->
+    <definition name="layout.admin" template="/WEB-INF/adminLayout/master.jsp">
+        <put-attribute name="title" value="Spring Web MVC with Tiles 3" />
+        <put-attribute name="header" value="/WEB-INF/adminLayout/header.jsp" />
+       	<put-attribute name="menu" value="/WEB-INF/adminLayout/menu.jsp" />  
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="/WEB-INF/adminLayout/footer.jsp" />
+    </definition>
+    
+    <!-- DASHBOARD -->
+     <definition name="adminDashboard" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/adminLayout/index.jsp" />
+    </definition>
+    
+    <!-- FOR CITY -->
+    <definition name="adminCity" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/citytownship/city.jsp" />
+    </definition>
+    <definition name="adminCityList" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/citytownship/city_list.jsp" />
+    </definition>
+     <definition name="adminCityEdit" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/citytownship/edit_city.jsp" />
+    </definition>
+    
+    <!-- FOR TOWNSHIP -->
+    <definition name="adminTownship" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/citytownship/township.jsp" />
+    </definition>
+    <definition name="adminTownshipList" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/citytownship/township_list.jsp" />
+    </definition>
+     <definition name="adminTownshipEdit" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/citytownship/edit_township.jsp" />
+    </definition>
+    <!-- FOR MEDICAL SHOP -->
+    <definition name="adminShop" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/medicalshop/medicalShop.jsp" />
+    </definition>
+    <definition name="adminShopList" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/medicalshop/medicalShop_list.jsp" />
+    </definition>
+     <definition name="adminShopEdit" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/medicalshop/edit_medicalShop.jsp" />
+    </definition>
+    
+    <!-- FOR ARTICLE  -->
+    <definition name="adminArticle" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/article/article.jsp" />
+    </definition>
+    <definition name="adminArticleList" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/article/article_list.jsp" />
+    </definition>
+     <definition name="adminArticleEdit" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/article/edit_article.jsp" />
+    </definition>
+    
+    <!-- FOR ARTICLE DETAIL -->
+    <definition name="adminArticleDetail" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/article/article_detail.jsp" />
+    </definition>
+    <definition name="adminArticleDetailList" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/article/article_detail_list.jsp" />
+    </definition>
+     <definition name="adminArticleDetailEdit" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/article/edit_articledetail.jsp" />
+    </definition>
+    
+    <!-- FOR HOSPITAL CATEGORY -->
+    <definition name="adminHospitalCategory" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/hospitalInfo/hospitalcategory.jsp" />
+    </definition>
+    <definition name="adminHospitalCategoryList" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/hospitalInfo/hospitalcategory_list.jsp" />
+    </definition>
+     <definition name="adminHospitalCategoryEdit" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/hospitalInfo/edit_hospitalcategory.jsp" />
+    </definition>
+    
+    <!-- FOR HOSPITAL TYPE -->
+    <definition name="adminHospitalType" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/hospitalInfo/hospitaltype.jsp" />
+    </definition>
+    <definition name="adminHospitalTypeList" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/hospitalInfo/hospitaltype_list.jsp" />
+    </definition>
+     <definition name="adminHospitalTypeEdit" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/hospitalInfo/edit_hospitaltype.jsp" />
+    </definition>
+    
+    <!-- FOR HOSPITAL  -->
+    <definition name="adminHospital" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/hospitalInfo/hospital.jsp" />
+    </definition>
+    <definition name="adminHospitalList" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/hospitalInfo/hospital_list.jsp" />
+    </definition>
+     <definition name="adminHospitalEdit" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/hospitalInfo/edit_hospital.jsp" />
+    </definition>
+    
+    <!-- FOR HOSPITAL DETAILS -->
+    <definition name="adminHospitalDetail" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/hospitalInfo/hospitaldetail.jsp" />
+    </definition>
+    <definition name="adminHospitalDetailList" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/hospitalInfo/hospitaldetail_list.jsp" />
+    </definition>
+     <definition name="adminHospitalDetailEdit" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/hospitalInfo/edit_hospitaldetail.jsp" />
+    </definition>
+    
+    <!-- FOR SPECIALITY -->
+    <definition name="adminSpeciality" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/specialityInfo/speciality.jsp" />
+    </definition>
+    <definition name="adminSpecialityList" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/specialityInfo/speciality_list.jsp" />
+    </definition>
+     <definition name="adminSpecialityEdit" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/specialityInfo/edit_speciality.jsp" />
+    </definition>
+    
+    <!-- FOR HOSPITAL SPECIAL -->
+    <definition name="adminHospitalSpeciality" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/specialityInfo/hospitalspecial.jsp" />
+    </definition>
+    <definition name="adminHospitalSpecialityList" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/specialityInfo/hospitalspecial_list.jsp" />
+    </definition>
+     <definition name="adminHospitalSpecialityEdit" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/specialityInfo/edit_hospitalspecial.jsp" />
+    </definition>
+    
+    <!-- FOR DOCTOR -->
+    <definition name="adminDoctor" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/doctorInfo/doctor.jsp" />
+    </definition>
+    <definition name="adminDoctorList" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/doctorInfo/doctor_list.jsp" />
+    </definition>
+     <definition name="adminDoctorEdit" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/doctorInfo/edit_doctor.jsp" />
+    </definition>
+    
+    <!-- FOR HOSPITAL DOCTOR -->
+    <definition name="adminHospitalDoctor" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/doctorInfo/hospitaldoctor.jsp" />
+    </definition>
+    <definition name="adminHospitalDoctorList" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/doctorInfo/hospitaldoctor_list.jsp" />
+    </definition>
+     <definition name="adminHospitalDoctorEdit" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/doctorInfo/edit_hospitaldoctor.jsp" />
+    </definition>
+    
+    
     
 </tiles-definitions>

@@ -19,6 +19,8 @@ public class DoctorDTO implements Serializable{
 	private String photoPath;
 	private MultipartFile file;
 	private Speciality speciality;
+	private Long specialityId;
+	private String specialityName;
 	private List<HospitalDoctor> hospitalDoctor;
 	public Long getId() {
 		return id;
@@ -62,5 +64,18 @@ public class DoctorDTO implements Serializable{
 	public void setHospitalDoctor(List<HospitalDoctor> hospitalDoctor) {
 		this.hospitalDoctor = hospitalDoctor;
 	}
+	public Long getSpecialityId() {
+		return specialityId;
+	}
+	public void setSpecialityId(Long specialityId) {
+		this.specialityId = specialityId;
+	}
+	public String getSpecialityName() {
+		return specialityName;
+	}
+	public void setSpecialityName(String specialityName) {
+		this.specialityName = specialityName;
+	}
+	
 	
 }

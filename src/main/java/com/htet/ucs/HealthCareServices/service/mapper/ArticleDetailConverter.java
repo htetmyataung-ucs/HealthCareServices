@@ -6,6 +6,9 @@ import com.htet.ucs.HealthCareServices.model.ArticleDetail;
 public class ArticleDetailConverter {
 	public static ArticleDetail convertToEntity(ArticleDetailDTO adDTO) {
 		ArticleDetail ad = new ArticleDetail();
+		if(adDTO.getId()!=null) {
+			ad.setId(adDTO.getId());
+		}
 		ad.setName(adDTO.getName());
 		ad.setDescription(adDTO.getDescription());
 		ad.setGender(adDTO.getGender());

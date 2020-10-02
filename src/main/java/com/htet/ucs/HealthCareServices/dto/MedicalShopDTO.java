@@ -38,11 +38,25 @@ public class MedicalShopDTO implements Serializable{
 		this.address = address;
 	}
 	private TownShip townShip;
+	private Long townshipId;
+	private String townshipName;
 	public TownShip getTownShip() {
 		return townShip;
 	}
 	public void setTownShip(TownShip townShip) {
 		this.townShip = townShip;
 	}
-	
+	public Long getTownshipId() {
+		return townshipId;
+	}
+	public void setTownshipId(Long townshipId) {
+		this.townshipId = townshipId;
+	}
+	public String getTownshipName() {
+		return townshipName;
+	}
+	public void setTownshipName(String townshipName) {
+		this.townshipName = townshipName;
+	}
+		
 }

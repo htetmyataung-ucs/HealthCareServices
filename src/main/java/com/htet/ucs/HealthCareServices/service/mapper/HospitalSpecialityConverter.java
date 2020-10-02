@@ -7,6 +7,9 @@ public class HospitalSpecialityConverter {
 	
 	public static HospitalSpecial convertToEntity(HospitalSpecialDTO dto) {
 		HospitalSpecial hs=new HospitalSpecial();
+		if(dto.getId()!=null) {
+			hs.setId(dto.getId());
+		}
 		hs.getHospital().setId(dto.getHospitalId());
 		hs.getSpeciality().setId(dto.getSpecialityId());
 		hs.setStatus(dto.isStatus());

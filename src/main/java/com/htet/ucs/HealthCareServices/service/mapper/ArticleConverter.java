@@ -9,6 +9,9 @@ public class ArticleConverter {
 	//************Main*************
 	public static Article convertToEntity(ArticleDTO articleDTO) {
 		Article a = new Article();
+		if(articleDTO.getId()!=null) {
+			a.setId(articleDTO.getId());
+		}
 		a.setName(articleDTO.getName());
 		a.setArticledetailList(articleDTO.getArticledetailList());
 		return a;

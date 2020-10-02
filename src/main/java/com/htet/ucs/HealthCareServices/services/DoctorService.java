@@ -41,9 +41,12 @@ public class DoctorService implements DoctorInterface{
 			}catch(Exception e) {
 				System.out.println(e);
 			}
+			if(doctorDTO.getId()!=null) {
+				d.setId(doctorDTO.getId());
+			}
 			d.setName(doctorDTO.getName());
 			d.setSama_no(doctorDTO.getSama_no());
-			d.setSpeciality(doctorDTO.getSpeciality());
+			d.getSpeciality().setId(doctorDTO.getSpecialityId());
 			d.setPhotoPath(filename);
 			d.setHospitalDoctor(doctorDTO.getHospitalDoctor());
 			doctorRepository.save(d);
@@ -55,6 +58,19 @@ public class DoctorService implements DoctorInterface{
 	public List<DoctorDTO> getAllDoctorList() {
 		return doctorRepository.findAll().stream().map(DoctorConverter::convertToDTO)
 				.collect(Collectors.toList());
+	}
+
+	@Override
+	public DoctorDTO findById(Long id) {
+		// TODO Auto-generated method stub
+		DoctorDTO dto = DoctorConverter.convertToDTO(doctorRepository.findById(id).get());
+		return dto;
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		doctorRepository.deleteById(id);
 	}
 	
 }

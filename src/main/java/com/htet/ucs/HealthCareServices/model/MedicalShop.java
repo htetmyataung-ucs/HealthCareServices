@@ -23,7 +23,7 @@ public class MedicalShop implements Serializable{
 	private String address;
 	@ManyToOne
 	@JoinColumn(name = "townShip_id")
-	private TownShip townShip;
+	private TownShip townShip = new TownShip();
 	public Long getId() {
 		return id;
 	}

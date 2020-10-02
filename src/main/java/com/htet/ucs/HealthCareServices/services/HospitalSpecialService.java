@@ -25,4 +25,19 @@ public class HospitalSpecialService implements HospitalSpecialInterface{
 		// TODO Auto-generated method stub
 		return hospitalspecialRepository.findAll().stream().map(HospitalSpecialityConverter::convertToDTO).collect(Collectors.toList());
 	}
+	
+	//to edit
+	@Override
+	public HospitalSpecialDTO findById(Long id) {
+		// TODO Auto-generated method stub
+		HospitalSpecialDTO dto = HospitalSpecialityConverter.convertToDTO(hospitalspecialRepository.findById(id).get());
+		return dto;
+	}
+	
+	//to delete
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		hospitalspecialRepository.deleteById(id);
+	}
 }
