@@ -18,22 +18,22 @@
                                     <nav> 
                                         <ul id="navigation">
                                             <li><a href="/" style="text-decoration: none;">Home</a></li>
-                                            <li><a href="create_city" style="text-decoration: none;">Hospitals</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/#" style="text-decoration: none;">Hospitals</a></li>
                                             <li><a>Articles</a>
                                                 <ul class="submenu">
-                                                    <li><a href="blog.html" style="text-decoration: none;">FirsyAid</a></li>
-                                                    <li><a href="blog_details.html" style="text-decoration: none;">Diesases</a></li>
-                                                    <li><a href="elements.html" style="text-decoration: none;">Knowledges</a></li>
+                                                    <li><a href="${pageContext.request.contextPath}/#" style="text-decoration: none;">FirsyAid</a></li>
+                                                    <li><a href="${pageContext.request.contextPath}/#" style="text-decoration: none;">Diesases</a></li>
+                                                    <li><a href="${pageContext.request.contextPath}/#" style="text-decoration: none;">Knowledges</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="services.html" style="text-decoration: none;">News</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/#" style="text-decoration: none;">News</a></li>
                                             <li><a href="${pageContext.request.contextPath}/searchShop" style="text-decoration: none;">Shop</a></li>
-                                            <li><a href="contact.html" style="text-decoration: none;">Contact</a></li>
+                                            <li><a href="${pageContext.request.contextPath}/#" style="text-decoration: none;">Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
                                 <div class="header-right-btn f-right d-none d-lg-block ml-15">
-                                    <a href="#" class="btn header-btn">Make an Appointment</a>
+                                    <a href="${pageContext.request.contextPath}/#" class="btn header-btn">Make an Appointment</a>
                                 </div>
                             </div>
                         </div>   

@@ -10,17 +10,22 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+
 <form:form action="${pageContext.request.contextPath}/searchShop" method="GET">
+
 <select id="cityId">
 <c:forEach items="${cityList}" var="c">
 <option value="${c.id}">${c.name}</option>
 </c:forEach>
 </select>
+
 <select name="townshipId" id="townshipId">
 <option value=""></option>
 </select>
+
 <button id="btnSearch">Search</button>
 </form:form>
+
 <div>
 <table id="shop_table" border="1">
 	<thead>

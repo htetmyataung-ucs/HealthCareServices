@@ -15,4 +15,5 @@ public interface TownshipRepository extends JpaRepository<TownShip, Long>{
 	
 	@Query("select c from TownShip c where c.city.id=?1")
 	List<TownShip> findTownShipByCity(Long cityId);
+	
 }

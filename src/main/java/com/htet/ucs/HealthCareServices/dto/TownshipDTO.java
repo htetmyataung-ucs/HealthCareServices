@@ -39,13 +39,13 @@ public class TownshipDTO implements Serializable{
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
 	}
-	private Long city_id;
+	private Long cityId;
 
-	public Long getCity_id() {
-		return city_id;
+	public Long getCityId() {
+		return cityId;
 	}
-	public void setCity_id(Long city_id) {
-		this.city_id = city_id;
+	public void setCityId(Long cityId) {
+		this.cityId = cityId;
 	}
 	
 	

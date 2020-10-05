@@ -27,7 +27,7 @@
     </definition>
     
     <!-- FOR SHOP -->
-    <definition name="searchShop" extends="layout.basic">
+  <definition name="searchShop" extends="layout.basic">
     	<put-attribute name="body" value="/WEB-INF/userView/medicalshop/shop.jsp"/>
     </definition>
     
@@ -78,6 +78,8 @@
      <definition name="adminTownshipEdit" extends="layout.admin">
         <put-attribute name="body" value="/WEB-INF/admin/citytownship/edit_township.jsp" />
     </definition>
+    
+    
     <!-- FOR MEDICAL SHOP -->
     <definition name="adminShop" extends="layout.admin">
         <put-attribute name="body" value="/WEB-INF/admin/medicalshop/medicalShop.jsp" />
@@ -198,6 +200,18 @@
      <definition name="adminHospitalDoctorEdit" extends="layout.admin">
         <put-attribute name="body" value="/WEB-INF/admin/doctorInfo/edit_hospitaldoctor.jsp" />
     </definition>
+    
+    <!-- FOR REVIEW -->
+    <definition name="adminReview" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/review/reviews.jsp" />
+    </definition>
+    <definition name="adminReviewList" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/review/reviews_list.jsp" />
+    </definition>
+     <definition name="adminReviewEdit" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/reviews/edit_reviews.jsp" />
+    </definition>
+    
     
     
     

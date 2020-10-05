@@ -44,4 +44,12 @@ public class TownshipService implements TownshipInterface{
 		townshipRepository.deleteById(id);
 	}
 
+	@Override
+	public List<TownshipDTO> getTownshipById(Long id) {
+		// TODO Auto-generated method stub
+		return townshipRepository.findById(id).stream().map(TownShipConverter::convertToDTO).collect(Collectors.toList());
+	}
+
+
+
 }
