@@ -62,6 +62,11 @@ public class TownShipController {
 		return TownShipConverter.findByTownShipName(townshipRepository.findByTownShipName(name));
 	}
 	
+//	@GetMapping("/cityIdByTownshipId/{id}")
+//	public @ResponseBody TownshipDTO findCityIdByTownshipId(@PathVariable Long id) {
+//		return TownShipConverter.convertToDTO(townshipRepository.findCityIdByTownshipId(id));
+//	}
+	
 	//to search shop
 	@GetMapping("/findTownshipByRegion/{cityId}")
 	public @ResponseBody List<TownshipDTO> findByTownshipRegion(@PathVariable Long cityId) {

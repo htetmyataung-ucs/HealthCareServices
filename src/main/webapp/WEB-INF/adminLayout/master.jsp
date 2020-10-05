@@ -1,6 +1,6 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%> 
 <%@ include file="/WEB-INF/common/include.jsp"%>
-<%@ include file="/WEB-INF/common/bootstrap.jsp"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,13 +17,16 @@
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
     <title>HealthCareService Admin Template</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="<c:url value='/resources/docs/css/main.css'></c:url>">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- FOR TEXT EDITOR -->
+	 <script src="https://cdn.tiny.cloud/1/0w9x2gcbpddtq1z7wi1m5yfumq4z6rfta6xhl0wrz54aoqf4/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+		<%@ include file="/WEB-INF/common/bootstrap.jsp"%>
   </head>
   <body class="app sidebar-mini">
   
@@ -41,12 +44,10 @@
           <li class="breadcrumb-item"><a href="<c:url value='/admin'/>" style="text-decoration:none;">Dashboard</a></li>
         </ul>
       </div>
+             
       <div><tiles:insertAttribute name="body" /> </div>
-    </main>
-    
-    
-        
-    <div><tiles:insertAttribute name="footer" /></div>
+      </main>
+    <!-- <div><tiles:insertAttribute name="footer" /></div> -->
   
    <!-- Essential javascripts for application to work-->
     <script src="<c:url value='/resources/docs/js/jquery-3.3.1.min.js'/>"></script>
@@ -55,14 +56,6 @@
     <script src="<c:url value='/resources/docs/js/main.js'/>"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="<c:url value='/resources/docs/js/plugins/pace.min.js'/>"></script>
-    
-    <!-- For text editor -->
-    <script src="https://cdn.tiny.cloud/1/aq1wjkj3shean6kbqss5vduliotvnzh76uujc19hjkkoasc2/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-	<script>
-      tinymce.init({
-        selector: '#mytextarea'
-      });
-    </script>
     
     <!-- Page specific javascripts-->
     <script type="text/javascript" src="<c:url value='/resources/docs/js/plugins/chart.js'/>"></script>

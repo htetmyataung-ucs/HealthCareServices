@@ -56,7 +56,7 @@
             <div class="col-lg-7 col-md-12">
                 <!-- about-img -->
                 <div class="about-img ">
-                    <img src="resources/assets/img/gallery/about.png" alt="">
+                    <img src="/resources/assets/img/gallery/about.png" alt="">
                 </div>
             </div>
             <div class="col-lg-5 col-md-12">
@@ -71,8 +71,8 @@
                         dignissim dolor, a pretium mi sem ut ipsum. Fusce
                     fermentum. Pellentesque libero tortor, tincidunt et.</p>
                     <div class="icon-about">
-                     <img src="resources/assets/img/icon/about1.svg" alt="" class=" mr-20">
-                     <img src="resources/assets/img/icon/about2.svg" alt="">
+                     <img src="/resources/assets/img/icon/about1.svg" alt="" class=" mr-20">
+                     <img src="/resources/assets/img/icon/about2.svg" alt="">
                  </div>
              </div>
          </div>
@@ -80,7 +80,7 @@
  </div>
 </div>
 <!-- About-2 Area End -->
-<section class="wantToWork-area section-bg3" data-background="resources/assets/img/gallery/section_bg01.png">
+<section class="wantToWork-area section-bg3" data-background="/resources/assets/img/gallery/section_bg01.png">
     <div class="container">
         <div class="wants-wrapper w-padding2">
             <div class="row align-items-center justify-content-between">
@@ -91,7 +91,7 @@
                     </div>
                 </div>
                 <div class="col-xl-2 col-lg-3 col-md-4">
-                    <a href="services.html" class="btn f-right sm-left">Take a Service</a>
+                    <a href="services.html" class="btn f-right sm-left">Take Service</a>
                 </div>
             </div>
         </div>
@@ -104,7 +104,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="single-cat text-center mb-50">
                     <div class="cat-icon">
-                        <img src="resources/assets/img/icon/services1.svg" alt="">
+                        <img src="/resources/assets/img/icon/services1.svg" alt="">
                     </div>
                     <div class="cat-cap">
                         <h5><a href="services.html">Physical Activity</a></h5>
@@ -116,7 +116,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="single-cat text-center mb-50">
                     <div class="cat-icon">
-                        <img src="resources/assets/img/icon/services2.svg" alt="">
+                        <img src="/resources/assets/img/icon/services2.svg" alt="">
                     </div>
                     <div class="cat-cap">
                         <h5><a href="services.html">Physical Activity</a></h5>
@@ -128,7 +128,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="single-cat text-center mb-50">
                     <div class="cat-icon">
-                        <img src="resources/assets/img/icon/services3.svg" alt="">
+                        <img src="/resources/assets/img/icon/services3.svg" alt="">
                     </div>
                     <div class="cat-cap">
                         <h5><a href="services.html">Physical Activity</a></h5>
@@ -152,13 +152,13 @@
                         <!-- Single Testimonial -->
                         <div class="single-testimonial position-relative">
                             <div class="testimonial-caption">
-                                <img src="resources/assets/img/icon/quotes-sign.png" alt="" class="quotes-sign">
+                                <img src="/resources/assets/img/icon/quotes-sign.png" alt="" class="quotes-sign">
                                 <p>"The automated process starts as soon as your clothe go into the machine. This site outcome is gleaming clothe. Placeholder text commonly used. In publishing and graphic.</p>
                             </div>
                             <!-- founder -->
                             <div class="testimonial-founder d-flex align-items-center">
                                 <div class="founder-img">
-                                    <img src="resources/assets/img/icon/testimonial.png" alt="">
+                                    <img src="/resources/assets/img/icon/testimonial.png" alt="">
                                 </div>
                                 <div class="founder-text">
                                     <span>Robart Brown</span>
@@ -169,13 +169,13 @@
                         <!-- Single Testimonial -->
                         <div class="single-testimonial position-relative">
                             <div class="testimonial-caption">
-                                <img src="resources/assets/img/icon/quotes-sign.png" alt="" class="quotes-sign">
+                                <img src="/resources/assets/img/icon/quotes-sign.png" alt="" class="quotes-sign">
                                 <p>"The automated process starts as soon as your clothe go into the machine. This site outcome is gleaming clothe. Placeholder text commonly used. In publishing and graphic.</p>
                             </div>
                             <!-- founder -->
                             <div class="testimonial-founder d-flex align-items-center">
                                 <div class="founder-img">
-                                    <img src="resources/assets/img/icon/testimonial.png" alt="">
+                                    <img src="/resources/assets/img/icon/testimonial.png" alt="">
                                 </div>
                                 <div class="founder-text">
                                     <span>Robart Brown</span>
@@ -222,7 +222,7 @@
                 <div class="home-blog-single mb-40">
                     <div class="blog-img-cap">
                         <div class="blog-img">
-                            <img src="resources/assets/img/gallery/blog1.png" alt="">
+                            <img src="/resources/assets/img/gallery/blog1.png" alt="">
                         </div>
                         <div class="blog-cap">
                             <h3><a href="blog_details.html">Your daily meal plan</a></h3>
@@ -236,7 +236,7 @@
                 <div class="home-blog-single mb-40">
                     <div class="blog-img-cap">
                         <div class="blog-img">
-                            <img src="resources/assets/img/gallery/blog2.png" alt="">
+                            <img src="/resources/assets/img/gallery/blog2.png" alt="">
                         </div>
                         <div class="blog-cap">
                             <h3><a href="blog_details.html">Food is a great source of  medicine</a></h3>
@@ -250,7 +250,7 @@
                 <div class="home-blog-single mb-40">
                     <div class="blog-img-cap">
                         <div class="blog-img">
-                            <img src="resources/assets/img/gallery/blog3.png" alt="">
+                            <img src="/resources/assets/img/gallery/blog3.png" alt="">
                         </div>
                         <div class="blog-cap">
                             <h3><a href="blog_details.html">Everyday diet plan</a></h3>
@@ -283,7 +283,7 @@
                     <!-- about-img -->
                     <div class="about-img">
                         <div class="about-font-img">
-                            <img src="resources/assets/img/gallery/about2.png" alt="">
+                            <img src="/resources/assets/img/gallery/about2.png" alt="">
                         </div>
                     </div>
                 </div>

@@ -10,14 +10,14 @@ public class TownShipConverter {
 			township.setId(townshipDTO.getId());
 		}
 		township.setName(townshipDTO.getName());
-		township.getCity().setId(townshipDTO.getCity_id());
+		township.getCity().setId(townshipDTO.getCityId());
 		return township; 
 	}
 	public static TownshipDTO convertToDTO(TownShip township) {
 		TownshipDTO townshipDTO = new TownshipDTO();
 		townshipDTO.setId(township.getId());
 		townshipDTO.setName(township.getName());
-		townshipDTO.setCity_id(township.getCity().getId());
+		townshipDTO.setCityId(township.getCity().getId());
 		townshipDTO.setCityName(township.getCity().getName());
 		return townshipDTO;
 	}
@@ -26,7 +26,7 @@ public class TownShipConverter {
 		tDTO.setId(township.getId());
 		tDTO.setName(township.getName());
 		tDTO.setCityName(township.getCity().getName());
-		tDTO.setCity_id(township.getCity().getId());
+		tDTO.setCityId(township.getCity().getId());
 		return tDTO;
 	}
 }

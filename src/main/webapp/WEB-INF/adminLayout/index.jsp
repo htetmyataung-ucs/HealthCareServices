@@ -1,4 +1,4 @@
-<%@ include file="/WEB-INF/common/bootstrap.jsp" %>
+
 <div class="row">
         <div class="col-md-6 col-lg-3">
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
@@ -51,3 +51,4 @@
           </div>  
         </div>
       </div>
+    

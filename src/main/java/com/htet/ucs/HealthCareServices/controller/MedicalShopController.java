@@ -1,4 +1,4 @@
-package com.htet.ucs.HealthCareServices.controller;
+ package com.htet.ucs.HealthCareServices.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.htet.ucs.HealthCareServices.dto.MedicalShopDTO;
+import com.htet.ucs.HealthCareServices.dto.TownshipDTO;
 import com.htet.ucs.HealthCareServices.services.CityInterface;
 import com.htet.ucs.HealthCareServices.services.MedicalShopInterface;
 import com.htet.ucs.HealthCareServices.services.TownshipInterface;
@@ -46,13 +47,21 @@ public class MedicalShopController {
 	//when city change, show township list
 	
 	@GetMapping("/searchShop")
-	public String searchShop(Model model,@RequestParam(value = "townId",required = false) Long townId) {
+	public String searchShop(Model model,@RequestParam(value = "townshipId",required = false) Long townshipId) {
 		model.addAttribute("cityList", cityInterface.getAllCityList());
+		
 		List<MedicalShopDTO> shopList= new ArrayList<MedicalShopDTO>();
-		if(townId!=null) {
-			shopList=medicalShopInterface.getShopListByTownship(townId);
+		List<TownshipDTO> townshipList= new ArrayList<TownshipDTO>();
+		TownshipDTO dto = new TownshipDTO();
+		if(townshipId!=null) {
+			shopList=medicalShopInterface.getShopListByTownship(townshipId);
+			townshipList = townshipInterface.getTownshipById(townshipId);
+			dto = townshipInterface.findById(townshipId);
 		}
-		model.addAttribute("shopList",shopList);
+		model.addAttribute("cityId", dto.getCityId());
+		model.addAttribute("townshipList", townshipList);
+		model.addAttribute("townid",townshipId);
+		model.addAttribute("shopSearchList",shopList);
 		return "searchShop";
 	}
 	

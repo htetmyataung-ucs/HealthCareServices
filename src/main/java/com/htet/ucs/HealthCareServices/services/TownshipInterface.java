@@ -19,4 +19,8 @@ public interface TownshipInterface {
 	
 	//to delete
 	void delete(Long id);
+	
+	//to search shop
+	List<TownshipDTO> getTownshipById(Long id);
+	
 }
