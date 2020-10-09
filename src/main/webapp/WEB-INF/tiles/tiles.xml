@@ -10,8 +10,7 @@
       <!-- FOR USER VIEW -->
     <definition name="layout.basic" template="/WEB-INF/layout/master.jsp">
         <put-attribute name="title" value="Spring Web MVC with Tiles 3" />
-        <put-attribute name="header" value="/WEB-INF/layout/header.jsp" />
-       
+        <put-attribute name="header" value="/WEB-INF/layout/header.jsp" />      
         <put-attribute name="body" value="" />
         <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
     </definition>
@@ -30,9 +29,23 @@
   <definition name="searchShop" extends="layout.basic">
     	<put-attribute name="body" value="/WEB-INF/userView/medicalshop/shop.jsp"/>
     </definition>
+    <!-- FOR SHOP MORE DETAIL -->
+    <definition name="shopDetail" extends="layout.basic">
+    	<put-attribute name="body" value="/WEB-INF/userView/medicalshop/shopDetail.jsp"/>
+    </definition>
     
-    
-    
+    <!-- FOR FIRST AID -->
+   <definition name="firstAid" extends="layout.basic">
+    	<put-attribute name="body" value="/WEB-INF/userView/article/firstAid.jsp"/>
+    </definition>
+    <!-- FOR DISEASE -->
+    <definition name="disease" extends="layout.basic">
+    	<put-attribute name="body" value="/WEB-INF/userView/article/disease.jsp"/>
+    </definition>
+    <!-- FOR KNOWLEDGE -->
+    <definition name="knowledge" extends="layout.basic">
+    	<put-attribute name="body" value="/WEB-INF/userView/article/knowledge.jsp"/>
+    </definition>
     
     
     
@@ -54,7 +67,7 @@
     
     <!-- DASHBOARD -->
      <definition name="adminDashboard" extends="layout.admin">
-        <put-attribute name="body" value="/WEB-INF/adminLayout/index.jsp" />
+        <put-attribute name="body" value="/WEB-INF/adminLayout/indexAdmin.jsp" />
     </definition>
     
     <!-- FOR CITY -->

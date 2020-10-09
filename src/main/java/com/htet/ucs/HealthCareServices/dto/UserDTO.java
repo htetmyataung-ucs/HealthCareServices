@@ -13,11 +13,14 @@ public class UserDTO implements Serializable{
 	private Long id;
 	private String name;
 	private String phone;
+	private String email;
 	private String nrc;
 	private Integer age;
 	private String address;
 	private String bloodType;
 	private String password;
+	private Long roleId;
+	private String roleName;
 	private List<Patient> patient;
 	public Long getId() {
 		return id;
@@ -74,5 +77,28 @@ public class UserDTO implements Serializable{
 	public void setPatient(List<Patient> patient) {
 		this.patient = patient;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public Long getRoleId() {
+		return roleId;
+	}
+	public void setRoleId(Long roleId) {
+		this.roleId = roleId;
+	}
+	public String getRoleName() {
+		return roleName;
+	}
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+	public UserDTO() {
+		super();
+	}
+	
 	
 }

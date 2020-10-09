@@ -7,32 +7,34 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.htet.ucs.HealthCareServices.dto.UserDTO;
+import com.htet.ucs.HealthCareServices.services.RoleInterface;
 import com.htet.ucs.HealthCareServices.services.UserInterface;
 
 @Controller
 public class UserController {
 	@Autowired
 	private UserInterface userInterface;
-	
+	@Autowired
+	private RoleInterface roleInterface;
 	//**********USER*************
 	
-	@GetMapping("/create_user")
+	@GetMapping("/register")
 	public String createUser(Model model) {
 		model.addAttribute("user", new UserDTO());
-		return "user";
+		model.addAttribute("roleList", roleInterface.getAllRoll());
+		return "register";
 	}
 
-	@PostMapping("/create_user")
+	@PostMapping("/register")
 	public String saveUser(@ModelAttribute("user") UserDTO user, Model model) {
 		userInterface.saveUser(user);
-		return "redirect:/userlist";
+		return "redirect:/login";
 	}
 
-	@GetMapping("/userlist")
-	public String userList(Model model) {
-		model.addAttribute("userList", userInterface.getAllUserList());
-		return "user_list";
-	}
-	
+//	@GetMapping("/userlist")
+//	public String userList(Model model) {
+//		model.addAttribute("userList", userInterface.getAllUserList());
+//		return "user_list";
+//	}	
 	
 }

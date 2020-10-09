@@ -30,8 +30,12 @@
                       <th>No</th>
                       <th>Shop Name</th>
                       <th>Phone</th>
+                      <th>Email</th>
+                      <th>Latitude</th>
+                      <th>Longitude</th>
                       <th>Township</th>
                       <th>Address</th>
+                      <th>Photo</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -41,8 +45,12 @@
 						<td>${r.count }</td>
 						<td>${m.name }</td>
 						<td>${m.phone }</td>
+						<td>${m.email }</td>
+						<td>${m.latitude }</td>
+						<td>${m.longitude }</td>
 						<td>${m.townshipName }</td>
 						<td>${m.address }</td>
+						<td><img src="/images/${m.photo}" width="80" height="80" style="border:1px solid green; border-radius:50%;"/></td>	
 						<td>
 							<button class="btn btn-primary">
 								<a href="${pageContext.request.contextPath}/admin/editShop/${m.id}" style="text-decoration:none; color:white;">Edit</a>
