@@ -40,4 +40,10 @@ public class ArticleDetailService implements ArticleDetailInterface{
 		articleDetailRepository.deleteById(id);
 	}
 
+	@Override
+	public List<ArticleDetailDTO> findDetailsByArticleName(String name) {
+		// TODO Auto-generated method stub
+		return articleDetailRepository.findDetailByArticleName(name).stream().map(ArticleDetailConverter::convertToDTO).collect(Collectors.toList());
+	}
+
 }

@@ -2,6 +2,7 @@ package com.htet.ucs.HealthCareServices.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,13 @@ public class MedicalShop implements Serializable{
 	private Long id;
 	private String name;
 	private String phone;
+	@Column(nullable = false, unique = true)
+	private String email;
+	private String photo;
+	@Column(columnDefinition = "TEXT", nullable = false)
+	private String latitude;
+	@Column(columnDefinition = "TEXT", nullable = false)
+	private String longitude;
 	private String address;
 	@ManyToOne
 	@JoinColumn(name = "townShip_id")
@@ -53,6 +61,32 @@ public class MedicalShop implements Serializable{
 	}
 	public void setTownShip(TownShip townShip) {
 		this.townShip = townShip;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+	public String getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 	public MedicalShop() {
 		super();

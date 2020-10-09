@@ -13,4 +13,6 @@ public interface ArticleDetailInterface {
 	ArticleDetailDTO findById(Long id);
 	//to delete
 	void delete(Long id);
+	//to find detail by article name
+	List<ArticleDetailDTO> findDetailsByArticleName(String name);
 }

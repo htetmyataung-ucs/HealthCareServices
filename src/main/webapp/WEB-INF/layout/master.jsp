@@ -6,6 +6,8 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title><tiles:getAsString name="title" /></title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <meta name="description" content="">
@@ -15,7 +17,7 @@
 	href="<c:url value='/resources/assets/img/favicon.ico'/>">
 <%@ include file="/WEB-INF/common/bootstrap.jsp"%>
 <!-- CSS here -->
-<!-- <link rel="stylesheet" href="/resources/assets/css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="/resources/assets/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="<c:url value='/resources/assets/css/owl.carousel.min.css'/>">
 <link rel="stylesheet"
@@ -114,6 +116,10 @@
 	<!-- Jquery Plugins, main Jquery -->
 	<script src="<c:url value='/resources/assets/js/plugins.js'/>"></script>
 	<script src="<c:url value='/resources/assets/js/main.js'/>"></script>
-
+	<script>
+		$(document).ready(function(){
+			$('select').css('background','red');
+		});
+	</script>
 </body>
 </html>

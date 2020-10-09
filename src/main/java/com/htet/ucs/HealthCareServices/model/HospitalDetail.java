@@ -27,9 +27,9 @@ public class HospitalDetail implements Serializable{
 	
 	private String photoPath;
 	
-	@Column(columnDefinition = "TEXT")
+	@Column(columnDefinition = "TEXT",nullable = false)
 	private String latitude;
-	@Column(columnDefinition = "TEXT")
+	@Column(columnDefinition = "TEXT",nullable = false)
 	private String longitude;
 
 	@OneToOne

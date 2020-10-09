@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.htet.ucs.HealthCareServices.dto.MedicalShopDTO;
 import com.htet.ucs.HealthCareServices.dto.TownshipDTO;
 import com.htet.ucs.HealthCareServices.services.CityInterface;
@@ -20,6 +19,7 @@ import com.htet.ucs.HealthCareServices.services.TownshipInterface;
 
 @Controller
 public class MedicalShopController {
+	
 	@Autowired
 	private MedicalShopInterface medicalShopInterface;
 	@Autowired
@@ -44,26 +44,6 @@ public class MedicalShopController {
 		return "adminShopList";  
 	}
 	
-	//when city change, show township list
-	
-	@GetMapping("/searchShop")
-	public String searchShop(Model model,@RequestParam(value = "townshipId",required = false) Long townshipId) {
-		model.addAttribute("cityList", cityInterface.getAllCityList());
-		
-		List<MedicalShopDTO> shopList= new ArrayList<MedicalShopDTO>();
-		List<TownshipDTO> townshipList= new ArrayList<TownshipDTO>();
-		TownshipDTO dto = new TownshipDTO();
-		if(townshipId!=null) {
-			shopList=medicalShopInterface.getShopListByTownship(townshipId);
-			townshipList = townshipInterface.getTownshipById(townshipId);
-			dto = townshipInterface.findById(townshipId);
-		}
-		model.addAttribute("cityId", dto.getCityId());
-		model.addAttribute("townshipList", townshipList);
-		model.addAttribute("townid",townshipId);
-		model.addAttribute("shopSearchList",shopList);
-		return "searchShop";
-	}
 	
 	//FOR EDIT AND DELETE CITY
 	
@@ -87,10 +67,44 @@ public class MedicalShopController {
 			medicalShopInterface.delete(id);
 			return "redirect:/admin/medicalshop_list";
 		}
+		
+		//when city change, show township list
+		
+		@GetMapping("/searchShop")
+		public String searchShop(Model model,@RequestParam(value = "townshipId",required = false) Long townshipId) {
+			model.addAttribute("cityList", cityInterface.getAllCityList());
+			
+			List<MedicalShopDTO> shopList= new ArrayList<MedicalShopDTO>();
+			List<TownshipDTO> townshipList= new ArrayList<TownshipDTO>();
+			TownshipDTO dto = new TownshipDTO();
+			if(townshipId!=null) {
+				shopList=medicalShopInterface.getShopListByTownship(townshipId);
+				townshipList = townshipInterface.getTownshipById(townshipId);
+				dto = townshipInterface.findById(townshipId);
+			}
+			model.addAttribute("cityId", dto.getCityId());
+			model.addAttribute("townshipList", townshipList);
+			model.addAttribute("townid",townshipId);
+			model.addAttribute("shopSearchList",shopList);
+			return "searchShop";
+		}
+
 	
 //	@GetMapping("/findShopByTownshipId/{townshipId}")
 //	public @ResponseBody List<MedicalShopDTO> findShopByTownshipId(@PathVariable Long townshipId) {
 //		return medicalShopInterface.getShopListByTownship(townshipId);
 //	}
+		
+		//FOR SHOP DETAIL IN USER VIEW
+		@GetMapping("/shopDetail/{id}")
+		public String shopDetaial(@PathVariable Long id,Model model) {	
+			model.addAttribute("shopDetail", medicalShopInterface.findById(id));
+			return "shopDetail";
+		}
+		//Test for shop Details (upper code)
+//		@GetMapping("/findById/{id}")
+//		public @ResponseBody MedicalShopDTO findById(@PathVariable Long id) {
+//			return medicalShopInterface.findById(id);
+//		}
 
 }

@@ -3,10 +3,13 @@ package com.htet.ucs.HealthCareServices.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -18,13 +21,25 @@ public class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@Column(name = "name", nullable = false)
 	private String name;
+	@Column(name = "phone", nullable = false)
 	private String phone;
+	@Column(name = "email", nullable = false, unique = true)
+	private String email;
+	@Column(name = "nrc", nullable = false)
 	private String nrc;
+	@Column(name = "age", nullable = false)
 	private Integer age;
+	@Column(name = "address", nullable = false)
 	private String address;
-	private String bloodType;
+	@Column(name = "bloodType", nullable = false)
+	private String bloodType; 
+	@Column(name = "password", nullable = false)
 	private String password;
+	@ManyToOne
+	@JoinColumn(name = "roleId")
+	private Role role = new Role();
 	public Long getId() {
 		return id;
 	}
@@ -81,6 +96,20 @@ public class User implements Serializable{
 	}
 	public void setPatient(List<Patient> patient) {
 		this.patient = patient;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
 	}
 	public User() {
 		super();
