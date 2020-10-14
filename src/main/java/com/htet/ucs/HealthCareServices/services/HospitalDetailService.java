@@ -17,60 +17,56 @@ import com.htet.ucs.HealthCareServices.repository.HospitalDetailRepository;
 import com.htet.ucs.HealthCareServices.service.mapper.HospitalDetailConverter;
 
 @Service
-public class HospitalDetailService implements HospitalDetailInterface{
-	
+public class HospitalDetailService implements HospitalDetailInterface {
+
 	@Autowired
 	private HospitalDetailRepository hospitalDetailRepository;
 	@Autowired
 	ServletContext servletContext;
-	public String UPLOAD_DIRECTORY="/images/";
-	
+	public String UPLOAD_DIRECTORY = "/images/";
+
 	@Override
 	public void saveHospitalDetail(HospitalDetailDTO hospitalDetailDTO) {
 		// TODO Auto-generated method stub
-		if(hospitalDetailDTO!=null) {
-			HospitalDetail hd= new HospitalDetail();
-			String path=servletContext.getRealPath(UPLOAD_DIRECTORY);
-			String filename=hospitalDetailDTO.getFile().getOriginalFilename();
-			System.out.println(path+" "+filename);
-			
+		if (hospitalDetailDTO != null) {
+			HospitalDetail hd = new HospitalDetail();
+			String path = servletContext.getRealPath(UPLOAD_DIRECTORY);
+			String filename = hospitalDetailDTO.getFile().getOriginalFilename();
+			System.out.println(path + " " + filename);
+
 			try {
-				byte[] bytes=hospitalDetailDTO.getFile().getBytes();
-				BufferedOutputStream stream =new BufferedOutputStream(new FileOutputStream(  
-		                 new File(path + File.separator + filename)));  
-		            stream.write(bytes);  
-		            stream.flush();  
-		            stream.close();
-			}catch(Exception e) {
+				byte[] bytes = hospitalDetailDTO.getFile().getBytes();
+				BufferedOutputStream stream = new BufferedOutputStream(
+						new FileOutputStream(new File(path + File.separator + filename)));
+				stream.write(bytes);
+				stream.flush();
+				stream.close();
+			} catch (Exception e) {
 				System.out.println(e);
 			}
-			if(hospitalDetailDTO.getId()!=null) {
+			if (hospitalDetailDTO.getId() != null) {
 				hd.setId(hospitalDetailDTO.getId());
 			}
 			hd.setPhone(hospitalDetailDTO.getPhone());
 			hd.setAddress(hospitalDetailDTO.getAddress());
+			hd.setEmail(hospitalDetailDTO.getEmail());
 			hd.setDate(hospitalDetailDTO.getDate());
 			hd.setTime(hospitalDetailDTO.getTime());
 			hd.setLatitude(hospitalDetailDTO.getLatitude());
 			hd.setLongitude(hospitalDetailDTO.getLongitude());
-			hd.getHospital().setId(hospitalDetailDTO.getHospitalId());	
+			hd.getHospital().setId(hospitalDetailDTO.getHospitalId());
 			hd.setPhotoPath(filename);
 			hospitalDetailRepository.save(hd);
 		}
-		//hospitalDetailRepository.save(HospitalDetailConverter.convertToEntity(hospitalDetailDTO));
+		// hospitalDetailRepository.save(HospitalDetailConverter.convertToEntity(hospitalDetailDTO));
 	}
 
-	
-	
-	
 	@Override
 	public List<HospitalDetailDTO> getAllHospitalDetailList() {
 		// TODO Auto-generated method stub
-		return hospitalDetailRepository.findAll().stream().map(HospitalDetailConverter::convertToDTO).collect(Collectors.toList());
+		return hospitalDetailRepository.findAll().stream().map(HospitalDetailConverter::convertToDTO)
+				.collect(Collectors.toList());
 	}
-
-
-
 
 	@Override
 	public HospitalDetailDTO findById(Long id) {
@@ -79,12 +75,19 @@ public class HospitalDetailService implements HospitalDetailInterface{
 		return dto;
 	}
 
-
-
-
 	@Override
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
 		hospitalDetailRepository.deleteById(id);
 	}
+
+	@Override
+	public HospitalDetailDTO findByHospitalId(Long id) {
+		// TODO Auto-generated method stub
+		//return hospitalDetailRepository.findDetailByHospitalId(id).stream().map(HospitalDetailConverter::convertToDTO).collect(Collectors.toList());
+		HospitalDetailDTO dto = HospitalDetailConverter.convertToDTO(hospitalDetailRepository.findDetailByHospitalId(id));
+		return dto;
+	}
+
+
 }

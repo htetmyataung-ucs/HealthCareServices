@@ -13,4 +13,6 @@ public interface HospitalInterface {
 	HospitalDTO findById(Long id);
 	//to delete
 	void delete(Long id);
+	//to search hospital
+	List<HospitalDTO> getHospitalByAllCat(Long townshipId, Long hospitalCategoryId, Long hospitalTypeId);
 }

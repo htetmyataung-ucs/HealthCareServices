@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.htet.ucs.HealthCareServices.dto.HospitalDTO;
+import com.htet.ucs.HealthCareServices.model.Hospital;
 import com.htet.ucs.HealthCareServices.repository.HospitalRepository;
 import com.htet.ucs.HealthCareServices.service.mapper.HospitalConverter;
 @Service
@@ -37,6 +38,13 @@ public class HospitalService implements HospitalInterface{
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
 		hospitalRepository.deleteById(id);
+	}
+
+	@Override
+	public List<HospitalDTO> getHospitalByAllCat(Long townshipId, Long hospitalCategoryId, Long hospitalTypeId) {
+		// TODO Auto-generated method stub	
+		List<Hospital> hospitals=hospitalRepository.findHospitalByAllCat(townshipId, hospitalCategoryId, hospitalTypeId);
+		return hospitals.stream().map(HospitalConverter::toSearchHospital).collect(Collectors.toList());
 	}
 	
 }

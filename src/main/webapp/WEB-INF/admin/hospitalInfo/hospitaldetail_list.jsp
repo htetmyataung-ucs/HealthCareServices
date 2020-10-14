@@ -33,6 +33,7 @@
 						<th>Open Time</th>
 						<th>Phone</th>
 						<th>Address</th>
+						<th>Email</th>
 						<th>Latitude</th>
 					   	<th>Longitude</th>
 					  	<th>Photo</th>
@@ -48,6 +49,7 @@
 						<td>${h.time }</td>
 						<td>${h.phone }</td>
 			    		<td>${h.address }</td>
+			    		<td>${h.email }</td>
 			    		<td>${h.latitude }</td>
 			    		<td>${h.longitude }</td>
 			    		<td><img src="/images/${h.photoPath}" width="80" height="80" style="border:1px solid green; border-radius:50%;" /></td>

@@ -32,6 +32,7 @@
                       <th>Gender</th>
                       <th>Description</th>
                       <th>Article</th>
+                      <th>Photo</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -43,6 +44,7 @@
 						<td>${ad.gender }</td>
 						<td>${ad.description }</td>
 						<td>${ad.articleName }</td>
+						<td><img src="/images/${ad.photo}" width="80" height="80" style="border:1px solid green; border-radius:50%;" /></td>
 						<td>
 							<button class="btn btn-primary">
 								<a href="${pageContext.request.contextPath}/admin/edit_articleDetail/${ad.id}" style="text-decoration:none; color:white;">Edit</a>

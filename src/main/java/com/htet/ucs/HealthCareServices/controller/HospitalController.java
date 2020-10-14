@@ -1,5 +1,7 @@
 package com.htet.ucs.HealthCareServices.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,7 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.htet.ucs.HealthCareServices.dto.HospitalDTO;
+import com.htet.ucs.HealthCareServices.services.CityInterface;
 import com.htet.ucs.HealthCareServices.services.HospitalCategoryInterface;
 import com.htet.ucs.HealthCareServices.services.HospitalInterface;
 import com.htet.ucs.HealthCareServices.services.HospitalTypeInterface;
@@ -24,6 +30,9 @@ public class HospitalController {
 	private HospitalCategoryInterface hospitalCategoryInterface;
 	@Autowired
 	private HospitalInterface hospitalInterface;
+	@Autowired
+	private CityInterface cityInterface;
+	
 	
 	//*************HOSPITAL*************
 	
@@ -85,6 +94,23 @@ public class HospitalController {
 				hospitalInterface.delete(id);
 				return "redirect:/admin/hospital_list";
 			}
+			
+			//TO SEARCH HOSPITAL IN USER VIEW
+			@GetMapping("searchHospital")
+			public String searchHospital(@RequestParam(value = "townShipId",required = false)Long townShipId, @RequestParam(value="hospitalCategoryId", required = false)Long hospitalCategoryId, @RequestParam(value="hospitalTypeId",required = false)Long hospitalTypeId,Model model) {
+				model.addAttribute("hospitalTypeList", hospitalTypeInterface.getAllHospitalTypeList());
+				model.addAttribute("cityList", cityInterface.getAllCityList());
+				model.addAttribute("hospitalCategoryList",hospitalCategoryInterface.getAllHospitalCategoryList());
+				if(townShipId!=null && hospitalTypeId!=null && hospitalCategoryId!=null) {
+					
+				}
+				return "searchHospital";				
+			}
+			@GetMapping("findHospitalByAllCat/{townshipId}/{hospitalCategoryId}/{hospitalTypeId}")
+			public @ResponseBody List<HospitalDTO> findHospitalByAllCat(@PathVariable Long townshipId,@PathVariable Long hospitalCategoryId, @PathVariable Long hospitalTypeId) {
+				return hospitalInterface.getHospitalByAllCat(townshipId, hospitalCategoryId, hospitalTypeId);
+			}
+			
 			
 } 
 

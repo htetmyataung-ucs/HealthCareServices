@@ -83,7 +83,6 @@ public class Hospital implements Serializable{
 		this.booking = booking;
 	}
 	
-	
 	@OneToMany(mappedBy="hospital")
 	private List<Reviews> reviews;
 	public List<Reviews> getReviews() {

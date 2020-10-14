@@ -5,12 +5,56 @@
 <%@ include file="/WEB-INF/common/include.jsp"%>
 <style>
 *{
-              box-sizing: border-box;
-            }
+ 	box-sizing: border-box;
+ }
+ .main{
+ 	width: 100%;
+ 	margin-top:-150px;
+ }
+ .main::after{
+ 	clear:both;
+ }
+ #itemCard{
+ 	width:100%;
+ 	padding-top:120px;
+ }
+ #shopCard{
+ 	width: 215px; 
+ 	height: 270px; 
+ 	margin-left:15px; 
+ 	margin-bottom:10px; 
+ 	border-radius:5%; 
+ 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+ 	float: left;
+ }
+ .card-body{
+ 	font-size:13px;
+ }
+ @media only screen and (max-width: 700px){
+  .main{
+
+ 	margin-top:-120px;
+ }
+ 	#shopCard{
+ 		width:150px;
+ 		height:200px;
+ 	}
+ 	.card-body{
+ 		font-size:6px;
+ 	}
+ }
+ @media screen and (min-width: 700px) and (max-width:1200px){
+ 	#shopCard{
+ 		width:180px;
+ 		height:250px;
+ 	}
+ 	.card-body{
+ 		font-size:9px;
+ 	}
+ }
 </style>
 <script>
 $(document).ready(function(){
-	console.log('ok');
 	$("#cityId").click(function(){
 		var cityId=this.value;
 		$.ajax({
@@ -20,12 +64,9 @@ $(document).ready(function(){
 		     
 		    
 		      success: function(resultData) { 
-		    	  console.log(resultData);
 		    	  $(".searchTownshipId").empty();
 		    	  var html="";
 		    	  resultData.forEach(function(std,i){
-		    		  console.log(std.id);
-		    		  console.log(std.name);
 		    		  $(".searchTownshipId").append("<option value='"+std.id+"'>"+std.name+"</option>");
 		    		 // html+="<option value='"+std.id+"'>"+std.name+"</option>";
 		    		  
@@ -35,10 +76,36 @@ $(document).ready(function(){
 		});
 	});
 	
+	$("#submitBtn").click(function(){
+		var townshipId=$("#searchTownshipId").val();
+		$.ajax({
+			type: 'GET',
+			contextType : "application/json",
+			url: "${pageContext.request.contextPath}/shopSearch/"+townshipId,
+			success: function(resultData){
+				$("#itemCard").empty();
+				console.log(resultData);
+				resultData.forEach(function(std,i){
+					$("#itemCard").append('<div class="card card-sm" id="shopCard">'
+							+'<img class="card-img-top" src="/images/'+std.photo+'" alt="Card image" style="width: 100%; height: 45%; border-radius: 5% 5% 0 0;">'
+							+'<div class="card-body">'
+							+'<p style="text-align: center" class="card-title" style="font-weight: bold;">'+std.name+'</p>'
+							+'<i class="fa fa-phone" aria-hidden="true"></i><span style="font-weight: bold; color: gray;">'+std.phone+'</span><br>'
+							+'<i class="fa fa-envelope-o" aria-hidden="true"></i><span style="font-weight: bold; color: gray;">'+std.email+'</span><br>'
+							+'<i class="fa fa-location-arrow" aria-hidden="true"></i><span class="card-text">'+std.address+'</span> <b><i><a href="${pageContext.request.contextPath}/shopDetail/'+std.id+'" style="text-decoration: none; color: black; float: right;">viw detail...</a></i></b>'
+							+'</div>'
+						    +'</div>'
+
+							);
+				});
+			}
+		});
+	});
+	
 	
 	//for township select box
 	$('#searchTownshipId').removeClass('nice-select').css('display','inline').css('background','#EFF8FB')
-	.css('font-size','15px').css('border','2px solid gray');
+	.css('font-size','15px').css('border','2px solid gray') ;
 	//alert($('select[name="townshipId"]').next('.nice-select').html());
 	$('select[name="townshipId"]').next('.nice-select').remove();
 	
@@ -52,7 +119,7 @@ $(document).ready(function(){
 
 </script>
 
-<main style="position:relative; overflow:auto;">
+<main style="position: relative; overflow: auto;">
 	<!--? Slider Area Start-->
 	<div class="slider-area slider-area2" style="z-index: -1;">
 		<div class="slider-active dot-style">
@@ -80,89 +147,60 @@ $(document).ready(function(){
 	<!--?  Contact Area start  -->
 	<section class="contact-section">
 		<div class="container">
+			<div class="main">
+				<%-- <form:form action="${pageContext.request.contextPath}/searchShop"
+					method="GET">
+ --%>
+				<div style="width: 30%; float: left; margin-right:5%;">
 
-			<div style="width: 100%; height:700px; margin-top: -150px;">
-				<div style="width: 100%; height: 20%; padding-bottom:0px;">
-					<form:form action="${pageContext.request.contextPath}/searchShop"
-						method="GET">
-
-						<div style="width: 30%; height: 100%; float: left;">
-
-							<h3>City</h3>
-							<select id="cityId" class="form-select" name="cityId" style="">
-								<c:forEach items="${cityList}" var="c">
-									<option
-										<c:if test="${c.id eq cityId}">selected="selected"</c:if>
-										value="${c.id}">${c.name}</option>
-								</c:forEach>
-							</select>
-
-						</div>
-						<div style="width: 10%; height: 100%; float: left;">
-							<p></p>
-						</div>
-						<div style="width: 30%; height: 100%; float: left;">
-							<h3>Township</h3>
-							<select id="searchTownshipId"
-								class="searchTownshipId form-select form-control"
-								name="townshipId">
-								<c:forEach items="${townshipList}" var="t">
-									<option
-										<c:if test="${t.id eq townid}">selected="selected"</c:if>
-										value="${t.id}">${t.name}</option>
-								</c:forEach>
-							</select>
-						</div>
-						<div style="width: 10%; height: 100% float:left;">
-							<p></p>
-						</div>
-						<div style="width: 20%; height: 100%; float: right;">
-							<button type="submit" class="btn"
-								style="padding: 20px; margin-top: 25px;">Search</button>
-						</div>
-					</form:form>
-				</div>
-				<div style="width: 100%; height: 80%;">
-					<!-- <table id="shop_table" class="table table-hover table-bordered">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Phone</th>
-								<th>Address</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${shopSearchList}" var="shop">
-								<tr>
-									<td>${shop.name }</td>
-									<td>${shop.phone }</td>
-									<td>${shop.address }</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table> -->
-
-					<div>
-						<c:forEach items="${shopSearchList}" var="s">
-							<div class="card card-sm" id="shopCard"
-								style="width: 220px; height: 300px; margin-left:15px; margin-bottom:10px; border-radius:5%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); float: left;">
-								<img class="card-img-top" src="/images/${s.photo }" alt="Card image"
-									style="width: 100%; height: 120px; border-radius:5% 5% 0 0;">
-								<div class="card-body" style="">
-									<div style="font-size:13px;">
-										<p style="text-align:center" class="card-title" style="font-weight: bold;">${s.name}</p>
-										<i class="fa fa-phone" aria-hidden="true"></i><span style="font-weight: bold; color: gray;">${s.phone}</span><br>
-										<i class="fa fa-envelope-o" aria-hidden="true"></i><span style="font-weight: bold; color: gray;">${s.email}</span><br>
-										<i class="fa fa-location-arrow" aria-hidden="true"></i><span class="card-text">${s.address}</span>
-										<b><i><a href="${pageContext.request.contextPath}/shopDetail/${s.id}" style="text-decoration:none; color:black; float:right;">see more...</a></i></b>
-									</div>
-									
-								</div>
-							</div>
+					<h3>City</h3>
+					<select id="cityId" class="form-select" name="cityId" style="">
+						<c:forEach items="${cityList}" var="c">
+							<option <c:if test="${c.id eq cityId}">selected="selected"</c:if>
+								value="${c.id}">${c.name}</option>
 						</c:forEach>
-					</div>
+					</select>
 
 				</div>
+				<div style="width: 30%; float: left; margin-right:5%;">
+					<h3>Township</h3>
+					<select id="searchTownshipId"
+						class="searchTownshipId form-select form-control"
+						name="townshipId">
+						<!-- search if form action -->
+						<c:forEach items="${townshipList}" var="t">
+							<option <c:if test="${t.id eq townid}">selected="selected"</c:if>
+								value="${t.id}">${t.name}</option>
+						</c:forEach>
+					</select>
+				</div>
+				<div style="width: 20%; float:left;">
+					<button type="submit" class="btn" id="submitBtn"
+						style="padding: 20px; margin-top: 25px;">Search</button>
+				</div>
+				<%-- </form:form> --%>
+			</div>
+			<div id="itemCard">
+				<%-- <c:forEach items="${shopSearchList}" var="s">
+					<div class="card card-sm" id="shopCard" style="">
+						<img class="card-img-top" src="/images/${s.photo }"
+							alt="Card image"
+							style="width: 100%; height: 45%; border-radius: 5% 5% 0 0;">
+						<div class="card-body">
+							<p style="text-align: center" class="card-title"
+								style="font-weight: bold;">${s.name}</p>
+							<i class="fa fa-phone" aria-hidden="true"></i><span
+								style="font-weight: bold; color: gray;">${s.phone}</span><br>
+							<i class="fa fa-envelope-o" aria-hidden="true"></i><span
+								style="font-weight: bold; color: gray;">${s.email}</span><br>
+							<i class="fa fa-location-arrow" aria-hidden="true"></i><span
+								class="card-text">${s.address}</span> <b><i><a
+									href="${pageContext.request.contextPath}/shopDetail/${s.id}"
+									style="text-decoration: none; color: black; float: right;">viw
+										detail...</a></i></b>
+						</div>
+					</div>
+				</c:forEach> --%>
 			</div>
 		</div>
 	</section>

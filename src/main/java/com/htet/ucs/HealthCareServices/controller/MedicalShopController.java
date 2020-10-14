@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.htet.ucs.HealthCareServices.dto.MedicalShopDTO;
 import com.htet.ucs.HealthCareServices.dto.TownshipDTO;
 import com.htet.ucs.HealthCareServices.services.CityInterface;
@@ -87,6 +89,10 @@ public class MedicalShopController {
 			model.addAttribute("townid",townshipId);
 			model.addAttribute("shopSearchList",shopList);
 			return "searchShop";
+		}
+		@GetMapping("/shopSearch/{townshipId}")
+		public @ResponseBody List<MedicalShopDTO> shopSearch(@PathVariable Long townshipId){
+			return medicalShopInterface.getShopListByTownship(townshipId);
 		}
 
 	

@@ -18,7 +18,7 @@
 									<div
 										class="menu-main d-flex align-items-center justify-content-start">
 										<!-- Main-menu -->
-										<div class="main-menu main-menu2" style="margin-top: -20px;">
+										<!--<div class="main-menu main-menu2" style="margin-top: -20px;">
 											<nav>
 												<ul>
 													<li><a href="index.html"
@@ -27,27 +27,33 @@
 														style="text-decoration: none;">Hospitals</a></li>
 													<li><a>Articles</a>
 														<ul class="submenu">
-															<li><a href="blog.html"
+															<li><a
+																href="${pageContext.request.contextPath}/firstAid"
 																style="text-decoration: none;">FirsyAid</a></li>
-															<li><a href="blog_details.html"
+															<li><a
+																href="${pageContext.request.contextPath}/disease"
 																style="text-decoration: none;">Diesases</a></li>
-															<li><a href="elements.html"
+															<li><a
+																href="${pageContext.request.contextPath}/knowledge"
 																style="text-decoration: none;">Knowledges</a></li>
 														</ul></li>
 													<li><a href="services.html"
 														style="text-decoration: none;">News</a></li>
+													<li><a
+														href="${pageContext.request.contextPath}/searchShop"
+														style="text-decoration: none;">Shop</a></li>
 													<li><a href="contact.html"
 														style="text-decoration: none;">Contact</a></li>
 												</ul>
 											</nav>
-										</div>
+										</div>-->
 									</div>
 								</div>
 							</div>
 							<!-- social -->
 							<div class="footer-social mt-50" style="margin-top: 0px;">
 								<a href="#"><i class="fab fa-twitter"></i></a> <a
-									href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
+									href="https://www.facebook.com/ugyi.htet.969"><i class="fab fa-facebook-f"></i></a>
 								<a href="#"><i class="fab fa-pinterest-p"></i></a>
 							</div>
 						</div>
@@ -95,12 +101,15 @@
 			<div class="container">
 				<div class="footer-border">
 					<div class="row">
-						<div class="col-xl-10 " style="display:inline;">
-							<div class="footer-copy-right" style="float:left">
+						<div class="col-xl-10 " style="display: inline;">
+							<div class="footer-copy-right" style="float: left">
 								<p>
 									<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 									Copyright &copy;
-									<script>document.write(new Date().getFullYear());</script>
+									<script>
+										document
+												.write(new Date().getFullYear());
+									</script>
 									<!-- <i class="fa fa-heart" aria-hidden="true"></i>
                                Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 								</p>

@@ -60,5 +60,12 @@ public class HospitalDetailController {
 		hospitalDetailInterface.delete(id);
 		return "redirect:/admin/hospitaldetail_list";
 	}
+	
+	//TO SHOW HOSPITAL DETAIAL INFO
+	@GetMapping("/hospitalDetailInfo/{id}")
+	public String hospitalDetailInfo(Model model,@PathVariable Long id) {
+		model.addAttribute("hospitalDetailList", hospitalDetailInterface.findByHospitalId(id));
+		return "hospitalDetailInfo";
+	}
 		
 }
