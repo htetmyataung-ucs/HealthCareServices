@@ -24,6 +24,15 @@ public class ArticleDetail implements Serializable{
 	private Long id;
 	private String name;
 	private String gender;
+	private String photo;
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
 	@Lob
 	@Column(columnDefinition = "TEXT")
 	private String description;

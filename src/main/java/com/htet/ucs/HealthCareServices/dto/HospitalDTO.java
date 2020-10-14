@@ -3,6 +3,7 @@ package com.htet.ucs.HealthCareServices.dto;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.htet.ucs.HealthCareServices.model.Booking;
 import com.htet.ucs.HealthCareServices.model.HospitalCategory;
 import com.htet.ucs.HealthCareServices.model.HospitalDoctor;
@@ -19,22 +20,28 @@ public class HospitalDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String name;
-	
+	@JsonIgnore
 	private HospitalCategory hospitalCategory;
+	@JsonIgnore
 	private Long hospitalCategoryId;
 	private String hospitalCategoryName;
-	
+	@JsonIgnore
 	private HospitalType hospitalType;
+	@JsonIgnore
 	private Long hospitalTypeId;
 	private String hospitalTypeName;
-	
+	@JsonIgnore
 	private TownShip townShip;
+	@JsonIgnore
 	private Long townShipId;
 	private String townShipName;
-	
+	@JsonIgnore
 	private List<Booking> booking;
+	@JsonIgnore
 	private List<Reviews> reviews;
+	@JsonIgnore
 	private List<HospitalSpecial> hospitalSpeciality;
+	@JsonIgnore
 	private List<HospitalDoctor> hospitalDoctor;
 	public Long getId() {
 		return id;

@@ -33,6 +33,11 @@
      <form:label path="address">Address:</form:label>
       <form:input type="text" class="form-control" placeholder="Enter Phone" path="address"></form:input>
     </div>
+    
+    <div class="form-group">
+     <form:label path="email">Email:</form:label>
+      <form:input type="text" class="form-control" placeholder="Enter Email" path="email"></form:input>
+    </div>
   
     <div class="form-group">
      <form:label path="time">Time:</form:label>

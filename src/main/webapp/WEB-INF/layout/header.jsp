@@ -22,15 +22,18 @@
 								<nav>
 									<ul id="navigation">
 										<li><a href="/" style="text-decoration: none;">Home</a></li>
-										<li><a href="${pageContext.request.contextPath}/#"
+										<li><a href="${pageContext.request.contextPath}/searchHospital"
 											style="text-decoration: none;">Hospitals</a></li>
 										<li><a>Articles</a>
 											<ul class="submenu">
-												<li><a href="${pageContext.request.contextPath}/firstAid"
+												<li><a
+													href="${pageContext.request.contextPath}/firstAid"
 													style="text-decoration: none;">FirstAid</a></li>
-												<li><a href="${pageContext.request.contextPath}/disease"
+												<li><a
+													href="${pageContext.request.contextPath}/disease"
 													style="text-decoration: none;">Diseases</a></li>
-												<li><a href="${pageContext.request.contextPath}/knowledge"
+												<li><a
+													href="${pageContext.request.contextPath}/knowledge"
 													style="text-decoration: none;">Knowledges</a></li>
 											</ul></li>
 										<li><a href="${pageContext.request.contextPath}/#"
@@ -43,19 +46,24 @@
 									</ul>
 								</nav>
 							</div>
-							<div class="header-right-btn d-lg-block ml-15" style="margin-left:-20px;">
+							<div class="header-right-btn d-lg-block ml-15"
+								style="margin-left: -20px;">
 								<a href="${pageContext.request.contextPath}/#"
 									class="btn header-btn">Make Appointment</a>
 							</div>
 							<!-- User Menu-->
-						
-							<div class="dropdown" style="float:right; margin-right:-10px; margin-left:15px;">
+
+							<div class="dropdown"
+								style="float: right; margin-right: -10px; margin-left: 15px;">
 								<a class="dropdown-toggle" data-toggle="dropdown"
 									style="text-decoration: none"><i class="fa fa-user-o"
-									aria-hidden="true" style="font-size:30px;"></i> </a>
+									aria-hidden="true" style="font-size: 30px;"></i> </a>
 								<div class="dropdown-menu dropdown-menu-bottom">
-									<a class="dropdown-item " href="${pageContext.request.contextPath}/profile" style="font-size:15px;">Profile</a> 
-									<a class="dropdown-item" href="${pageContext.request.contextPath}/logout" style="font-size:15px;">Logout</a> 
+									<a class="dropdown-item "
+										href="${pageContext.request.contextPath}/profile"
+										style="font-size: 15px;">Profile</a> <a class="dropdown-item"
+										href="${pageContext.request.contextPath}/logout"
+										style="font-size: 15px;">Logout</a>
 								</div>
 							</div>
 

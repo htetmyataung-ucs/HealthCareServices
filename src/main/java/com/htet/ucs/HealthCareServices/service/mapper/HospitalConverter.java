@@ -37,5 +37,14 @@ public class HospitalConverter {
 		hdto.setHospitalDoctor(h.getHospitalDoctor());
 		return hdto;
 	}
+	public static HospitalDTO toSearchHospital(Hospital h) {
+		HospitalDTO hd = new HospitalDTO();
+		hd.setId(h.getId());
+		hd.setName(h.getName());
+		hd.setHospitalCategoryName(h.getHospitalCategory().getName());
+		hd.setHospitalTypeName(h.getHospitalType().getName());
+		hd.setTownShipName(h.getTownShip().getName());
+		return hd;
+	}
 
 }

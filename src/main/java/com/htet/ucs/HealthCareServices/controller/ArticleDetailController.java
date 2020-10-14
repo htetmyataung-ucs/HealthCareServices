@@ -94,16 +94,21 @@ public class ArticleDetailController {
 	// FOR DISEASE
 	@GetMapping("/disease")
 	public String disease(Model model) {
-		String name = "Diseases";
+		String name = "Disease";
 		model.addAttribute("diseaseList", articleDetailInterface.findDetailsByArticleName(name));
 		return "disease";
 	}
 	//FOR KNOWLEDGE
 	@GetMapping("/knowledge")
 	public String knowledge(Model model) {
-		String name="Know ledge";
+		String name="Knowledge";
 		model.addAttribute("knowledgeList",articleDetailInterface.findDetailsByArticleName(name));
 		return "knowledge";
+	}
+	@GetMapping("/articleDetailInfo/{id}")
+	public String articleDetailInfo(@PathVariable Long id, Model model) {
+		model.addAttribute("detailInfo",articleDetailInterface.findById(id));
+		return "articleDetailInfo";
 	}
 	
 

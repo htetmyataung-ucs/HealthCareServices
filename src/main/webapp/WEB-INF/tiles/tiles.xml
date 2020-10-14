@@ -25,6 +25,16 @@
     	<put-attribute name="body" value="/WEB-INF/admin/hospital.jsp"/>
     </definition>
     
+    <!-- TO SEARCH HOSPITAL -->
+     <definition name="searchHospital" extends="layout.basic">
+    	<put-attribute name="body" value="/WEB-INF/userView/hospital/hospital.jsp"/>
+    </definition>
+    <!-- FOR HOSPITAL DETAIAL INFO -->
+    <definition name="hospitalDetailInfo" extends="layout.basic">
+    	<put-attribute name="body" value="/WEB-INF/userView/hospital/hospitalDetailInfo.jsp"/>
+    </definition>
+    
+    
     <!-- FOR SHOP -->
   <definition name="searchShop" extends="layout.basic">
     	<put-attribute name="body" value="/WEB-INF/userView/medicalshop/shop.jsp"/>
@@ -46,7 +56,10 @@
     <definition name="knowledge" extends="layout.basic">
     	<put-attribute name="body" value="/WEB-INF/userView/article/knowledge.jsp"/>
     </definition>
-    
+    <!-- FOR DETAIL INFO -->
+    <definition name="articleDetailInfo" extends="layout.basic">
+    	<put-attribute name="body" value="/WEB-INF/userView/article/articleDetailInfo.jsp"/>
+    </definition>
     
     
     

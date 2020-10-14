@@ -10,7 +10,7 @@
      </head>
   <body>
   <h3>Insert Article Details</h3>
-<form:form action="${pageContext.request.contextPath}/admin/create_article_detail" method="POST" modelAttribute="article_detail">
+<form:form action="${pageContext.request.contextPath}/admin/create_article_detail" method="POST" enctype="multipart/form-data" modelAttribute="article_detail">
 	<div class="form-group">
     <form:label path="name">Choose Article:</form:label>
 	<form:select path="articleId" class="form-control">
@@ -24,6 +24,10 @@
 	<form:input path="name" class="form-control"/>
 	<%-- Choose Gender<form:radiobutton path="gender" value="Male" label="Male"/><form:radiobutton path="gender" value="Female" label="Female"/><br> --%>
 	</div>
+	<div class="form-group">
+     <form:label path="file">Photo:</form:label>
+      <form:input  path="file" type="file" class="form-control" placeholder="Choose photo:"></form:input>
+    </div>
 	<h6>Choose Gender:</h6>
 	<input type="radio" name="gender" value="Male">Male
 	<input type="radio" name="gender" value="Female">Female

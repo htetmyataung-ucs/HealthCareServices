@@ -52,8 +52,10 @@ public class HospitalDetailConverter {
 		hd.setAddress(hdDTO.getAddress());
 		hd.setDate(hdDTO.getDate());
 		hd.setTime(hdDTO.getTime());
+		hd.setEmail(hdDTO.getEmail());
 		hd.setLatitude(hdDTO.getLatitude());
 		hd.setLongitude(hdDTO.getLongitude());
+		hd.setHospitalId(hdDTO.getHospital().getId());
 		hd.setHospitalName(hdDTO.getHospital().getName());
 		hd.setPhotoPath(hdDTO.getPhotoPath());
 		return hd;

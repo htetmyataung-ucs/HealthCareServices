@@ -2,6 +2,8 @@ package com.htet.ucs.HealthCareServices.dto;
 
 import java.io.Serializable;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.htet.ucs.HealthCareServices.model.Article;
 
 public class ArticleDetailDTO implements Serializable {
@@ -11,6 +13,24 @@ public class ArticleDetailDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Long id;
+	private String photo;
+	private MultipartFile file;
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
 	public Long getId() {
 		return id;
 	}
