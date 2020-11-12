@@ -14,7 +14,7 @@ public class UserConverter {
 		user.setAddress(userDTO.getAddress());
 		user.setBloodType(userDTO.getBloodType());
 		user.setPassword(userDTO.getPassword());
-		user.setPatient(userDTO.getPatient());
+		user.setBooking(userDTO.getBooking());
 		return user;
 	}
 	public static UserDTO convertToDTO(User userDTO) {
@@ -27,7 +27,7 @@ public class UserConverter {
 		user.setAddress(userDTO.getAddress());
 		user.setBloodType(userDTO.getBloodType());
 		user.setPassword(userDTO.getPassword());
-		user.setPatient(userDTO.getPatient());
+		user.setBooking(userDTO.getBooking());
 		return user;
 	}
 	

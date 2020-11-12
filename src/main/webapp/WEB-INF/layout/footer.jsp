@@ -9,7 +9,7 @@
 						<div class="single-footer-caption mb-50">
 							<!-- logo -->
 							<div class="footer-logo mb-25">
-								<a href="index.html"><img
+								<a href="/"><img
 									src="/resources/assets/img/logo/logo_footer.png" alt=""
 									width="350px" height="180px"></a>
 							</div>
@@ -97,7 +97,7 @@
 			</div>
 		</div>
 		<!-- footer-bottom area -->
-		<div class="footer-bottom-area" style="margin-top: -80px;">
+		<div class="footer-bottom-area" style="margin-top: -50px;">
 			<div class="container">
 				<div class="footer-border">
 					<div class="row">

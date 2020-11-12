@@ -6,7 +6,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.htet.ucs.HealthCareServices.model.Booking;
 import com.htet.ucs.HealthCareServices.model.HospitalCategory;
+import com.htet.ucs.HealthCareServices.model.HospitalDetail;
 import com.htet.ucs.HealthCareServices.model.HospitalDoctor;
+import com.htet.ucs.HealthCareServices.model.HospitalService;
 import com.htet.ucs.HealthCareServices.model.HospitalSpecial;
 import com.htet.ucs.HealthCareServices.model.HospitalType;
 import com.htet.ucs.HealthCareServices.model.Reviews;
@@ -20,6 +22,29 @@ public class HospitalDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String name;
+	private String photo;
+	private String description;
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	private HospitalDetail hospitalDetail;
+	
+	public HospitalDetail getHospitalDetail() {
+		return hospitalDetail;
+	}
+	public void setHospitalDetail(HospitalDetail hospitalDetail) {
+		this.hospitalDetail = hospitalDetail;
+	}
 	@JsonIgnore
 	private HospitalCategory hospitalCategory;
 	@JsonIgnore
@@ -43,6 +68,7 @@ public class HospitalDTO implements Serializable{
 	private List<HospitalSpecial> hospitalSpeciality;
 	@JsonIgnore
 	private List<HospitalDoctor> hospitalDoctor;
+	private List<HospitalService> hospitalService;
 	public Long getId() {
 		return id;
 	}
@@ -132,6 +158,12 @@ public class HospitalDTO implements Serializable{
 	}
 	public void setTownShipName(String townShipName) {
 		this.townShipName = townShipName;
+	}
+	public List<HospitalService> getHospitalService() {
+		return hospitalService;
+	}
+	public void setHospitalService(List<HospitalService> hospitalService) {
+		this.hospitalService = hospitalService;
 	}
 	
 	

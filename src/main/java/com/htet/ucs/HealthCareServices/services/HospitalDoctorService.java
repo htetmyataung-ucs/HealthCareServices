@@ -38,5 +38,11 @@ public class HospitalDoctorService implements HospitalDoctorInterface{
 		// TODO Auto-generated method stub
 		hospitalDoctorRepository.deleteById(id);
 	}
+
+	@Override
+	public List<HospitalDoctorDTO> getAllDetailByHospitalId(Long id) {
+		// TODO Auto-generated method stub
+		return hospitalDoctorRepository.findDoctorByHospitalId(id).stream().map(HospitalDoctorConverter::toSearchDoctorInfo).collect(Collectors.toList());
+	}
 	
 }

@@ -6,6 +6,9 @@ import com.htet.ucs.HealthCareServices.model.Reviews;
 public class ReviewConverter {
 	public static Reviews convertToEntity(ReviewDTO reviewDTO) {
 		Reviews review = new Reviews();
+		if(reviewDTO!=null) {
+			review.setId(reviewDTO.getId());
+		}
 		review.setDescription(reviewDTO.getDescription());
 		review.setRating(reviewDTO.getRating());
 		review.getHospital().setId(reviewDTO.getHospitalId());
@@ -13,9 +16,11 @@ public class ReviewConverter {
 	}
 	public static ReviewDTO convertToDTO(Reviews reviewDTO) {
 		ReviewDTO review = new ReviewDTO();
+		
 		review.setId(reviewDTO.getId());
 		review.setDescription(reviewDTO.getDescription());
 		review.setRating(reviewDTO.getRating());
+		review.setHospitalId(reviewDTO.getHospital().getId());
 		review.setHospitalName(reviewDTO.getHospital().getName());
 		return review;
 	}

@@ -53,6 +53,7 @@ public class HospitalDetailConverter {
 		hd.setDate(hdDTO.getDate());
 		hd.setTime(hdDTO.getTime());
 		hd.setEmail(hdDTO.getEmail());
+		hd.setDescription(hdDTO.getDescription());
 		hd.setLatitude(hdDTO.getLatitude());
 		hd.setLongitude(hdDTO.getLongitude());
 		hd.setHospitalId(hdDTO.getHospital().getId());

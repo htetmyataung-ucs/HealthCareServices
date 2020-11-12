@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -25,6 +26,10 @@ public class HospitalDetail implements Serializable{
 	private String date;
 	private String time;
 	private String email;
+	
+	@Lob
+	@Column(columnDefinition = "TEXT")
+	private String description;
 	
 	public String getEmail() {
 		return email;
@@ -99,6 +104,13 @@ public class HospitalDetail implements Serializable{
 	}
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public HospitalDetail() {
 		super();

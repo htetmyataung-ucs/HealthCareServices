@@ -21,8 +21,13 @@ public class HospitalDoctorConverter {
 	public static HospitalDoctorDTO convertToDTO(HospitalDoctor hDTO) {
 		HospitalDoctorDTO hospitalDoctor = new HospitalDoctorDTO();
 		hospitalDoctor.setId(hDTO.getId());
-		hospitalDoctor.setDoctorName(hDTO.getDoctor().getName());
+		
+		hospitalDoctor.setHospitalId(hDTO.getHospital().getId());
 		hospitalDoctor.setHospitalName(hDTO.getHospital().getName());
+		
+		hospitalDoctor.setDoctorId(hDTO.getDoctor().getId());
+		hospitalDoctor.setDoctorName(hDTO.getDoctor().getName());
+		
 		hospitalDoctor.setStartDate(hDTO.getStartDate());
 		hospitalDoctor.setEndDate(hDTO.getEndDate());
 		hospitalDoctor.setStartTime(hDTO.getStartTime());
@@ -31,4 +36,19 @@ public class HospitalDoctorConverter {
 		return hospitalDoctor;
 	}
 	
+	public static HospitalDoctorDTO toSearchDoctorInfo(HospitalDoctor hDTO) {
+		HospitalDoctorDTO hospitalDoctor = new HospitalDoctorDTO();
+		hospitalDoctor.setId(hDTO.getId());
+		hospitalDoctor.setDoctorName(hDTO.getDoctor().getName());
+		hospitalDoctor.setHospitalName(hDTO.getHospital().getName());
+		hospitalDoctor.setDoctorPhoto(hDTO.getDoctor().getPhotoPath());
+		hospitalDoctor.setDoctorSamaNo(hDTO.getDoctor().getSama_no());
+		hospitalDoctor.setDoctorSpeciality(hDTO.getDoctor().getSpeciality().getName());
+		hospitalDoctor.setStartDate(hDTO.getStartDate());
+		hospitalDoctor.setEndDate(hDTO.getEndDate());
+		hospitalDoctor.setStartTime(hDTO.getStartTime());
+		hospitalDoctor.setEndTime(hDTO.getEndTime());
+		hospitalDoctor.setStatus(hDTO.getStatus());
+		return hospitalDoctor;
+	}
 }

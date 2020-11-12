@@ -59,6 +59,7 @@ public class ArticleDetailController {
 
 		}
 		ArticleDetailDTO dto = articleDetailInterface.findById(id);
+		
 		model.addAttribute("articleDetail", dto);
 		model.addAttribute("articleList", articleInterface.getAllArticleList());
 		return "adminArticleDetailEdit";

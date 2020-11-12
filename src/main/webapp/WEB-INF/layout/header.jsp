@@ -1,6 +1,6 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<header>
+<header style="border-bottom:2px solid #DCDCDC;">
 	<!--? Header Start -->
 	<div class="header-area">
 		<div class="main-header header-sticky">
@@ -9,7 +9,7 @@
 					<!-- Logo -->
 					<div class="col-xl-2 col-lg-2 col-md-1">
 						<div class="logo">
-							<a href="index.html"><img
+							<a href="/"><img
 								src="/resources/assets/img/logo/logo1.png" alt=""
 								style="width: 200px; height: 100px;"></a>
 						</div>
@@ -21,10 +21,10 @@
 							<div class="main-menu f-right d-none  d-lg-block">
 								<nav>
 									<ul id="navigation">
-										<li><a href="/" style="text-decoration: none;">Home</a></li>
-										<li><a href="${pageContext.request.contextPath}/searchHospital"
+										<li style="margin-left:-5px;"><a href="/" style="text-decoration: none;">Home</a></li>
+										<li style="margin-left:-5px;"><a href="${pageContext.request.contextPath}/searchHospital"
 											style="text-decoration: none;">Hospitals</a></li>
-										<li><a>Articles</a>
+										<li style="margin-left:-5px;"><a>Articles</a>
 											<ul class="submenu">
 												<li><a
 													href="${pageContext.request.contextPath}/firstAid"
@@ -36,24 +36,35 @@
 													href="${pageContext.request.contextPath}/knowledge"
 													style="text-decoration: none;">Knowledges</a></li>
 											</ul></li>
-										<li><a href="${pageContext.request.contextPath}/#"
-											style="text-decoration: none;">News</a></li>
-										<li><a
+										<li style="margin-left:-5px;"><a href="${pageContext.request.contextPath}/post"
+											style="text-decoration: none;">Post</a></li>
+										<li style="margin-left:-5px;"><a
 											href="${pageContext.request.contextPath}/searchShop"
 											style="text-decoration: none;">Shop</a></li>
-										<li><a href="${pageContext.request.contextPath}/#"
+										<li style="margin-left:-5px;"><a href="${pageContext.request.contextPath}/#"
 											style="text-decoration: none;">Contact</a></li>
+										<li>
+										<li style="margin-left:-5px;"><a><i class="fa fa-lg fa-user-o"></i></a>
+											<ul class="submenu">
+												<li><a
+													href="${pageContext.request.contextPath}/profile"
+													style="text-decoration: none;">Profile</a></li>
+												<li><a
+													href="${pageContext.request.contextPath}/logout"
+													style="text-decoration: none;">Logout</a></li>
+											</ul>
+										</li>
 									</ul>
 								</nav>
 							</div>
 							<div class="header-right-btn d-lg-block ml-15"
-								style="margin-left: -20px;">
+								style="margin-left: -20px; margin-right:28px;">
 								<a href="${pageContext.request.contextPath}/#"
 									class="btn header-btn">Make Appointment</a>
 							</div>
 							<!-- User Menu-->
 
-							<div class="dropdown"
+							<%-- <div class="dropdown"
 								style="float: right; margin-right: -10px; margin-left: 15px;">
 								<a class="dropdown-toggle" data-toggle="dropdown"
 									style="text-decoration: none"><i class="fa fa-user-o"
@@ -65,12 +76,12 @@
 										href="${pageContext.request.contextPath}/logout"
 										style="font-size: 15px;">Logout</a>
 								</div>
-							</div>
+							</div> --%>
 
 						</div>
 					</div>
 					<!-- Mobile Menu -->
-					<div class="col-12">
+					<div class="col-12" >
 						<div class="mobile_menu d-block d-lg-none"></div>
 					</div>
 				</div>

@@ -27,8 +27,11 @@ public class HospitalConverter {
 		hdto.setId(h.getId());
 		hdto.setName(h.getName());
 		
+		hdto.setHospitalCategoryId(h.getHospitalCategory().getId());
 		hdto.setHospitalCategoryName(h.getHospitalCategory().getName());
+		hdto.setHospitalTypeId(h.getHospitalType().getId());
 		hdto.setHospitalTypeName(h.getHospitalType().getName());
+		hdto.setTownShipId(h.getTownShip().getId());
 		hdto.setTownShipName(h.getTownShip().getName());
 		
 		hdto.setBooking(h.getBooking());
@@ -41,6 +44,8 @@ public class HospitalConverter {
 		HospitalDTO hd = new HospitalDTO();
 		hd.setId(h.getId());
 		hd.setName(h.getName());
+		hd.setPhoto(h.getHospitalDetail().getPhotoPath());
+		hd.setDescription(h.getHospitalDetail().getDescription());
 		hd.setHospitalCategoryName(h.getHospitalCategory().getName());
 		hd.setHospitalTypeName(h.getHospitalType().getName());
 		hd.setTownShipName(h.getTownShip().getName());

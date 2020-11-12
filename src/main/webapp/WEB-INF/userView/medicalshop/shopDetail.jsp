@@ -8,7 +8,7 @@
 	width: 300px;
 	height: 300px;
 	border-radius: 50%;
-	border: 3px solid #009900;
+	border: 3px solid rgb(0, 153, 0, 0.7);
 	margin-top: -200px;
 	margin-left: 39%;
 }
@@ -39,8 +39,8 @@
 	.image img {
 		width: 130px;
 		height: 130px;
-		margin-top: -90px;
-		margin-left: 40%;
+		margin-top: -80px;
+		margin-left: 34%;
 	}
 	.shopInfo {
 		margin-top: -40px;
@@ -49,10 +49,10 @@
 		font-size: 20px;
 	}
 	.shopInfo .mail {
-		font-size: 10px;
+		font-size: 12px;
 	}
 	.map{
-	margin-left: 16%;
+	margin-left: 5%;
 }
 	.map #map {
 		width: 350px;
@@ -123,7 +123,7 @@
 			<br> <label class="mail"><i class="fa fa-phone"></i>&nbsp;&nbsp;${shopDetail.phone }</label><br>
 			<label class="mail"><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;${shopDetail.email }</label><br>
 			<label class="mail"><i class="fa fa-location-arrow"></i>&nbsp;&nbsp;${shopDetail.address }</label><br>
-			<label class="mail"><i class="fa fa-building-o"></i>&nbsp;&nbsp;${shopDetail.townshipName }&nbsp;<span>Township</span></label><br>
+			<label class="mail"><i class="fa fa-building-o"></i>&nbsp;&nbsp;${shopDetail.townshipName }</label><br>
 			<br>
 			<br>
 			<br>

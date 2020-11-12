@@ -50,6 +50,7 @@ public class HospitalDetailService implements HospitalDetailInterface {
 			hd.setPhone(hospitalDetailDTO.getPhone());
 			hd.setAddress(hospitalDetailDTO.getAddress());
 			hd.setEmail(hospitalDetailDTO.getEmail());
+			hd.setDescription(hospitalDetailDTO.getDescription());
 			hd.setDate(hospitalDetailDTO.getDate());
 			hd.setTime(hospitalDetailDTO.getTime());
 			hd.setLatitude(hospitalDetailDTO.getLatitude());

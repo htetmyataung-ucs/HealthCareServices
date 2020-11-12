@@ -19,6 +19,7 @@ public class ArticleDetailConverter {
 		ad.setDescription(adDTO.getDescription());
 		ad.setGender(adDTO.getGender());
 		ad.setArticleName(adDTO.getArticle().getName());
+		ad.setArticleId(adDTO.getArticle().getId());
 		return ad;
 	}
 }

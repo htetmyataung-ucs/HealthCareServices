@@ -12,7 +12,7 @@ public class ReviewDTO implements Serializable{
 	private Long id;
 	private String description;
 	private String rating;
-	private Hospital hospital;
+	private Hospital hospital;  
 	private String hospitalName;
 	private Long hospitalId;
 	public Long getId() {

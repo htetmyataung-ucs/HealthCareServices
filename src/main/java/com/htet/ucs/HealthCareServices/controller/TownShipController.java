@@ -25,18 +25,7 @@ public class TownShipController {
 	private TownshipInterface townshipInterface;
 	@Autowired 
 	private TownshipRepository townshipRepository;
-	/*@PostMapping(path="/addtownship") // Map ONLY POST Requests
-	  public @ResponseBody String addNewTownship (@RequestParam String name,@RequestParam City city) {
-	    // @ResponseBody means the returned String is the response, not a view name
-	    // @RequestParam means it is a parameter from the GET or POST request
-
-	    TownshipDTO t = new TownshipDTO();
-	    t.setCity(city);
-	    t.setName(name);
-	    townshipInterface.saveTownship(t);
-	    return "Saved";
-	  }
-	  */
+	
 	@GetMapping("admin/create_township")
 	public String createTownship(Model model) {
 		model.addAttribute("cityList", cityInterface.getAllCityList());
@@ -52,7 +41,7 @@ public class TownShipController {
 	@GetMapping("admin/townshipList")
 	public String townshipList(Model model) {
 		model.addAttribute("townshipList",	townshipInterface.getAllTownshipList());
-		return "adminTownshipList";
+		return "adminTownshipList"; 
 	}
 	
 	//Testing

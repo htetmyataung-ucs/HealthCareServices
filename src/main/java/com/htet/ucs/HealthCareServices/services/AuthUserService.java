@@ -18,7 +18,7 @@ import com.htet.ucs.HealthCareServices.repository.UserRepository;
 
 @Service
 public class AuthUserService implements UserDetailsService{
-	@Autowired
+	@Autowired 
 	private UserRepository userRepository;
 	
 	@Override

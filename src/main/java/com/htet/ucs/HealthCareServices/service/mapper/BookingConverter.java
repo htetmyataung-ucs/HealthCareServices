@@ -6,19 +6,28 @@ import com.htet.ucs.HealthCareServices.model.Booking;
 public class BookingConverter {
 	public static Booking convertToEntity(BookingDTO bookingDTO) {
 		Booking booking = new Booking();
-		booking.setDate(bookingDTO.getDate());
-		booking.setTime(bookingDTO.getTime());
+		booking.setName(bookingDTO.getName());
+		booking.setPhone(bookingDTO.getPhone());
+		booking.setNrc(bookingDTO.getNrc());
+		booking.setAge(bookingDTO.getAge());
+		booking.setAddress(bookingDTO.getAddress());
+		//booking.setDate(bookingDTO.getDate());
+		//booking.setTime(bookingDTO.getTime());
 		booking.getHospital().setId(bookingDTO.getHospitalId());
-		booking.getPatient().setId(bookingDTO.getPatientId());
 		return booking;
 	}
 	public static BookingDTO convertToDTO(Booking bookingDTO) {
 		BookingDTO booking = new BookingDTO();
 		booking.setId(bookingDTO.getId());
-		booking.setDate(bookingDTO.getDate());
-		booking.setTime(bookingDTO.getTime());
+		booking.setName(bookingDTO.getName());
+		booking.setPhone(bookingDTO.getPhone());
+		booking.setNrc(bookingDTO.getNrc());
+		booking.setAge(bookingDTO.getAge());
+		booking.setAddress(bookingDTO.getAddress());
+		booking.setDate(bookingDTO.getDate().toString());
+		booking.setTime(bookingDTO.getTime().toString());
 		booking.setHospitalName(bookingDTO.getHospital().getName());
-		booking.setPatientName(bookingDTO.getPatient().getName());
+		booking.setUserName(bookingDTO.getUser().getName());
 		return booking;
 	}
 }

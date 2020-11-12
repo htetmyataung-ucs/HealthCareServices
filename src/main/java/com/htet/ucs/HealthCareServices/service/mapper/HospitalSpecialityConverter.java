@@ -19,7 +19,9 @@ public class HospitalSpecialityConverter {
 	public static HospitalSpecialDTO convertToDTO(HospitalSpecial hs) {
 		HospitalSpecialDTO hsdto=new HospitalSpecialDTO();
 		hsdto.setId(hs.getId());
+		hsdto.setHospitalId(hs.getHospital().getId());
 		hsdto.setHospitalName(hs.getHospital().getName());
+		hsdto.setSpecialityId(hs.getSpeciality().getId());
 		hsdto.setSpecialityName(hs.getSpeciality().getName());
 		hsdto.setStatus(hs.isStatus());
 		return hsdto;

@@ -60,7 +60,14 @@
     <definition name="articleDetailInfo" extends="layout.basic">
     	<put-attribute name="body" value="/WEB-INF/userView/article/articleDetailInfo.jsp"/>
     </definition>
-    
+    <!-- HOSPITAL PROFILE TEST -->
+    <definition name="hospitalProfileTest" extends="layout.basic">
+    	<put-attribute name="body" value="/WEB-INF/userView/hospital/hospitalProfile.jsp"/>
+    </definition>
+    <!-- Post/QUESTION && ANSWAR -->
+    <definition name="post" extends="layout.basic">
+    	<put-attribute name="body" value="/WEB-INF/userView/post/post.jsp"/>
+    </definition>
     
     
     
@@ -235,10 +242,26 @@
         <put-attribute name="body" value="/WEB-INF/admin/review/reviews_list.jsp" />
     </definition>
      <definition name="adminReviewEdit" extends="layout.admin">
-        <put-attribute name="body" value="/WEB-INF/admin/reviews/edit_reviews.jsp" />
+        <put-attribute name="body" value="/WEB-INF/admin/review/edit_review.jsp" />
     </definition>
     
+    <!-- SERVICE -->
+    <definition name="adminService" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/service/service.jsp" />
+    </definition>
+    <definition name="adminServiceList" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/service/serviceList.jsp" />
+    </definition>
+     <definition name="adminServiceEdit" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/service/editService.jsp" />
+    </definition>
     
-    
+    <!-- HOSPITAL SERVICE -->
+    <definition name="adminHospitalService" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/service/hospitalService.jsp" />
+    </definition>
+    <definition name="adminHospitalServiceList" extends="layout.admin">
+        <put-attribute name="body" value="/WEB-INF/admin/service/hospitalServiceList.jsp" />
+    </definition>
     
 </tiles-definitions>

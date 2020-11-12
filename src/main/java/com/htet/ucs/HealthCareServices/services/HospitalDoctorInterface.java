@@ -13,4 +13,6 @@ public interface HospitalDoctorInterface {
 	HospitalDoctorDTO findById(Long id);
 	//to delete
 	void delete(Long id);
+	//to find ALL Detail by Hospital Id
+	List<HospitalDoctorDTO> getAllDetailByHospitalId(Long id);
 }
