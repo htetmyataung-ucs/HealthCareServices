@@ -1,9 +1,16 @@
 <%@ include file="/WEB-INF/common/include.jsp"%>
+<style>
+.app-header img{
+	width: 140px; 
+	height: 50px; 
+	margin-left: 30px; 
+	margin-right: 50px;
+}
+</style>
 <!-- Navbar-->
 <header class="app-header">
 
-	<img src="<c:url value='/resources/docs/images/logo2.png'/>"
-		style="width: 140px; height: 50px; margin-left: 30px; margin-right: 50px;" />
+	<img src="<c:url value='/resources/docs/images/logo2.png'/>"/>
 
 	<!--<a class="app-header__logo" href="#">Health Care Service</a>-->
 

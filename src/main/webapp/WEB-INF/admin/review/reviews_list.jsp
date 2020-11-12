@@ -5,30 +5,75 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Reviews List</title>
+<title>City List</title>
 <%@ include file="/WEB-INF/common/bootstrap.jsp" %>
 </head>
 <body>
-<div class="container">
-<h2>Review List</h2>
-<table class="table table-hover">
-	<thead class="thead-dark">
-		<tr>
-			<th>Hospital Name</th>
-			<th>Description</th>
-			<th>Rating</th>
-		</tr>
-	</thead>
-	<tbody>
-		<c:forEach items="${reviewList}" var="r">
-			<tr>
-				<td>${r.hospitalName}</td>
-				<td>${r.description }</td>
-				<td>${r.rating }</td>
-			</tr>
-		</c:forEach>
-	</tbody>
-</table>
-</div>
+<div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+          	<div>
+          		<div style="float:left">
+          			<h3>City List</h3>
+          		</div>
+          		<div style="float: right; margin-top:0px; margin-bottom: 15px;">
+              		<button class="btn btn-primary">
+               			 <a href="${pageContext.request.contextPath}/admin/create_review" style="text-decoration: none; color: aliceblue;">Create Review</a>
+              		</button>
+            	</div>
+            </div>
+            <div class="tile-body">
+              <div class="table-responsive">
+                <table class="table table-hover table-bordered" id="sampleTable">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Hospilal Name</th>
+                      <th>Description</th>
+                      <th>Rating</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <c:forEach items="${reviewList}" var="rl" varStatus="r">
+						<tr>
+						<td>${r.count }</td>
+						<td>${rl.hospitalName}</td>
+						<td>${rl.description }</td>
+						<td>${rl.rating }</td>
+						<td>
+							<button class="btn btn-primary">
+								<a href="${pageContext.request.contextPath}/admin/editReview/${rl.id}" style="text-decoration:none; color:white;">Edit</a>
+							</button>
+							<button class="btn btn-primary">
+								<a href="${pageContext.request.contextPath}/admin/deleteReview/${rl.id}" style="text-decoration:none; color:white;">Delete</a>
+							</button>
+							</td>
+						</tr>
+					</c:forEach>                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Page specific javascripts-->
+    <!-- Data table plugin-->
+    <script type="text/javascript" src="<c:url value='/resources/docs/js/plugins/jquery.dataTables.min.js'/>"></script>
+    <script type="text/javascript" src="<c:url value='/resources/docs/js/plugins/dataTables.bootstrap.min.js'/>"></script>
+    <script type="text/javascript">$('#sampleTable').DataTable();</script>
+    <!-- Google analytics script-->
+    <script type="text/javascript">
+      if(document.location.hostname == 'pratikborsadiya.in') {
+      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      	ga('create', 'UA-72504830-1', 'auto');
+      	ga('send', 'pageview');
+      }
+    </script>
 </body>
 </html>

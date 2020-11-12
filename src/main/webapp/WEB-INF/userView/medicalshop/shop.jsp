@@ -37,6 +37,7 @@
  }
  	#shopCard{
  		width:150px;
+ 		margin-left:20px;
  		height:200px;
  	}
  	.card-body{

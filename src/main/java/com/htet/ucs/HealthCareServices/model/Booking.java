@@ -1,8 +1,11 @@
 package com.htet.ucs.HealthCareServices.model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,13 +22,49 @@ public class Booking implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private Date date;
-	private String time;
-	@ManyToOne
+	private Date time;
+	private String name; 
+	private String phone;
+	private String nrc;
+	private Integer age;
+	private String address;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getNrc() {
+		return nrc;
+	}
+	public void setNrc(String nrc) {
+		this.nrc = nrc;
+	}
+	public Integer getAge() {
+		return age;
+	}
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
 	@JoinColumn(name="hospital_id")
 	private Hospital hospital = new Hospital();
 	@ManyToOne
-	@JoinColumn(name="patient_id")
-	private Patient patient = new Patient();
+	@JoinColumn(name="user_id")
+	private User user = new User();
 
 	public Long getId() {
 		return id;
@@ -39,11 +78,12 @@ public class Booking implements Serializable{
 	public void setHospital(Hospital hospital) {
 		this.hospital = hospital;
 	}
-	public Patient getPatient() {
-		return patient;
+	
+	public User getUser() {
+		return user;
 	}
-	public void setPatient(Patient patient) {
-		this.patient = patient;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public Date getDate() {
 		return date;
@@ -51,10 +91,12 @@ public class Booking implements Serializable{
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public String getTime() {
+	
+	
+	public Date getTime() {
 		return time;
 	}
-	public void setTime(String time) {
+	public void setTime(Date time) {
 		this.time = time;
 	}
 	public Booking() {

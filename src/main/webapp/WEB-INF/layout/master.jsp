@@ -42,12 +42,16 @@
 	href="<c:url value='/resources/assets/css/nice-select.css'/>">
 <link rel="stylesheet"
 	href="<c:url value='/resources/assets/css/style.css'/>">
+
 <script
 	src="https://cdn.tiny.cloud/1/0w9x2gcbpddtq1z7wi1m5yfumq4z6rfta6xhl0wrz54aoqf4/tinymce/5/tinymce.min.js"
 	referrerpolicy="origin"></script>
 <script defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnQ4nOJBfkyOXncPdmqSIEODRcDQFMXJQ&callback=initMap">
     </script>
+<!-- RATIN -->
+<link href="<c:url value='/resources/assets/css/rating.css'/>" rel="stylesheet">
+<script src="<c:url value='/resources/assets/js/rating.js'/>" type="text/javascript"></script>
 </head>
 <body>
 	<div>

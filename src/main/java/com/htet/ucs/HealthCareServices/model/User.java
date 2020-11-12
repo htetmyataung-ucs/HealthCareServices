@@ -90,14 +90,24 @@ public class User implements Serializable{
 		this.password = password;
 	}
 	@OneToMany(mappedBy = "user")
-	private List<Patient> patient;
-	public List<Patient> getPatient() {
-		return patient;
-	}
-	public void setPatient(List<Patient> patient) {
-		this.patient = patient;
-	}
+	private List<Post> post;
 	
+	public List<Post> getPost() {
+		return post;
+	}
+	public void setPost(List<Post> post) {
+		this.post = post;
+	}
+	@OneToMany(mappedBy = "user")
+	private List<Booking> booking;
+	
+	
+	public List<Booking> getBooking() {
+		return booking;
+	}
+	public void setBooking(List<Booking> booking) {
+		this.booking = booking;
+	}
 	public String getEmail() {
 		return email;
 	}

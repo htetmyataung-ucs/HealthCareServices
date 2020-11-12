@@ -63,6 +63,20 @@
       <form:input type="text" class="form-control" placeholder="Enter longitude" path="longitude"></form:input>
     </div>
     
+    <div class="form-group">
+	<form:label path="description">Description:</form:label>
+   <textarea id="editor" name="description" class="form-control"></textarea>
+     </div>
+   
+ <script>
+ tinymce.init({
+   selector: 'textarea#editor',
+   skin: 'bootstrap',
+   plugins: 'lists, link, image, media',
+   toolbar: 'h1 h2 bold italic strikethrough blockquote bullist numlist backcolor | link image media | removeformat help',
+   menubar: false
+ });
+</script>
     <button type="submit" class="btn btn-primary">Insert</button>
     <button type="reset" class="btn btn-primary">Reset</button>
     </div>

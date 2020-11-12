@@ -17,10 +17,34 @@ public class HospitalDoctorDTO implements Serializable{
 	private Date endDate;
 	private String endTime;
 	private Boolean status;
+	
 	private Hospital hospital;
+	
 	private Doctor doctor;
 	private Long doctorId;
 	private String doctorName;
+	private String doctorSamaNo;
+	private String doctorPhoto;
+	private String doctorSpeciality;
+	
+	public String getDoctorSamaNo() {
+		return doctorSamaNo;
+	}
+	public void setDoctorSamaNo(String doctorSamaNo) {
+		this.doctorSamaNo = doctorSamaNo;
+	}
+	public String getDoctorPhoto() {
+		return doctorPhoto;
+	}
+	public void setDoctorPhoto(String doctorPhoto) {
+		this.doctorPhoto = doctorPhoto;
+	}
+	public String getDoctorSpeciality() {
+		return doctorSpeciality;
+	}
+	public void setDoctorSpeciality(String doctorSpeciality) {
+		this.doctorSpeciality = doctorSpeciality;
+	}
 	private Long hospitalId;
 	private String hospitalName;
 	public Long getId() {

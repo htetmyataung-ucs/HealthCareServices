@@ -1,5 +1,7 @@
 package com.htet.ucs.HealthCareServices.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,8 +10,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.htet.ucs.HealthCareServices.dto.HospitalDetailDTO;
+import com.htet.ucs.HealthCareServices.dto.HospitalDoctorDTO;
+import com.htet.ucs.HealthCareServices.dto.HospitalServiceDTO;
 import com.htet.ucs.HealthCareServices.services.HospitalDetailInterface;
+import com.htet.ucs.HealthCareServices.services.HospitalDoctorInterface;
 import com.htet.ucs.HealthCareServices.services.HospitalInterface;
+import com.htet.ucs.HealthCareServices.services.HospitalServiceInterface;
 
 @Controller
 public class HospitalDetailController {
@@ -17,6 +23,10 @@ public class HospitalDetailController {
 	private HospitalInterface hospitalInterface;
 	@Autowired 
 	private HospitalDetailInterface hospitalDetailInterface;
+	@Autowired
+	private HospitalDoctorInterface hospitalDoctorInterface;
+	@Autowired
+	private HospitalServiceInterface hospitalServiceInterface;
 	
 	//*************HOSPITAL DETAIL***************
 	
@@ -64,8 +74,20 @@ public class HospitalDetailController {
 	//TO SHOW HOSPITAL DETAIAL INFO
 	@GetMapping("/hospitalDetailInfo/{id}")
 	public String hospitalDetailInfo(Model model,@PathVariable Long id) {
+		if(id!=null) {
+		List<HospitalServiceDTO> hs = hospitalServiceInterface.findHospitalServiceByHospitalId(id);
+		List<HospitalDoctorDTO> dto = hospitalDoctorInterface.getAllDetailByHospitalId(id);
+		model.addAttribute("hospitalDoctorList", dto);
+		model.addAttribute("hospitalServiceList", hs);
 		model.addAttribute("hospitalDetailList", hospitalDetailInterface.findByHospitalId(id));
 		return "hospitalDetailInfo";
+		}else {
+			return "redirect:/searchHospital";
+		}
+	}
+	@GetMapping("/hospitalProfile")
+	public String hospitalProfile() {
+		return "hospitalProfileTest";
 	}
 		
 }

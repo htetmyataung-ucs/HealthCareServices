@@ -16,7 +16,14 @@ public class HospitalDetailDTO implements Serializable{
 	private String date;
 	private String time;
 	private String email;
+	private String description;
 	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public String getEmail() {
 		return email;
 	}

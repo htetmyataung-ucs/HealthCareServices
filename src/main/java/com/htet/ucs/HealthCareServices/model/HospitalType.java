@@ -3,6 +3,7 @@ package com.htet.ucs.HealthCareServices.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,7 +32,7 @@ public class HospitalType implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	@OneToMany(mappedBy = "hospitalType")
+	@OneToMany(mappedBy = "hospitalType", cascade = CascadeType.ALL)
 	private List<Hospital> hospital;
 	public List<Hospital> getHospital() {
 		return hospital;

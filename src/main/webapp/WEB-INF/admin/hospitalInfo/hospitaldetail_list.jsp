@@ -37,6 +37,7 @@
 						<th>Latitude</th>
 					   	<th>Longitude</th>
 					  	<th>Photo</th>
+					  	<th>Description</th>
                       	<th>Action</th>
                     </tr>
                   </thead>
@@ -53,7 +54,7 @@
 			    		<td>${h.latitude }</td>
 			    		<td>${h.longitude }</td>
 			    		<td><img src="/images/${h.photoPath}" width="80" height="80" style="border:1px solid green; border-radius:50%;" /></td>
-
+						<td>${h.description }</td>
 						<td>
 							<button class="btn btn-primary">
 								<a href="${pageContext.request.contextPath}/admin/edit_hospitalDetail/${h.id}" style="text-decoration:none; color:white;">Edit</a>

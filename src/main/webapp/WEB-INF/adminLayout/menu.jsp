@@ -41,6 +41,14 @@
             <li><a class="treeview-item" href="<c:url value='/admin/articledetail_list'/>"><i class="icon fa fa-share"></i>Article Detail</a></li>
           </ul>
         </li>
-        <li><a class="app-menu__item " href="#"><i class="app-menu__icon fa fa-comments-o"></i><span class="app-menu__label">Reviews</span></a></li>
+        
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-heartbeat"></i><span class="app-menu__label">Service</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+             <li><a class="treeview-item" href="<c:url value='/admin/serviceList'/>"><i class="icon fa fa-share"></i>Service</a></li>
+            <li><a class="treeview-item" href="<c:url value='/admin/hospitalServiceList'/>"><i class="icon fa fa-share"></i>HospitalService</a></li>
+          </ul>
+        </li>
+        
+        <li><a class="app-menu__item " href="<c:url value='/admin/reviews_list'/>"><i class="app-menu__icon fa fa-comments-o"></i><span class="app-menu__label">Reviews</span></a></li>
        </ul>
     </aside>

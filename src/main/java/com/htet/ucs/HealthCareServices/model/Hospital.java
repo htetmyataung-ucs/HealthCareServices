@@ -3,13 +3,16 @@ package com.htet.ucs.HealthCareServices.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Hospital implements Serializable{
@@ -23,21 +26,32 @@ public class Hospital implements Serializable{
 	private String name;
 	
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
 	@JoinColumn(name="hospitalCategory_id")
 	private HospitalCategory hospitalCategory = new HospitalCategory();
 	
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
 	@JoinColumn(name="hospitalType_id")
 	private HospitalType hospitalType = new HospitalType();
 	
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
 	@JoinColumn(name="townShip_id")
 	private TownShip townShip = new TownShip();
 	
+	@OneToOne(fetch = FetchType.LAZY,
+	            cascade =  CascadeType.ALL,
+	            mappedBy = "hospital")
+	    private HospitalDetail hospitalDetail;
 	
+	 
+	public HospitalDetail getHospitalDetail() {
+		return hospitalDetail;
+	}
+	public void setHospitalDetail(HospitalDetail hospitalDetail) {
+		this.hospitalDetail = hospitalDetail;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -74,7 +88,7 @@ public class Hospital implements Serializable{
 	}
 	
 	
-	@OneToMany(mappedBy = "hospital")
+	@OneToMany(mappedBy = "hospital",cascade = CascadeType.ALL)
 	private List<Booking> booking;
 	public List<Booking> getBooking() {
 		return booking;
@@ -115,5 +129,15 @@ public class Hospital implements Serializable{
 		super();
 	}	
 	
+	@OneToMany(mappedBy = "hospital")
+	private List<HospitalService> hospitalService;
+
+
+	public List<HospitalService> getHospitalService() {
+		return hospitalService;
+	}
+	public void setHospitalService(List<HospitalService> hospitalService) {
+		this.hospitalService = hospitalService;
+	}
 	
 }

@@ -5,15 +5,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>review</title>
 <script src="https://cdn.tiny.cloud/1/aq1wjkj3shean6kbqss5vduliotvnzh76uujc19hjkkoasc2/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <%@ include file="/WEB-INF/common/bootstrap.jsp"%>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<link href="resources/assets/css/rating.css" rel="stylesheet">
+<link href="<c:url value='/resources/assets/css/rating.css'/>" rel="stylesheet">
 </head>
 <body>
 
- <form:form action="create_review" method="POST" modelAttribute="review">
+ <form:form action="${pageContext.request.contextPath}/admin/create_review" method="POST" modelAttribute="review">
  
 <div class="container">
 <h2>Insert Reviews</h2>
@@ -28,9 +28,9 @@
      
  	<!--  Description -->
   <div class="form-group">
-     <form:label path="description"><h6>Description:</h6></form:label>
-     <textarea name="description" placeholder="Enter description" style="width:500px">	</textarea>
-  </div>
+	<form:label path="description">Description:</form:label>
+   <textarea id="editor" name="description" class="form-control"></textarea>
+     </div>
        
     <!--  Rating -->
     <div class="form-group">   
@@ -54,19 +54,19 @@
 	
 	
     <button type="submit" class="btn btn-primary">Insert</button>
+    <button type="reset" class="btn btn-primary">Reset</button>
     </div>
   </form:form>
-  <script>
-    tinymce.init({
-      selector: 'textarea',
-      plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-      toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
-      toolbar_mode: 'floating',
-      tinycomments_mode: 'embedded',
-      tinycomments_author: 'Author name'
-    });
-  </script>
+ <script>
+ tinymce.init({
+   selector: 'textarea#editor',
+   skin: 'bootstrap',
+   plugins: 'lists, link, image, media',
+   toolbar: 'h1 h2 bold italic strikethrough blockquote bullist numlist backcolor | link image media | removeformat help',
+   menubar: false
+ });
+</script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
-	<script src="resources/assets/js/rating.js" type="text/javascript"></script>
+	<script src="<c:url value='/resources/assets/js/rating.js'/>" type="text/javascript"></script>
 </body>
 </html>

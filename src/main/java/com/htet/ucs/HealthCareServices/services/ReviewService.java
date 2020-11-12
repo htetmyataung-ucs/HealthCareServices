@@ -25,5 +25,18 @@ public class ReviewService implements ReviewInterface{
 		// TODO Auto-generated method stub
 		return reviewRepository.findAll().stream().map(ReviewConverter::convertToDTO).collect(Collectors.toList());
 	}
+
+	@Override
+	public ReviewDTO findById(Long id) {
+		// TODO Auto-generated method stub
+		ReviewDTO dto = ReviewConverter.convertToDTO(reviewRepository.findById(id).get());
+		return dto;
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		reviewRepository.deleteById(id);
+	}
 	
 }

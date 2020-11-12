@@ -1,10 +1,9 @@
 package com.htet.ucs.HealthCareServices.dto;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 import com.htet.ucs.HealthCareServices.model.Hospital;
-import com.htet.ucs.HealthCareServices.model.Patient;
+import com.htet.ucs.HealthCareServices.model.User;
 
 public class BookingDTO implements Serializable{
 	/**
@@ -12,16 +11,21 @@ public class BookingDTO implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private Long id;
-	private Date date;
+	private String date;
 	private String time;
+	private String name;
+	private String phone;
+	private String nrc;
+	private Integer age;
+	private String address;
 	
 	private Hospital hospital;
 	private Long hospitalId;
 	private String hospitalName;
 	
-	private Patient patient;
-	private Long patientId;
-	private String patientName;
+	private User user;
+	private Long userId;
+	private String userName;
 	
 	public Long getId() {
 		return id;
@@ -29,10 +33,12 @@ public class BookingDTO implements Serializable{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Date getDate() {
+	
+	
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getTime() {
@@ -47,11 +53,42 @@ public class BookingDTO implements Serializable{
 	public void setHospital(Hospital hospital) {
 		this.hospital = hospital;
 	}
-	public Patient getPatient() {
-		return patient;
+	
+	public String getName() {
+		return name;
 	}
-	public void setPatient(Patient patient) {
-		this.patient = patient;
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getNrc() {
+		return nrc;
+	}
+	public void setNrc(String nrc) {
+		this.nrc = nrc;
+	}
+	public Integer getAge() {
+		return age;
+	}
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public Long getHospitalId() {
 		return hospitalId;
@@ -65,18 +102,18 @@ public class BookingDTO implements Serializable{
 	public void setHospitalName(String hospitalName) {
 		this.hospitalName = hospitalName;
 	}
-	public Long getPatientId() {
-		return patientId;
+	public Long getUserId() {
+		return userId;
 	}
-	public void setPatientId(Long patientId) {
-		this.patientId = patientId;
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
-	public String getPatientName() {
-		return patientName;
+	public String getUserName() {
+		return userName;
 	}
-	public void setPatientName(String patientName) {
-		this.patientName = patientName;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	
+		
 	
 }

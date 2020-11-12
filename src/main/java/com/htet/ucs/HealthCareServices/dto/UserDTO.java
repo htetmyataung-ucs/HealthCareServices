@@ -3,7 +3,7 @@ package com.htet.ucs.HealthCareServices.dto;
 import java.io.Serializable;
 import java.util.List;
 
-import com.htet.ucs.HealthCareServices.model.Patient;
+import com.htet.ucs.HealthCareServices.model.Booking;
 
 public class UserDTO implements Serializable{
 	/**
@@ -21,7 +21,7 @@ public class UserDTO implements Serializable{
 	private String password;
 	private Long roleId;
 	private String roleName;
-	private List<Patient> patient;
+	private List<Booking> booking;
 	public Long getId() {
 		return id;
 	}
@@ -71,12 +71,7 @@ public class UserDTO implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public List<Patient> getPatient() {
-		return patient;
-	}
-	public void setPatient(List<Patient> patient) {
-		this.patient = patient;
-	}
+	
 	public String getEmail() {
 		return email;
 	}
@@ -95,6 +90,13 @@ public class UserDTO implements Serializable{
 	}
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
+	}
+	
+	public List<Booking> getBooking() {
+		return booking;
+	}
+	public void setBooking(List<Booking> booking) {
+		this.booking = booking;
 	}
 	public UserDTO() {
 		super();

@@ -15,17 +15,6 @@ public class CityController {
 	@Autowired
 	private CityInterface cityInterface;
 	
-	/*@PostMapping(path = "/add") // Map ONLY POST Requests
-	public @ResponseBody String addNewCity(@RequestParam String name) {
-		// @ResponseBody means the returned String is the response, not a view name
-		// @RequestParam means it is a parameter from the GET or POST request
-
-		CityDTO c = new CityDTO();
-		c.setName(name);
-		cityInterface.saveCity(c);
-		return "Saved";
-	}*/
-
 	@GetMapping("admin/create_city")
 	public String createCity(Model model) {
 		model.addAttribute("city", new CityDTO());
